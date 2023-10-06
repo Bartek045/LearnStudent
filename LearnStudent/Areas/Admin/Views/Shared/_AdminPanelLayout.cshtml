@@ -1,0 +1,210 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/LearnStudent.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
+
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="//cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" />
+    <!-- Boxicons CSS -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/AdminPanel.css" />
+</head>
+<body>
+    @RenderBody()
+    <!-- navbar -->
+    <nav class="navbar">
+        <div class="logo_item">
+            <i class="bx bx-menu" id="sidebarOpen"></i>
+            <img src="/images/Logo/Logo2.png" alt=""></i>LearnStudent
+        </div>
+
+        <div class="search_bar">
+            <input type="text" placeholder="Wyszukaj..." />
+        </div>
+
+        <div class="navbar_content">
+            <i class="bi bi-grid"></i>
+            <i class='bx bx-sun' id="darkLight"></i>
+            <i class='bx bx-bell'></i>
+            <img src="/images/Avatars/Avatar1.png" alt="" class="profile" />
+        </div>
+    </nav>
+
+    <!-- sidebar -->
+    <nav class="sidebar">
+        <div class="menu_content">
+            <ul class="menu_items">
+                <div class="menu_title menu_dahsboard"></div>
+
+                <!-- start -->
+                <li class="item">
+                    <div href="#" class="nav_link submenu_item">
+                        <span class="navlink_icon">
+                            <i class="bx bx-home-alt"></i>
+                        </span>
+                        <span class="navlink">Strona główna</span>
+                        <i class="bx bx-chevron-right arrow-left"></i>
+                    </div>
+
+                    <ul class="menu_items submenu">
+                        <a href="#" class="nav_link sublink">Przycisk 1</a>
+                        <a href="#" class="nav_link sublink">Przycisk 2</a>
+                        <a href="#" class="nav_link sublink">Przycisk 3</a>
+                        <a href="#" class="nav_link sublink">Przycisk 4</a>
+                    </ul>
+                </li>
+                <!-- end -->
+                <!-- duplicate this li tag if you want to add or remove  navlink with submenu -->
+                <!-- start -->
+                <li class="item">
+                    <div href="#" class="nav_link submenu_item">
+                        <span class="navlink_icon">
+                            <i class="bx bx-grid-alt"></i>
+                        </span>
+                        <span class="navlink">Przegląd</span>
+                        <i class="bx bx-chevron-right arrow-left"></i>
+                    </div>
+
+                    <ul class="menu_items submenu">
+                        <a href="#" class="nav_link sublink">Przycisk 1</a>
+                        <a href="#" class="nav_link sublink">Przycisk 2</a>
+                        <a href="#" class="nav_link sublink">Przycisk 3</a>
+                        <a href="#" class="nav_link sublink">Przycisk 4</a>
+                    </ul>
+                </li>
+                <!-- end -->
+            </ul>
+
+            <ul class="menu_items">
+                <div class="menu_title menu_editor"></div>
+                <!-- duplicate these li tag if you want to add or remove navlink only -->
+                <!-- Start -->
+                <li class="item">
+                    <div href="#" class="nav_link submenu_item">
+                        <span class="navlink_icon">
+                            <i class="bx bx-grid-alt"></i>
+                        </span>
+                        <span class="navlink">Zawartość</span>
+                        <i class="bx bx-chevron-right arrow-left"></i>
+                    </div>
+
+                    <ul class="menu_items submenu">
+                        <a class="nav_link sublink" asp-area="Admin" asp-controller="Category" asp-action="Index">Kategorie</a>
+
+                        <a class="nav_link sublink" asp-area="Admin" asp-controller="Section" asp-action="Index">Dział</a>
+                        <a href="#" class="nav_link sublink">Przycisk 1</a>
+                        <a href="#" class="nav_link sublink">Przycisk 2</a>
+                    </ul>
+                </li>
+                <li class="item">
+                    <a href="#" class="nav_link">
+                        <span class="navlink_icon">
+                            <i class="bx bxs-magic-wand"></i>
+                        </span>
+                        <span class="navlink">Odśwież</span>
+                    </a>
+                </li>
+                <!-- End -->
+
+                <li class="item">
+                    <a href="#" class="nav_link">
+                        <span class="navlink_icon">
+                            <i class="bx bx-loader-circle"></i>
+                        </span>
+                        <span class="navlink">Filtry</span>
+                    </a>
+                </li>
+                <li class="item">
+                    <a href="#" class="nav_link">
+                        <span class="navlink_icon">
+                            <i class="bx bx-filter"></i>
+                        </span>
+                        <span class="navlink">Filtruj</span>
+                    </a>
+                </li>
+                <li class="item">
+                    <a href="#" class="nav_link">
+                        <span class="navlink_icon">
+                            <i class="bx bx-cloud-upload"></i>
+                        </span>
+                        <span class="navlink">Prześlij nowe pliki</span>
+                    </a>
+                </li>
+            </ul>
+            <ul class="menu_items">
+                <div class="menu_title menu_setting"></div>
+                <li class="item">
+                    <a href="#" class="nav_link">
+                        <span class="navlink_icon">
+                            <i class="bx bx-flag"></i>
+                        </span>
+                        <span class="navlink">Panel ogłoszeń</span>
+                    </a>
+                </li>
+                <li class="item">
+                    <a href="#" class="nav_link">
+                        <span class="navlink_icon">
+                            <i class="bx bx-medal"></i>
+                        </span>
+                        <span class="navlink">Wyróżnienia</span>
+                    </a>
+                </li>
+                <li class="item">
+                    <a href="#" class="nav_link">
+                        <span class="navlink_icon">
+                            <i class="bx bx-cog"></i>
+                        </span>
+                        <span class="navlink">Ustawienia</span>
+                    </a>
+                </li>
+                <li class="item">
+                    <a href="#" class="nav_link">
+                        <span class="navlink_icon">
+                            <i class="bx bx-layer"></i>
+                        </span>
+                        <span class="navlink">Funkcje</span>
+                    </a>
+                </li>
+            </ul>
+
+            <!-- Sidebar Open / Close -->
+            <div class="bottom_content">
+                <div class="bottom expand_sidebar">
+                    <span> Rozwiń</span>
+                    <i class='bx bx-log-in'></i>
+                </div>
+                <div class="bottom collapse_sidebar">
+                    <span> Zwiń</span>
+                    <i class='bx bx-log-out'></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="page-content">
+        <div class="container-fluid">
+         
+
+           
+         </div>
+    </main>
+
+
+
+    <!-- JavaScript -->
+    <script src="~/js/AdminPanel.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="//cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js" asp-append-version="true"></script>
+    <script src="https://cdn.tiny.cloud/1/73aiauzwcdykvenqcz6q151jcv8ex8gf50prwlxanpr5wff7/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
