@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "tnmaxabyK7JTmJuagpBZHY0P0RhxwWko1mnqSrFsntWtbmj/WLb2yVYKzuk4EU8g4LhvmV5Sh1rup6ahXUeA3w==",
+  "dgSpecHash": "Ba3PMvfIVP5gJof5UycwNtCdiFCRuPnxA2CxMG0wSHub0bhCNIpq4WgRHY5Ze4Ly2FdmtBbOt49/aoSC5D+smg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\barte\\Desktop\\LearnStudent\\LearnStudent\\LearnS.Models\\LearnS.Models.csproj",
+  "projectFilePath": "C:\\Users\\barte\\Source\\Repos\\Bartek045\\LearnStudent\\LearnS.Models\\LearnS.Models.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\barte\\.nuget\\packages\\microsoft.aspnetcore.antiforgery\\2.2.0\\microsoft.aspnetcore.antiforgery.2.2.0.nupkg.sha512",
     "C:\\Users\\barte\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",

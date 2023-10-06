@@ -763,11 +763,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\barte\\Desktop\\LearnStudent\\LearnStudent\\LearnS.Utility\\LearnS.Utility.csproj",
+      "projectUniqueName": "C:\\Users\\barte\\Source\\Repos\\Bartek045\\LearnStudent\\LearnS.Utility\\LearnS.Utility.csproj",
       "projectName": "LearnS.Utility",
-      "projectPath": "C:\\Users\\barte\\Desktop\\LearnStudent\\LearnStudent\\LearnS.Utility\\LearnS.Utility.csproj",
+      "projectPath": "C:\\Users\\barte\\Source\\Repos\\Bartek045\\LearnStudent\\LearnS.Utility\\LearnS.Utility.csproj",
       "packagesPath": "C:\\Users\\barte\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\barte\\Desktop\\LearnStudent\\LearnStudent\\LearnS.Utility\\obj\\",
+      "outputPath": "C:\\Users\\barte\\Source\\Repos\\Bartek045\\LearnStudent\\LearnS.Utility\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
