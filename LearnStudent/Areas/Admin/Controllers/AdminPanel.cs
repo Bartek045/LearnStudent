@@ -10,14 +10,12 @@ namespace LearnStudent.Areas.Admin.Controllers
     [Authorize(Roles = SD.Role_Admin)]
     public class AdminPanel : Controller
     {
+
         public IActionResult Index()
         {
 
             return View();
         }
-        
-        
-
 
     }
 }

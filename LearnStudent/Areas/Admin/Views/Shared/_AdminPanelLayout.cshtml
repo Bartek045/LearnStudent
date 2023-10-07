@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="~/css/AdminPanel.css" />
 </head>
 <body>
-    @RenderBody()
+    
     <!-- navbar -->
     <nav class="navbar">
         <div class="logo_item">
@@ -98,7 +98,7 @@
                         <a class="nav_link sublink" asp-area="Admin" asp-controller="Category" asp-action="Index">Kategorie</a>
 
                         <a class="nav_link sublink" asp-area="Admin" asp-controller="Section" asp-action="Index">Dział</a>
-                        <a href="#" class="nav_link sublink">Przycisk 1</a>
+                        <a class="nav_link sublink" asp-area="Admin" asp-controller="Avatars" asp-action="Index">Avatary</a>
                         <a href="#" class="nav_link sublink">Przycisk 2</a>
                     </ul>
                 </li>
@@ -189,7 +189,8 @@
 
     <main class="page-content">
         <div class="container-fluid">
-         
+         @RenderBody()
+            <partial name="_Notification" />
 
            
          </div>

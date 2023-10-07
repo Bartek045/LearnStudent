@@ -7,7 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Areas\Admin\Views\AdminPanelData\**" />
+    <Content Remove="Areas\Admin\Views\AdminPanelData\**" />
+    <EmbeddedResource Remove="Areas\Admin\Views\AdminPanelData\**" />
+    <None Remove="Areas\Admin\Views\AdminPanelData\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="CoreAdmin" Version="2.7.0" />
+    <PackageReference Include="Grpc.Core" Version="2.46.6" />
     <PackageReference Include="jQuery" Version="3.7.1" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="7.0.11" />
 	  <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.11" />
@@ -26,7 +34,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Admin\Views\AdminPanelData\" />
     <Folder Include="Controllers\" />
   </ItemGroup>
 

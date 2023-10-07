@@ -11,6 +11,8 @@ namespace LearnS.DataAccess.Repository.IRepository
     {
         ICategoryRepository Category { get; }
         ISectionRepository Section { get; }
+
+        IAvatarsUploadRepository AvatarsUpload {  get; }
         void Save();
     }
 }

@@ -14,6 +14,8 @@ namespace LearnS.DataAccess.Data
         public DbSet<Category> Categories { get; set; }
         public DbSet<Section> Sections { get; set; }
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+
+        public DbSet<AvatarsUpload> AvatarsUploads { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -51,6 +53,21 @@ namespace LearnS.DataAccess.Data
 
 
                 );
+            modelBuilder.Entity<AvatarsUpload>().HasData(
+                new AvatarsUpload
+                {
+                    Id = 1,
+                    imgPath = "a",
+                    Display = 1
+                },
+                new AvatarsUpload
+                {
+                    Id = 2,
+                    imgPath = "b",
+                    Display = 2
+                }
+                );
+                
         }
     }
 }

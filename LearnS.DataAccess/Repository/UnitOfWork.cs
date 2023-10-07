@@ -13,11 +13,14 @@ namespace LearnS.DataAccess.Repository
         private ApplicationDbContext _db;
         public ICategoryRepository Category { get; private set; }
         public ISectionRepository Section { get; private set; }
+
+        public IAvatarsUploadRepository AvatarsUpload { get; private set; }
         public UnitOfWork(ApplicationDbContext db)
         {
             _db = db;
             Category = new CategoryRepository(_db);
             Section = new SectionRepository(_db);
+            AvatarsUpload = new AvatarsUploadRepository(_db);
         }
         
 
