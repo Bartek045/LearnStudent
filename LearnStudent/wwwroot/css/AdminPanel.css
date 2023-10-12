@@ -193,8 +193,9 @@ body {
     color: var(--grey-color);
     white-space: nowrap;
 }
+/*testuje*/
 .page-content {
-    margin-left: 250px; 
+    margin-left: 70px; 
     margin-top: 50px; 
     padding: 20px; 
 }
