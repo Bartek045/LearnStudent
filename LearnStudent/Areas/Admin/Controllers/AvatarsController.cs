@@ -9,7 +9,7 @@ namespace LearnStudent.Areas.Admin.Controllers
 
 
     [Area("Admin")]
-    [Authorize(Roles = SD.Role_Admin)]
+    
     public class AvatarsController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;

@@ -37,13 +37,13 @@
     </nav>
 
     <!-- sidebar -->
-    <nav class="sidebar">
+    <nav style="position: absolute" class="sidebar">
         <div class="menu_content">
             <ul class="menu_items">
                 <div class="menu_title menu_dahsboard"></div>
 
                 <!-- start -->
-                <li class="item">
+                <li  class="item">
                     <div href="#" class="nav_link submenu_item">
                         <span class="navlink_icon">
                             <i class="bx bx-home-alt"></i>
@@ -174,7 +174,7 @@
             </ul>
 
             <!-- Sidebar Open / Close -->
-            <div class="bottom_content">
+            <div  class="bottom_content">
                 <div class="bottom expand_sidebar">
                     <span> Rozwiń</span>
                     <i class='bx bx-log-in'></i>
@@ -187,8 +187,8 @@
         </div>
     </nav>
 
-    <main class="page-content">
-        <div class="container-fluid">
+    <main  class="page-content">
+        <div style="max-width: 8000px" class="container-fluid">
          @RenderBody()
             <partial name="_Notification" />
 

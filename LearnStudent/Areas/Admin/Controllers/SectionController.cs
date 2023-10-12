@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 namespace LearnStudent.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = SD.Role_Admin)]
+    
     public class SectionController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;

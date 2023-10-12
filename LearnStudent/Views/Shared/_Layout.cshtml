@@ -31,14 +31,13 @@
                         <li class="nav-item">
                             <a class="nav-link" asp-area="User" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
-                        @if(User.IsInRole(SD.Role_Admin))
-                        {
+                        
                             
                       
                             <li class="nav-item">
                                 <a class="nav-link" asp-area="Admin" asp-controller="AdminPanel" asp-action="Index">Panel administratora</a>
                             </li>
-                        }
+                        
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>
