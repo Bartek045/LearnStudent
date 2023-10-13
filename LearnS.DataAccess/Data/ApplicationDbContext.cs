@@ -57,17 +57,18 @@ namespace LearnS.DataAccess.Data
                 new AvatarsUpload
                 {
                     Id = 1,
-                    imgPath = "a",
-                    Display = 1
+                    Name = "test",
+                    ImageUrl = ""
                 },
                 new AvatarsUpload
                 {
                     Id = 2,
-                    imgPath = "b",
-                    Display = 2
+                    Name = "kot",
+                    ImageUrl = ""
                 }
                 );
-                
+
+
         }
     }
 }

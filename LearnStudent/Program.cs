@@ -50,6 +50,7 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{area=User}/{controller=Home}/{action=Index}/{id?}",
     "{area=Admin}/{controller=AdminPanel}/{action=Index}/{id?}"
+  
 
 
     );

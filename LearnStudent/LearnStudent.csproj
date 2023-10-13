@@ -8,9 +8,13 @@
 
   <ItemGroup>
     <Compile Remove="Areas\Admin\Views\AdminPanelData\**" />
+    <Compile Remove="Controllers\**" />
     <Content Remove="Areas\Admin\Views\AdminPanelData\**" />
+    <Content Remove="Controllers\**" />
     <EmbeddedResource Remove="Areas\Admin\Views\AdminPanelData\**" />
+    <EmbeddedResource Remove="Controllers\**" />
     <None Remove="Areas\Admin\Views\AdminPanelData\**" />
+    <None Remove="Controllers\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -31,10 +35,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\LearnS.DataAccess\LearnS.DataAccess.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Controllers\" />
   </ItemGroup>
 
 </Project>

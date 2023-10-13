@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LearnS.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231007123542_AddAvatarsUploadTableToDb")]
-    partial class AddAvatarsUploadTableToDb
+    [Migration("20231012222748_addAvatarsUploadTableToDb")]
+    partial class addAvatarsUploadTableToDb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,10 +33,11 @@ namespace LearnS.DataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("Display")
-                        .HasColumnType("int");
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("imgPath")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -48,14 +49,14 @@ namespace LearnS.DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            Display = 1,
-                            imgPath = "a"
+                            ImageUrl = "",
+                            Name = "test"
                         },
                         new
                         {
                             Id = 2,
-                            Display = 2,
-                            imgPath = "b"
+                            ImageUrl = "",
+                            Name = "kot"
                         });
                 });
 

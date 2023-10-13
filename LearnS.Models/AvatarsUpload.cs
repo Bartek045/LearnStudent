@@ -1,7 +1,10 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,8 +15,11 @@ namespace LearnS.Models
     {
         [Key]
         public int Id { get; set; }
+        
+        public string Name {  get; set; }
         [DisplayName("Prześlij zdjęcie")]
-        public int Display {  get; set; }
-        public string imgPath { get; set; }
+        [ValidateNever]
+        public string ImageUrl { get; set; }
+
     }
 }

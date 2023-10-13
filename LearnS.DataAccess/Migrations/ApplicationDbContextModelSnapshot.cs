@@ -30,10 +30,11 @@ namespace LearnS.DataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("Display")
-                        .HasColumnType("int");
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("imgPath")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -45,14 +46,14 @@ namespace LearnS.DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            Display = 1,
-                            imgPath = "a"
+                            Name = "test",
+                            ImageUrl = ""
                         },
                         new
                         {
                             Id = 2,
-                            Display = 2,
-                            imgPath = "b"
+                            Name = "kot",
+                            ImageUrl = ""
                         });
                 });
 

@@ -1,0 +1,10 @@
+﻿.avatar-container {
+    width: 100px; /* dostosuj szerokość do swoich potrzeb */
+    height: 100px; /* dostosuj wysokość do swoich potrzeb */
+    margin: 10px; /* opcjonalnie, aby dodać odstępy między obrazami */
+}
+
+.avatar-image {
+    max-width: 100%; /* skali obrazu wewnątrz kontenera */
+    max-height: 100%; /* skali obrazu wewnątrz kontenera */
+}
