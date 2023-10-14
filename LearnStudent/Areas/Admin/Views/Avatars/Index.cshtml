@@ -23,26 +23,36 @@
             </div>
         </div>
         <div class="row">
+            @foreach (var avatarsUpload in Model)
+            {
+                <div class="col-md-4">
+                    <div class="avatar-container">
+                        <img src="@avatarsUpload.ImageUrl" class="avatar-image" />
+                    </div>
+                    <div>
+                        <strong>Name: </strong>@avatarsUpload.Name
+                    </div>
+                    <div>
+                        <strong>ImageUrl: </strong>
+                        <a href="@avatarsUpload.ImageUrl" target="_blank">
+                            @avatarsUpload.ImageUrl
+                        </a>
+                    </div>
+                    <div class="mt-2">
+                        <a asp-controller="Avatars" asp-action="Upsert" asp-route-id="@avatarsUpload.Id" class="btn btn-primary">
+                            <i class="bi bi-pencil-square"></i> Edytuj
+                        </a>
+                        <a href="#" onclick="Delete(@avatarsUpload.Id)" class="btn btn-danger">
+                            <i class="bi bi-trash-fill"></i> Usuń
+                        </a>
 
-        @foreach (var avatarsUpload in Model)
-        {
-            <div class="col-md-3 avatar-container">
-                <img src="@avatarsUpload.ImageUrl" class="avatar-image" />
-            </div>
-        }
+
+                    </div>
+                </div>
+            }
+        </div>
         </div>
 
-        <table id="tblData" class="table table-bordered table-striped" style="width:100%">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>ImageUrl</th>
-                    <th></th>
-                </tr>
-            </thead>
-        </table>
-
-    </div>
 </div>
 
 @section Scripts{
