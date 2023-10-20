@@ -9,9 +9,8 @@ function loadDataTable() {
         "ajax": { url: '/admin/avatars/getall' },
         "columns": [
             { data: 'name', "width": "25%" },
-            { data: 'imageurl', "width": "25%"},
-            
-            
+            { data: 'imageurl', "width": "25%" },
+           
             {
                 data: 'id',
                 "render": function (data) {
@@ -28,7 +27,7 @@ function loadDataTable() {
 
 
 
-function Delete(id) {
+function Delete(url) {
     Swal.fire({
         title: 'Are you sure?',
         text: "You won't be able to revert this!",
@@ -40,14 +39,13 @@ function Delete(id) {
     }).then((result) => {
         if (result.isConfirmed) {
             $.ajax({
-                url: '/Admin/Avatars/Delete/' + id, // Use the correct URL
+                url: url,
                 type: 'DELETE',
                 success: function (data) {
                     dataTable.ajax.reload();
                     toastr.success(data.message);
                 }
-            });
+            })
         }
-    });
+    })
 }
-
