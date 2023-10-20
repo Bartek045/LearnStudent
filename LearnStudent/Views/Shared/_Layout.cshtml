@@ -97,6 +97,25 @@
             opacity: 0.5;
         }
 
+        .dropdown2 {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content2 {
+            display: none;
+            position: block;
+            background-color: #111;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            padding: 12px 16px;
+            z-index: 1;
+        }
+
+        .dropdown2:hover .dropdown-content2 {
+            display: block;
+        }
+
         
 </style>
 </head>
@@ -142,9 +161,21 @@
             <span><a href="#">Informatyka  <i class="arrow"></i></a></span>
 
         <div class="dropdown-content">
-
-                <a style="font-size: 16px" class="levels" href="#">Informatyka 1</a>
-                <a style="font-size: 16px" class="levels" href="#">Informatyka 2</a>
+            <div class="dropdown2">
+                    <a style="font-size: 16px" class="levels" href="#">Informatyka 1 <i class="arrow"></i></a>
+                <div class="dropdown-content2">
+                        <a style="font-size: 16px" class="levels" href="#">Materiały do nauki</a>
+                        <a style="font-size: 16px" class="levels" href="#">Test</a>
+                </div>
+            </div>
+                
+                <div class="dropdown2">
+                    <a style="font-size: 16px" class="levels" href="#">Informatyka 2 <i class="arrow"></i></a>
+                    <div class="dropdown-content2">
+                        <a style="font-size: 16px" class="levels" href="#">Materiały do nauki</a>
+                        <a style="font-size: 16px" class="levels" href="#">Test</a>
+                    </div>
+                </div>
 
         </div>
         </div>
@@ -153,8 +184,20 @@
 
             <div class="dropdown-content">
 
-                <a style="font-size: 16px" class="levels" href="#">Elektrotechnika 1</a>
-                <a style="font-size: 16px" class="levels" href="#">Elektrotechnika 2</a>
+                <div class="dropdown2">
+                    <a style="font-size: 16px" class="levels" href="#">Elektrotechnika 1 <i class="arrow"></i></a>
+                    <div class="dropdown-content2">
+                        <a style="font-size: 16px" class="levels" href="#">Materiały do nauki</a>
+                        <a style="font-size: 16px" class="levels" href="#">Test</a>
+                    </div>
+                </div>
+                <div class="dropdown2">
+                    <a style="font-size: 16px" class="levels" href="#">Elektrotechnika 1 <i class="arrow"></i></a>
+                    <div class="dropdown-content2">
+                        <a style="font-size: 16px" class="levels" href="#">Materiały do nauki</a>
+                        <a style="font-size: 16px" class="levels" href="#">Test</a>
+                    </div>
+                </div>
 
             </div>
         </div>
