@@ -109,7 +109,7 @@ body {
 
     .sidebar.close {
         padding: 60px 0;
-        width: 80px;
+        width: 200px;
     }
 
     .sidebar::-webkit-scrollbar {
