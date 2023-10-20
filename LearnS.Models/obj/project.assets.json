@@ -6897,19 +6897,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\gaben\\.nuget\\packages\\": {}
+    "C:\\Users\\barte\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\gaben\\OneDrive\\Pulpit\\Nowy folder\\LearnStudent\\LearnS.Models\\LearnS.Models.csproj",
+      "projectUniqueName": "C:\\Users\\barte\\Desktop\\LearnStudent\\LearnStudent\\LearnS.Models\\LearnS.Models.csproj",
       "projectName": "LearnS.Models",
-      "projectPath": "C:\\Users\\gaben\\OneDrive\\Pulpit\\Nowy folder\\LearnStudent\\LearnS.Models\\LearnS.Models.csproj",
-      "packagesPath": "C:\\Users\\gaben\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\gaben\\OneDrive\\Pulpit\\Nowy folder\\LearnStudent\\LearnS.Models\\obj\\",
+      "projectPath": "C:\\Users\\barte\\Desktop\\LearnStudent\\LearnStudent\\LearnS.Models\\LearnS.Models.csproj",
+      "packagesPath": "C:\\Users\\barte\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\barte\\Desktop\\LearnStudent\\LearnStudent\\LearnS.Models\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\gaben\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\barte\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6917,6 +6922,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
