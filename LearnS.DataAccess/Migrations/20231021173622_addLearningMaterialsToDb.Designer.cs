@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LearnS.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231021131845_addLearningMaterialsToDb")]
+    [Migration("20231021173622_addLearningMaterialsToDb")]
     partial class addLearningMaterialsToDb
     {
         /// <inheritdoc />
@@ -116,8 +116,7 @@ namespace LearnS.DataAccess.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("SectionId")
                         .HasColumnType("int");
@@ -138,7 +137,7 @@ namespace LearnS.DataAccess.Migrations
                         {
                             Id = 1,
                             Author = "eTrapez",
-                            Description = "test21",
+                            Description = "test213",
                             SectionId = 2,
                             Title = "statystyka"
                         });

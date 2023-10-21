@@ -17,7 +17,7 @@ namespace LearnS.DataAccess.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Title = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Author = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: false),
                     SectionId = table.Column<int>(type: "int", nullable: false)
                 },
@@ -35,7 +35,7 @@ namespace LearnS.DataAccess.Migrations
             migrationBuilder.InsertData(
                 table: "LearningMaterials",
                 columns: new[] { "Id", "Author", "Description", "SectionId", "Title" },
-                values: new object[] { 1, "eTrapez", "test21", 2, "statystyka" });
+                values: new object[] { 1, "eTrapez", "test213", 2, "statystyka" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_LearningMaterials_SectionId",

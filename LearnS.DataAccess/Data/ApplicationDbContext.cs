@@ -75,7 +75,7 @@ namespace LearnS.DataAccess.Data
                 {
                     Id = 1,
                     Title = "statystyka",
-                    Description = "test21",
+                    Description = "test213",
                     Author = "eTrapez",
                     SectionId = 2
 

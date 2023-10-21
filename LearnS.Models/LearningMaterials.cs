@@ -19,7 +19,7 @@ namespace LearnS.Models
         [DisplayName("Tytuł")]
         public string Title { get; set; }
         [Required]
-        [MaxLength(10000)]
+   
         [DisplayName("Opis")]
         public string Description { get; set; }
         [Required]
