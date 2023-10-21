@@ -37,8 +37,4 @@
     <ProjectReference Include="..\LearnS.DataAccess\LearnS.DataAccess.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Areas\User\Views\LearningMaterials\" />
-  </ItemGroup>
-
 </Project>
