@@ -27,10 +27,6 @@ namespace LearnS.Models
         [DisplayName("Autor")]
         public string Author { get; set; }
 
-        public int CategoryId { get; set; }
-        [ForeignKey("CategoryId")]
-        [ValidateNever]
-        public Category Category { get; set; }
         public int SectionId { get; set; }
         [ForeignKey("SectionId")]
         [ValidateNever]

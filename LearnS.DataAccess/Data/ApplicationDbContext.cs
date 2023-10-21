@@ -70,6 +70,18 @@ namespace LearnS.DataAccess.Data
                 }
                 );
 
+            modelBuilder.Entity<LearningMaterials>().HasData(
+                new LearningMaterials
+                {
+                    Id = 1,
+                    Title = "statystyka",
+                    Description = "test21",
+                    Author = "eTrapez",
+                    SectionId = 2
+
+                }
+                );
+
 
         }
     }

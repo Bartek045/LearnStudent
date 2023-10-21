@@ -11,8 +11,7 @@ namespace LearnS.Models.ViewModels
     public class LearningMaterialsVM
     {
         public LearningMaterials LearningMaterials { get; set; }
-        [ValidateNever]
-        public IEnumerable<SelectListItem> CategoryList { get; set; }
+     
         [ValidateNever]
         public IEnumerable<SelectListItem> SecionList { get; set; }
     }

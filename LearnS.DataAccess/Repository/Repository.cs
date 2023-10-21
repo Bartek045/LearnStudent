@@ -19,6 +19,7 @@ namespace LearnS.DataAccess.Repository
             _db = db;
             this.dbSet = _db.Set<T>();
             _db.Sections.Include(u => u.Category).Include(u => u.CategoryId);
+            _db.LearningMaterials.Include(u=>u.Section).Include(u => u.SectionId);
         }
         public void Add(T entity)
         {
