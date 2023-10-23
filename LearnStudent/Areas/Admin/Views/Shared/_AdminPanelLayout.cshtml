@@ -21,7 +21,7 @@
     <nav class="navbar">
         <div class="logo_item">
             <i class="bx bx-menu" id="sidebarOpen"></i>
-            <img src="/images/Logo/Logo2.png" alt=""></i>LearnStudent
+            <img src="/images/Logo/Logo2.png" alt="">LearnStudent
         </div>
 
         <div class="search_bar">
@@ -102,14 +102,20 @@
                         <a class="nav_link sublink" asp-area="Admin" asp-controller="LearningMaterials" asp-action="Index">Materiały do nauki</a>
                     </ul>
                 </li>
-                <li class="item">
-                    <a href="#" class="nav_link">
-                        <span class="navlink_icon">
-                            <i class="bi bi-question-diamond-fill"></i>
-                        </span>
-                        <span class="navlink">Quiz</span>
-                    </a>
-                </li>
+                <div href="#" class="nav_link submenu_item">
+                    <span class="navlink_icon">
+                        <i class="bi bi-question-diamond-fill"></i>
+                    </span>
+                    <span class="navlink">Quiz</span>
+                    <i class="bx bx-chevron-right arrow-left"></i>
+                </div>
+                <ul class="menu_items submenu">
+                    <a class="nav_link sublink" asp-area="Admin" asp-controller="Question" asp-action="Index">Pytania</a>
+
+                    <a class="nav_link sublink" asp-area="Admin" asp-controller="Answer" asp-action="Index">Odpowiedzi</a>
+                    <a class="nav_link sublink" asp-area="Admin" asp-controller="Quiz" asp-action="Index">Stwórz Quiz</a>
+                    
+                </ul>
                 <!-- End -->
 
                 <li class="item">
