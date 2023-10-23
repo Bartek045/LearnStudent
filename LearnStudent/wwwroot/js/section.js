@@ -30,13 +30,14 @@ function loadDataTable() {
 
 function Delete(url) {
     Swal.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
+        title: 'Jesteś pewien?',
+        text: "Nie będzie można tego cofnąć!",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
+        confirmButtonText: 'Tak, usuń!',
+        cancelButtonText: 'Anuluj'
     }).then((result) => {
         if (result.isConfirmed) {
             $.ajax({
