@@ -10,6 +10,6 @@ namespace LearnS.Models
     public class Quiz
     {
         [Key]
-        public int Id { get; set; } 
+        public int Id { get; set; }
     }
 }

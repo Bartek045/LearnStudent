@@ -8,8 +8,8 @@ function loadDataTable() {
     dataTable = $('#tblData').DataTable({
         "ajax": { url: '/admin/learningmaterials/getall' },
         "columns": [
-            { data: 'title', "width": "15%" },
-            { data: 'description', "width": "15%" },
+            { data: 'title', "width": "10%" },
+            { data: 'description', "width": "10%" },
             { data: 'author', "width": "10%" },
             { data: 'section.title', "width": "10%" },
             {
