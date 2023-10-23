@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LearnS.Models
 {
-    internal class Answer
+    public class Answer
     {
     }
 }

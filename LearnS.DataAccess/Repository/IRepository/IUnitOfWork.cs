@@ -14,6 +14,10 @@ namespace LearnS.DataAccess.Repository.IRepository
 
         IAvatarsUploadRepository AvatarsUpload {  get; }
         ILearningMaterialsRepository LearningMaterials { get; }
+
+        IQuizRepository Quiz { get; }
+        IQuestionRepository Question { get; }
+        IAnswerRepository Answer { get; }
         void Save();
     }
 }

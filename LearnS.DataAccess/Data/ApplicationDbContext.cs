@@ -18,6 +18,9 @@ namespace LearnS.DataAccess.Data
         public DbSet<AvatarsUpload> AvatarsUploads { get; set; }
 
         public DbSet<LearningMaterials> LearningMaterials { get; set; }
+        public DbSet<Quiz> Quiz { get; set; }
+        public DbSet<Answer> Answer { get; set; }
+        public DbSet<Question> Question { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

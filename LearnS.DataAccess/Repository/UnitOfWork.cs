@@ -1,5 +1,6 @@
 ﻿using LearnS.DataAccess.Data;
 using LearnS.DataAccess.Repository.IRepository;
+using LearnS.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,9 @@ namespace LearnS.DataAccess.Repository
 
         public IAvatarsUploadRepository AvatarsUpload { get; private set; }
         public ILearningMaterialsRepository LearningMaterials {  get; private set; }
+        public IAnswerRepository Answer { get; private set; }
+        public IQuestionRepository Question { get; private set; }
+        public IQuizRepository Quiz { get; private set; }
         public UnitOfWork(ApplicationDbContext db)
         {
             _db = db;
@@ -23,6 +27,10 @@ namespace LearnS.DataAccess.Repository
             Section = new SectionRepository(_db);
             AvatarsUpload = new AvatarsUploadRepository(_db);
             LearningMaterials = new LearningMaterialsRepository(_db);
+            Question = new QuestionRepository(_db);
+            Quiz = new QuizRepository(_db);
+            Answer = new AnswerRepository(_db);
+           
         }
         
 
