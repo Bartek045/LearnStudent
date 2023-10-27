@@ -21,6 +21,10 @@ namespace LearnStudent.Areas.User.Controllers
             IEnumerable<Quiz> quizList = _unitOfWork.Quiz.GetAll(includeProperties: "Section");
             return View(quizList);
         }
+        public IActionResult CheckAnswer()
+        {
+            return View("CheckAnswer");
+        }
 
         [HttpPost]
         public IActionResult CheckAnswers(Dictionary<int, string> answers)
@@ -41,7 +45,7 @@ namespace LearnStudent.Areas.User.Controllers
 
            
 
-            return View("Result");
+            return View("CheckAnswer");
         }
     }
 }
