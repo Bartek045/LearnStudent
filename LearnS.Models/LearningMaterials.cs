@@ -26,7 +26,7 @@ namespace LearnS.Models
         [MaxLength(25)]
         [DisplayName("Autor")]
         public string Author { get; set; }
-
+        [DisplayName("Kategoria")]
         public int SectionId { get; set; }
         [ForeignKey("SectionId")]
         [ValidateNever]

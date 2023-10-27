@@ -1,5 +1,109 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model QuizVM
+
+
+<div class="card shadow border-0 my-4">
+    <div class="card-header bg-secondary bg-gradient ml-0 py-3">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="text-white py-2">@(Model.Quiz.Id != 0 ? "Update" : "Dodaj") Quiz</h2>
+            </div>
+        </div>
+    </div>
+    <div class="card-body p-4">
+        <form method="post" class="row" enctype="multipart/form-data">
+            <input asp-for="Quiz.Id" hidden />
+            <div class="border p-2">
+                <div asp-validation-summary="ModelOnly"></div>
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="Quiz.Title" class="form-control border-0 shadow" />
+                    <label asp-for="Quiz.Title" class="ms-2"></label>
+                    <span asp-validation-for="Quiz.Title" class="text-danger"></span>
+                </div>
+                <div class="py-2 col-12">
+                    <label asp-for="Quiz.Question" class="ms-2 text-muted"></label>
+                    <textarea asp-for="Quiz.Question" class="form-control border-0 shadow"></textarea>
+
+                </div>
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="Quiz.AnswerI" class="form-control border-0 shadow" />
+                    <label asp-for="Quiz.AnswerI" class="ms-2"></label>
+                    <span asp-validation-for="Quiz.AnswerI" class="text-danger"></span>
+                    <div class="form-check py-2 col-12">
+                        <input asp-for="Quiz.IsCorrect" class="form-check-input" type="checkbox" />
+                        <label class="form-check-label" asp-for="Quiz.IsCorrect">Prawidłowa odpowiedź</label>
+                    </div>
+                </div>
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="Quiz.AnswerII" class="form-control border-0 shadow" />
+                    <label asp-for="Quiz.AnswerII" class="ms-2"></label>
+                    <span asp-validation-for="Quiz.AnswerII" class="text-danger"></span>
+                    <div class="form-check py-2 col-12">
+                        <input asp-for="Quiz.IsCorrect" class="form-check-input" type="checkbox" />
+                        <label class="form-check-label" asp-for="Quiz.IsCorrect">Prawidłowa odpowiedź</label>
+                    </div>
+                </div>
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="Quiz.AnswerIII" class="form-control border-0 shadow" />
+                    <label asp-for="Quiz.AnswerIII" class="ms-2"></label>
+                    <span asp-validation-for="Quiz.AnswerIII" class="text-danger"></span>
+                    <div class="form-check py-2 col-12">
+                        <input asp-for="Quiz.IsCorrect" class="form-check-input" type="checkbox" />
+                        <label class="form-check-label" asp-for="Quiz.IsCorrect">Prawidłowa odpowiedź</label>
+                    </div>
+                </div>
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="Quiz.AnswerIV" class="form-control border-0 shadow" />
+                    <label asp-for="Quiz.AnswerIV" class="ms-2"></label>
+                    <span asp-validation-for="Quiz.AnswerIV" class="text-danger"></span>
+                    <div class="form-check py-2 col-12">
+                        <input asp-for="Quiz.IsCorrect" class="form-check-input" type="checkbox" />
+                        <label class="form-check-label" asp-for="Quiz.IsCorrect">Prawidłowa odpowiedź</label>
+                    </div>
+                </div>
+
+                <div class="form-floating py-2 col-12">
+                    <select asp-for="Quiz.SectionId" asp-items="@Model.SectionList" class="form-select border-0 shadow">
+                        <option disabled selected>---Wybierz Dział---</option>
+                    </select>
+                    <label asp-for="Quiz.SectionId" class="ms-2"></label>
+                    <span asp-validation-for="Quiz.SectionId" class="text-danger"></span>
+                </div>
+              
+
+                <div class="row pt-2">
+                    <div class="col-6 col-md-3">
+                        @if (Model.Quiz.Id != 0)
+                        {
+                            <button type="submit" class="btn btn-primary form-control">Zaktualizuj</button>
+                        }
+                        else
+                        {
+                            <button type="submit" class="btn btn-primary form-control">Utwórz</button>
+                        }
+
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <a asp-controller="Quiz" asp-action="Index" class="btn btn-secondary border form-control">Wróć do Listy</a>
+                    </div>
+                </div>
+
+
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts{
+    <script>
+        tinymce.init({
+            selector: 'textarea',
+            plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
+            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+        });
+    </script>
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+  }

@@ -16,9 +16,8 @@ namespace LearnS.DataAccess.Repository
         public ISectionRepository Section { get; private set; }
 
         public IAvatarsUploadRepository AvatarsUpload { get; private set; }
-        public ILearningMaterialsRepository LearningMaterials {  get; private set; }
-        public IAnswerRepository Answer { get; private set; }
-        public IQuestionRepository Question { get; private set; }
+        public ILearningMaterialsRepository LearningMaterials { get; private set; }
+
         public IQuizRepository Quiz { get; private set; }
         public UnitOfWork(ApplicationDbContext db)
         {
@@ -27,12 +26,11 @@ namespace LearnS.DataAccess.Repository
             Section = new SectionRepository(_db);
             AvatarsUpload = new AvatarsUploadRepository(_db);
             LearningMaterials = new LearningMaterialsRepository(_db);
-            Question = new QuestionRepository(_db);
             Quiz = new QuizRepository(_db);
-            Answer = new AnswerRepository(_db);
-           
+
+
         }
-        
+
 
         public void Save()
         {

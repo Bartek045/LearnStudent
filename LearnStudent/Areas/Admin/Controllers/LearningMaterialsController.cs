@@ -27,7 +27,7 @@ namespace LearnStudent.Areas.Admin.Controllers
         {
             LearningMaterialsVM learningmaterialsVM = new()
             {
-                SecionList = _unitOfWork.Section.GetAll().Select(u => new SelectListItem
+                SectionList = _unitOfWork.Section.GetAll().Select(u => new SelectListItem
                 {
                     Text = u.Title,
                     Value = u.Id.ToString()
@@ -71,7 +71,7 @@ namespace LearnStudent.Areas.Admin.Controllers
             {
 
                 {
-                    learningMaterialsVM.SecionList = _unitOfWork.Section.GetAll().Select(u => new SelectListItem
+                    learningMaterialsVM.SectionList = _unitOfWork.Section.GetAll().Select(u => new SelectListItem
 
                     {
                         Text = u.Title,

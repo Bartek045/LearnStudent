@@ -13,6 +13,6 @@ namespace LearnS.Models.ViewModels
         public LearningMaterials LearningMaterials { get; set; }
      
         [ValidateNever]
-        public IEnumerable<SelectListItem> SecionList { get; set; }
+        public IEnumerable<SelectListItem> SectionList { get; set; }
     }
 }
