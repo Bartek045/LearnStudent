@@ -630,6 +630,10 @@ bg-success {
     display: inline-block;
 }
 
+.dropdown:hover .dropdown-content{
+    display: block;
+}
+
 .dropdown-content2 {
     display: none;
     position: block;
@@ -653,3 +657,5 @@ bg-success {
     height: 45px;
     border: solid 1px red;
 }
+
+
