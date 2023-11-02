@@ -560,7 +560,7 @@ bg-success {
     background-color: #111;
     overflow-x: hidden;
     transition: 0.5s;
-    padding-top: 200px;
+    padding-top: 80px;
 }
 
     .sidebarLayout a {
@@ -612,9 +612,7 @@ bg-success {
     z-index: 1;
 }
 
-.dropdown:hover .dropdown-content {
-    display: block;
-}
+
 
 .arrow {
     border: solid white;
@@ -644,4 +642,14 @@ bg-success {
 
 .dropdown2:hover .dropdown-content2 {
     display: block;
+}
+
+
+.userAvatar{
+    
+    margin: 0;
+    padding: 0;
+    width: 45px;
+    height: 45px;
+    border: solid 1px red;
 }

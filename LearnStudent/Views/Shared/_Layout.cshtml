@@ -20,30 +20,21 @@
             <div class="container-fluid">
                 <div id="openButton">
                     <button style="background-color: initial; color: white; border: solid 1px white; border-radius: 5px; margin: 0 20px 0 0" class="openbtn" onclick="openNav()">☰</button>
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">LearnStudent</a>
                 </div>
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">LearnStudent</a>
+                
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="User" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="User" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
+                    <div>
                         
-                            
-                      
-                            <li class="nav-item">
-                                <a class="nav-link" asp-area="Admin" asp-controller="AdminPanel" asp-action="Index">Panel administratora</a>
-                            </li>
-                        
-                    </ul>
+                    </div>
+                    
                     <partial name="_LoginPartial" />
+                    <div class="userAvatar">
+                    </div>
                 </div>
             </div>
         </nav>
@@ -52,6 +43,14 @@
     </header>
     <div id="mySidebar" class="sidebarLayout">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        
+            
+            <a class="nav-link" asp-area="User" asp-controller="Home" asp-action="Index">Home</a>
+            <a class="nav-link" asp-area="User" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <a class="nav-link" asp-area="Admin" asp-controller="AdminPanel" asp-action="Index">Panel administratora</a>
+            
+        
+
         <div class="dropdown">
             <span><a href="#">Matematyka  <i class="arrow"></i></a></span>
 
@@ -130,7 +129,7 @@
 
     <footer class="border-top footer bg-primary text-center text-white">
         <div class="container">
-            Made with <i class="bi bi-heart-fill"></i> by XYZ
+            Made by Bartłomiej Kowalczyk and Michał Knieć
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
