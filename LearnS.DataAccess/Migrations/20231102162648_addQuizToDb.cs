@@ -22,7 +22,7 @@ namespace LearnS.DataAccess.Migrations
                     AnswerII = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     AnswerIII = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     AnswerIV = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    IsCorrect = table.Column<bool>(type: "bit", nullable: false),
+                    CorrectAnswer = table.Column<int>(type: "int", nullable: false),
                     SectionId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -38,8 +38,8 @@ namespace LearnS.DataAccess.Migrations
 
             migrationBuilder.InsertData(
                 table: "Quiz",
-                columns: new[] { "Id", "AnswerI", "AnswerII", "AnswerIII", "AnswerIV", "IsCorrect", "Question", "SectionId", "Title" },
-                values: new object[] { 1, "2", "3", "4", "5", false, " ile to 2 + 2", 2, "Quiz matematyka" });
+                columns: new[] { "Id", "AnswerI", "AnswerII", "AnswerIII", "AnswerIV", "CorrectAnswer", "Question", "SectionId", "Title" },
+                values: new object[] { 2, "2", "3", "4", "5", 0, " ile to 2 + 2", 2, "Quiz matematyka" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Quiz_SectionId",

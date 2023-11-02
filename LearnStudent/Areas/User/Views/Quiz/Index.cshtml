@@ -2,8 +2,8 @@
 
 <div class="container">
     <div class="row">
-        <form method="post" action="#">
-            
+        <form method="post" action="@Url.Action("CheckAnswers", "Quiz", new { area = "User" })">
+
             @foreach (var quiz in Model)
             {
                 <div class="col-12 mb-4">
@@ -11,29 +11,29 @@
                     @Html.Raw(quiz.Question)
 
                     <div class="form-check">
-                        <input type="radio" id="answerI-@quiz.Id" name="answer-@quiz.Id" value="AnswerI" class="form-check-input" />
+                        <input type="radio" id="answerI-@quiz.Id" name="@quiz.Id" value="AnswerI" class="form-check-input" />
                         <label class="form-check-label" for="answerI-@quiz.Id">@Html.Raw(quiz.AnswerI)</label>
                     </div>
 
                     <div class="form-check">
-                        <input type="radio" id="answerII-@quiz.Id" name="answer-@quiz.Id" value="AnswerII" class="form-check-input" />
+                        <input type="radio" id="answerII-@quiz.Id" name="@quiz.Id" value="AnswerII" class="form-check-input" />
                         <label class="form-check-label" for="answerII-@quiz.Id">@Html.Raw(quiz.AnswerII)</label>
                     </div>
 
                     <div class="form-check">
-                        <input type="radio" id="answerIII-@quiz.Id" name="answer-@quiz.Id" value="AnswerIII" class="form-check-input" />
+                        <input type="radio" id="answerIII-@quiz.Id" name="@quiz.Id" value="AnswerIII" class="form-check-input" />
                         <label class="form-check-label" for="answerIII-@quiz.Id">@Html.Raw(quiz.AnswerIII)</label>
                     </div>
 
                     <div class="form-check">
-                        <input type="radio" id="answerIV-@quiz.Id" name="answer-@quiz.Id" value="AnswerIV" class="form-check-input" />
+                        <input type="radio" id="answerIV-@quiz.Id" name="@quiz.Id" value="AnswerIV" class="form-check-input" />
                         <label class="form-check-label" for="answerIV-@quiz.Id">@Html.Raw(quiz.AnswerIV)</label>
                     </div>
                 </div>
             }
 
             <div class="col-12 text-center">
-                <a class="nav-link" asp-area="User" asp-controller="Quiz" asp-action="CheckAnswer">Sprawdź</a>
+                <button type="submit" class="btn btn-primary">Sprawdź</button>
             </div>
         </form>
     </div>

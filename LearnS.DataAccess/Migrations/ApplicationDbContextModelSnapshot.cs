@@ -164,8 +164,8 @@ namespace LearnS.DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("IsCorrect")
-                        .HasColumnType("bit");
+                    b.Property<int>("CorrectAnswer")
+                        .HasColumnType("int");
 
                     b.Property<string>("Question")
                         .IsRequired()
@@ -187,12 +187,12 @@ namespace LearnS.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 1,
+                            Id = 2,
                             AnswerI = "2",
                             AnswerII = "3",
                             AnswerIII = "4",
                             AnswerIV = "5",
-                            IsCorrect = false,
+                            CorrectAnswer = 0,
                             Question = " ile to 2 + 2",
                             SectionId = 2,
                             Title = "Quiz matematyka"

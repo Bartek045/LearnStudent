@@ -43,6 +43,7 @@ namespace LearnStudent.Areas.Admin.Controllers
             {
                 //update
                 quizVM.Quiz = _unitOfWork.Quiz.Get(u => u.Id == id);
+              
                 return View(quizVM);
             }
 
@@ -53,6 +54,8 @@ namespace LearnStudent.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+               
+                
                 if (quizVM.Quiz.Id == 0)
                 {
                     _unitOfWork.Quiz.Add(quizVM.Quiz);
@@ -61,8 +64,9 @@ namespace LearnStudent.Areas.Admin.Controllers
                 {
                     _unitOfWork.Quiz.Update(quizVM.Quiz);
                 }
+
                 _unitOfWork.Save();
-                TempData["success"] = "Materials created successfully";
+                TempData["success"] = "Quiz created successfully";
                 return RedirectToAction("Index");
             }
             else
