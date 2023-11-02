@@ -47,8 +47,8 @@ namespace LearnStudent.Areas.User.Controllers
                                      (question.CorrectAnswer == 3 && selectedAnswer == "AnswerIII") ||
                                      (question.CorrectAnswer == 4 && selectedAnswer == "AnswerIV");
 
-                    // Log the result of the comparison
-                    System.Diagnostics.Debug.WriteLine($"Question ID: {questionId}, Is Correct: {isCorrect}");
+                    
+                   
 
                     if (isCorrect)
                     {
@@ -60,7 +60,6 @@ namespace LearnStudent.Areas.User.Controllers
 
 
 
-            // Pass the number of correct answers to the view
             return View("CheckAnswer", correctAnswers);
 
 
