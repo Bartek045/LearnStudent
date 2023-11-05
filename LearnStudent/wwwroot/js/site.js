@@ -120,3 +120,20 @@ function showContent32() {
     }
 }
 
+
+function showTabs() {
+    const tabs = document.getElementById("profileTabs");
+
+    if (tabs.style.display == "none" || tabs.style.display == "") {
+        tabs.style.display = "flex";
+    }
+    else {
+        tabs.style.display = "none";
+    }
+    
+
+    alarm("asd");
+}
+
+
+

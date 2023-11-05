@@ -600,6 +600,7 @@ bg-success {
 .dropdown {
     position: relative;
     display: inline-block;
+    transition: 0.5s;
 }
 
 .dropdown-content {
@@ -610,6 +611,7 @@ bg-success {
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     padding: 12px 16px;
     z-index: 1;
+    transition: 0.5s;
 }
 
 
@@ -628,18 +630,19 @@ bg-success {
 .dropdown2 {
     position: relative;
     display: inline-block;
+    transition: 0.5s;
 }
 
 
 
 .dropdown-content2 {
     display: none;
-    
     background-color: #111;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     padding: 12px 16px;
     z-index: 1;
+    transition: 0.5s;
 }
 
 
@@ -652,7 +655,8 @@ bg-success {
     padding: 0;
     width: 45px;
     height: 45px;
-    border: solid 1px red;
+    border: solid 1px black;
+    cursor: pointer;
 }
 
 
@@ -678,3 +682,37 @@ bg-success {
     border: none;
 }
 
+
+
+.profileTabs {
+    position: fixed;
+    display: none;
+    background-color: #192E2F;
+    width: 45px;
+    height: 54px;
+    flex-direction: column;
+    align-items: center;
+    padding: 2px;
+    box-shadow: 3px 3px 2px grey;
+    
+
+}
+
+#profileTabs {
+    transition: all 1s ease;
+}
+
+
+
+.profileTabs p {
+    margin: 0;
+    font-size: 14px;
+}
+.profileTabs a {
+        text-decoration: none;
+        color: white;
+    }
+
+.avatarAndProfileTabs{
+    transition: all 1s ease;
+}
