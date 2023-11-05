@@ -12,6 +12,8 @@ namespace LearnS.Models.ViewModels
     { public Quiz Quiz { get; set; }
         [ValidateNever]
         public IEnumerable<SelectListItem> SectionList { get; set; }
+
+        public bool IsCorrect { get; set; }
     }
 }
 

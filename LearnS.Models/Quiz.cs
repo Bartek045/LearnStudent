@@ -28,7 +28,9 @@ namespace LearnS.Models
         [DisplayName("Odpowiedź 4")]
         public string AnswerIV { get; set; }
 
-        public bool IsCorrect { get; set; }
+        [DisplayName("Prawidłowa odpowiedź")]
+        public int CorrectAnswer { get; set; }
+        [DisplayName("Dział")]
         public int SectionId { get; set; }
         [ForeignKey("SectionId")]
         [ValidateNever]

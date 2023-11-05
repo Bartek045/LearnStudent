@@ -88,7 +88,7 @@ namespace LearnS.DataAccess.Data
             modelBuilder.Entity<Quiz>().HasData(
          new Quiz
          {
-        Id = 1,
+        Id = 2,
         Title = "Quiz matematyka",
         Question = " ile to 2 + 2",
         AnswerI = "2",

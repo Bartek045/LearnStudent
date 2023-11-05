@@ -29,6 +29,10 @@ namespace LearnStudent.Areas.User.Controllers
         [HttpPost]
         public IActionResult CheckAnswers(Dictionary<int, string> answers)
         {
+            foreach (var answer in answers)
+            {
+                System.Diagnostics.Debug.WriteLine($"Question ID: {answer.Key}, Selected Answer: {answer.Value}");
+            }
             int correctAnswers = 0;
 
             foreach (var questionId in answers.Keys)
@@ -36,16 +40,29 @@ namespace LearnStudent.Areas.User.Controllers
                 string selectedAnswer = answers[questionId];
                 var question = _unitOfWork.Quiz.Get(q => q.Id == questionId);
 
-                if (question != null && question.IsCorrect == (selectedAnswer == "true"))
+                if (question != null)
                 {
-                    correctAnswers++;
-                }
+                    bool isCorrect = (question.CorrectAnswer == 1 && selectedAnswer == "AnswerI") ||
+                                     (question.CorrectAnswer == 2 && selectedAnswer == "AnswerII") ||
+                                     (question.CorrectAnswer == 3 && selectedAnswer == "AnswerIII") ||
+                                     (question.CorrectAnswer == 4 && selectedAnswer == "AnswerIV");
 
+                    
+                   
+
+                    if (isCorrect)
+                    {
+                        correctAnswers++;
+                    }
+                }
             }
 
-           
 
-            return View("CheckAnswer");
+
+
+            return View("CheckAnswer", correctAnswers);
+
+
         }
     }
 }
