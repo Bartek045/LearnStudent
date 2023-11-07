@@ -9,6 +9,7 @@ namespace LearnS.DataAccess.Repository.IRepository
 {
     public interface IQuizRepository : IRepository<Quiz>
     {
+        
         void Update(Quiz obj);
     }
 }

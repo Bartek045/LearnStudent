@@ -19,6 +19,8 @@ namespace LearnS.DataAccess.Repository
         public ILearningMaterialsRepository LearningMaterials { get; private set; }
 
         public IQuizRepository Quiz { get; private set; }
+
+        public IQuestionRepository Question { get; private set; }
         public UnitOfWork(ApplicationDbContext db)
         {
             _db = db;
@@ -27,6 +29,7 @@ namespace LearnS.DataAccess.Repository
             AvatarsUpload = new AvatarsUploadRepository(_db);
             LearningMaterials = new LearningMaterialsRepository(_db);
             Quiz = new QuizRepository(_db);
+            Question = new QuestionRepository(_db);
 
 
         }

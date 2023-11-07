@@ -4,7 +4,7 @@
     <div class="row">
         <form method="post" action="@Url.Action("CheckAnswers", "Quiz", new { area = "User" })">
 
-            @foreach (var quiz in Model)
+           @*  @foreach (var quiz in Model)
             {
                 <div class="col-12 mb-4">
                     <h2 class="card-title h3 text-dark text-uppercase">@quiz.Title</h2>
@@ -30,7 +30,7 @@
                         <label class="form-check-label" for="answerIV-@quiz.Id">@Html.Raw(quiz.AnswerIV)</label>
                     </div>
                 </div>
-            }
+            } *@
 
             <div class="col-12 text-center">
                 <button type="submit" class="btn btn-primary">Sprawdź</button>

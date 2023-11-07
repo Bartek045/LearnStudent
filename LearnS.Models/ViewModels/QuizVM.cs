@@ -13,7 +13,7 @@ namespace LearnS.Models.ViewModels
         [ValidateNever]
         public IEnumerable<SelectListItem> SectionList { get; set; }
 
-        public bool IsCorrect { get; set; }
+        public List<Question> Questions { get; set; }
     }
 }
 

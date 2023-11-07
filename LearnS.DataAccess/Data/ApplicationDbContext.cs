@@ -19,6 +19,8 @@ namespace LearnS.DataAccess.Data
 
         public DbSet<LearningMaterials> LearningMaterials { get; set; }
         public DbSet<Quiz> Quiz { get; set; }
+
+        public DbSet<Question> Questions { get; set; }
        
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -84,23 +86,28 @@ namespace LearnS.DataAccess.Data
                 }
                 );
 
-           
+
             modelBuilder.Entity<Quiz>().HasData(
          new Quiz
          {
-        Id = 2,
-        Title = "Quiz matematyka",
-        Question = " ile to 2 + 2",
-        AnswerI = "2",
-        AnswerII = "3",
-        AnswerIII = "4",
-        AnswerIV = "5",
-        SectionId = 2,
-
-
+             Id = 1,
+             Title = "Quiz matematyka test",
+             SectionId = 2
          }
-         );
-
+     );
+            modelBuilder.Entity<Question>().HasData(
+        new Question
+        {
+            Id = 1,
+            QuestionText = "Ile to 22 + 2?",
+            QuizId = 1,
+            Answer1 = "24",
+            Answer2 = "34",
+            Answer3 = "44",
+            Answer4 = "54",
+            IsCorrect = 1 
+        }
+    );
         }
     }
 }

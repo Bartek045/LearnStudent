@@ -42,18 +42,18 @@ namespace LearnStudent.Areas.User.Controllers
 
                 if (question != null)
                 {
-                    bool isCorrect = (question.CorrectAnswer == 1 && selectedAnswer == "AnswerI") ||
-                                     (question.CorrectAnswer == 2 && selectedAnswer == "AnswerII") ||
-                                     (question.CorrectAnswer == 3 && selectedAnswer == "AnswerIII") ||
-                                     (question.CorrectAnswer == 4 && selectedAnswer == "AnswerIV");
+                    //bool isCorrect = (question.CorrectAnswer == 1 && selectedAnswer == "AnswerI") ||
+                    //                 (question.CorrectAnswer == 2 && selectedAnswer == "AnswerII") ||
+                    //                 (question.CorrectAnswer == 3 && selectedAnswer == "AnswerIII") ||
+                    //                 (question.CorrectAnswer == 4 && selectedAnswer == "AnswerIV");
 
                     
                    
 
-                    if (isCorrect)
-                    {
-                        correctAnswers++;
-                    }
+                    //if (isCorrect)
+                    //{
+                    //    correctAnswers++;
+                    //}
                 }
             }
 
