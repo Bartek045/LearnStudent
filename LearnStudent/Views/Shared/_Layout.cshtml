@@ -35,7 +35,26 @@
                     <partial name="_LoginPartial" />
                     
                 </div>
-                <div class="userAvatar">
+
+                <div class="avatarAndProfileTabs">
+                    
+                    <div class="userAvatar" onclick="showTabs()">
+                    </div>
+                    
+                    
+                    <div class="profileTabs" id="profileTabs">
+                        <p><a href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+                                </svg>
+                        </a></p>
+                        <p><a href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z" />
+                                    <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
+                                </svg>
+                        </a></p>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -52,21 +71,47 @@
             
         
 
-        <div class="dropdown">
-            <span><a href="#">Matematyka  <i class="arrow"></i></a></span>
+        <div class="dropdown" id="dropdown1">
+            <button onclick="showContent1()" class="mainCategory">Matematyka  <i class="arrow"></i></button>
 
-            <div class="dropdown-content">
+            <div id="dropdown-content1" class="dropdown-content">
                 <div class="dropdown2">
-                    <a style="font-size: 16px" class="levels" href="#">Matematyka 1 <i class="arrow"></i></a>
-                    <div class="dropdown-content2">
+                    <button style="font-size: 16px" onclick="showContent11()" class="secondCategory">Matematyka 1  <i class="arrow"></i></button>
+                    
+                    <div id="dropdown-content11" class="dropdown-content2">
+                        <a style="font-size: 16px" class="levels" asp-area="User" asp-controller="LearningMaterials" asp-action="Index">Materiały do nauki</a>
+                        <a style="font-size: 16px" class="levels" asp-area="User" asp-controller="Quiz" asp-action="Index"> Test</a>
+                    </div>
+                </div>
+
+                <div  class="dropdown2">
+                    <button style="font-size: 16px" onclick="showContent12()" class="secondCategory">Matematyka 2  <i class="arrow"></i></button>
+                    
+                    <div id="dropdown-content12" class="dropdown-content2">
+                        <a style="font-size: 16px" class="levels" href="#">Materiały do nauki</a>
+                        <a style="font-size: 16px" class="levels" href="#">Test</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="dropdown" id="dropdown2">
+            <button onclick="showContent2()" class="mainCategory">Informatyka  <i class="arrow"></i></button>
+
+            <div id="dropdown-content2" class="dropdown-content">
+                <div class="dropdown2">
+                    <button style="font-size: 16px" onclick="showContent21()" class="secondCategory">Informatyka 1  <i class="arrow"></i></button>
+
+                    <div id="dropdown-content21" class="dropdown-content2">
                         <a style="font-size: 16px" class="levels" asp-area="User" asp-controller="LearningMaterials" asp-action="Index">Materiały do nauki</a>
                         <a style="font-size: 16px" class="levels" asp-area="User" asp-controller="Quiz" asp-action="Index"> Test</a>
                     </div>
                 </div>
 
                 <div class="dropdown2">
-                    <a style="font-size: 16px" class="levels" href="#">Matematyka 2 <i class="arrow"></i></a>
-                    <div class="dropdown-content2">
+                    <button style="font-size: 16px" onclick="showContent22()" class="secondCategory">Informatyka 2  <i class="arrow"></i></button>
+
+                    <div id="dropdown-content22" class="dropdown-content2">
                         <a style="font-size: 16px" class="levels" href="#">Materiały do nauki</a>
                         <a style="font-size: 16px" class="levels" href="#">Test</a>
                     </div>
@@ -74,43 +119,23 @@
 
             </div>
         </div>
-        <div class="dropdown">
-            <span><a href="#">Informatyka  <i class="arrow"></i></a></span>
+        <div class="dropdown" id="dropdown3">
+            <button onclick="showContent3()" class="mainCategory">Elektrotechnika  <i class="arrow"></i></button>
 
-        <div class="dropdown-content">
-            <div class="dropdown2">
-                    <a style="font-size: 16px" class="levels" href="#">Informatyka 1 <i class="arrow"></i></a>
-                <div class="dropdown-content2">
-                        <a style="font-size: 16px" class="levels" href="#">Materiały do nauki</a>
-                        <a style="font-size: 16px" class="levels" href="#">Test</a>
-                </div>
-            </div>
-                
+            <div id="dropdown-content3" class="dropdown-content">
                 <div class="dropdown2">
-                    <a style="font-size: 16px" class="levels" href="#">Informatyka 2 <i class="arrow"></i></a>
-                    <div class="dropdown-content2">
-                        <a style="font-size: 16px" class="levels" href="#">Materiały do nauki</a>
-                        <a style="font-size: 16px" class="levels" href="#">Test</a>
+                    <button style="font-size: 16px" onclick="showContent31()" class="secondCategory">Elektrotechnika 1  <i class="arrow"></i></button>
+
+                    <div id="dropdown-content31" class="dropdown-content2">
+                        <a style="font-size: 16px" class="levels" asp-area="User" asp-controller="LearningMaterials" asp-action="Index">Materiały do nauki</a>
+                        <a style="font-size: 16px" class="levels" asp-area="User" asp-controller="Quiz" asp-action="Index"> Test</a>
                     </div>
                 </div>
 
-        </div>
-        </div>
-        <div class="dropdown">
-            <span><a href="#">Elektrotechnika  <i class="arrow"></i></a></span>
-
-            <div class="dropdown-content">
-
                 <div class="dropdown2">
-                    <a style="font-size: 16px" class="levels" href="#">Elektrotechnika 1 <i class="arrow"></i></a>
-                    <div class="dropdown-content2">
-                        <a style="font-size: 16px" class="levels" href="#">Materiały do nauki</a>
-                        <a style="font-size: 16px" class="levels" href="#">Test</a>
-                    </div>
-                </div>
-                <div class="dropdown2">
-                    <a style="font-size: 16px" class="levels" href="#">Elektrotechnika 1 <i class="arrow"></i></a>
-                    <div class="dropdown-content2">
+                    <button style="font-size: 16px" onclick="showContent32()" class="secondCategory">Elektrotechnika 2  <i class="arrow"></i></button>
+
+                    <div id="dropdown-content32" class="dropdown-content2">
                         <a style="font-size: 16px" class="levels" href="#">Materiały do nauki</a>
                         <a style="font-size: 16px" class="levels" href="#">Test</a>
                     </div>
