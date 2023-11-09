@@ -17,23 +17,13 @@ namespace LearnS.Models
         [DisplayName("Tytuł")]
         [Required]
         public string Title { get; set; }
-        [DisplayName("Pytanie")]
-        public string Question { get; set; }
-        [DisplayName("Odpowiedź 1")]
-        public string AnswerI { get; set; }
-        [DisplayName("Odpowiedź 2")]
-        public string AnswerII { get; set; }
-        [DisplayName("Odpowiedź 3")]
-        public string AnswerIII { get; set; }
-        [DisplayName("Odpowiedź 4")]
-        public string AnswerIV { get; set; }
-
-        [DisplayName("Prawidłowa odpowiedź")]
-        public int CorrectAnswer { get; set; }
+        
         [DisplayName("Dział")]
         public int SectionId { get; set; }
         [ForeignKey("SectionId")]
         [ValidateNever]
         public Section Section { get; set; }
+        [ValidateNever]
+        public List<Question> Questions { get; set; }
     }
 }

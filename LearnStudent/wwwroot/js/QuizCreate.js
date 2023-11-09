@@ -9,11 +9,6 @@ function loadDataTable() {
         "ajax": { url: '/admin/quiz/getall' },
         "columns": [
             { data: 'title', "width": "15%" },
-            { data: 'question', "width": "10%" },
-            { data: 'answerI', "width": "10%" },
-            { data: 'answerII', "width": "10%" },
-            { data: 'answerIII', "width": "10%" },
-            { data: 'answerIV', "width": "10%" },
             { data: 'section.title', "width": "10%" },
             {
                 data: 'id',

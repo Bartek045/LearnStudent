@@ -17,6 +17,10 @@ namespace LearnS.DataAccess.Repository.IRepository
 
         IQuizRepository Quiz { get; }
 
+        IQuestionRepository Question { get; }
+
         void Save();
+
+
     }
 }

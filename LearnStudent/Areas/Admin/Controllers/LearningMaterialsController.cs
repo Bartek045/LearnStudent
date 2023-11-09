@@ -58,6 +58,7 @@ namespace LearnStudent.Areas.Admin.Controllers
                 if (learningMaterialsVM.LearningMaterials.Id == 0)
                 {
                     _unitOfWork.LearningMaterials.Add(learningMaterialsVM.LearningMaterials);
+
                 }
                 else
                 {
