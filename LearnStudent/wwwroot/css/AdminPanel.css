@@ -97,6 +97,7 @@ body {
     background-color: var(--white-color);
     width: 260px;
     position: fixed;
+    
     top: 0;
     left: 0;
     height: 100%;
