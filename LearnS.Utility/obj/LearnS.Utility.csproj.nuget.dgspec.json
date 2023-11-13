@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\barte\\Desktop\\Projekt\\LearnS.Utility\\LearnS.Utility.csproj": {}
+    "C:\\Users\\barte\\Desktop\\LearnStudent\\LearnStudent\\LearnS.Utility\\LearnS.Utility.csproj": {}
   },
   "projects": {
-    "C:\\Users\\barte\\Desktop\\Projekt\\LearnS.Utility\\LearnS.Utility.csproj": {
+    "C:\\Users\\barte\\Desktop\\LearnStudent\\LearnStudent\\LearnS.Utility\\LearnS.Utility.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\barte\\Desktop\\Projekt\\LearnS.Utility\\LearnS.Utility.csproj",
+        "projectUniqueName": "C:\\Users\\barte\\Desktop\\LearnStudent\\LearnStudent\\LearnS.Utility\\LearnS.Utility.csproj",
         "projectName": "LearnS.Utility",
-        "projectPath": "C:\\Users\\barte\\Desktop\\Projekt\\LearnS.Utility\\LearnS.Utility.csproj",
+        "projectPath": "C:\\Users\\barte\\Desktop\\LearnStudent\\LearnStudent\\LearnS.Utility\\LearnS.Utility.csproj",
         "packagesPath": "C:\\Users\\barte\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\barte\\Desktop\\Projekt\\LearnS.Utility\\obj\\",
+        "outputPath": "C:\\Users\\barte\\Desktop\\LearnStudent\\LearnStudent\\LearnS.Utility\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

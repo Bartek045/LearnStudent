@@ -2,7 +2,6 @@
 using LearnS.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace LearnStudent.Areas.User.Controllers
 {
@@ -18,51 +17,46 @@ namespace LearnStudent.Areas.User.Controllers
 
         public IActionResult Index()
         {
-            IEnumerable<Quiz> quizList = _unitOfWork.Quiz.GetAll(includeProperties: "Section");
+            IEnumerable<Quiz> quizList = _unitOfWork.Quiz.GetAll(includeProperties: "Section,Questions");
             return View(quizList);
         }
+
         public IActionResult CheckAnswer()
         {
             return View("CheckAnswer");
         }
 
         [HttpPost]
-        public IActionResult CheckAnswers(Dictionary<int, string> answers)
+        public IActionResult CheckAnswers(Dictionary<string, string> answers)
         {
-            foreach (var answer in answers)
-            {
-                System.Diagnostics.Debug.WriteLine($"Question ID: {answer.Key}, Selected Answer: {answer.Value}");
-            }
             int correctAnswers = 0;
+            int totalQuestions = answers.Count;
 
             foreach (var questionId in answers.Keys)
             {
                 string selectedAnswer = answers[questionId];
-                var question = _unitOfWork.Quiz.Get(q => q.Id == questionId);
 
-                if (question != null)
+                if (int.TryParse(questionId.Replace("question-", ""), out int parsedQuestionId))
                 {
-                    //bool isCorrect = (question.CorrectAnswer == 1 && selectedAnswer == "AnswerI") ||
-                    //                 (question.CorrectAnswer == 2 && selectedAnswer == "AnswerII") ||
-                    //                 (question.CorrectAnswer == 3 && selectedAnswer == "AnswerIII") ||
-                    //                 (question.CorrectAnswer == 4 && selectedAnswer == "AnswerIV");
+                    var question = _unitOfWork.Question.Get(q => q.Id == parsedQuestionId, includeProperties: "Quiz");
 
-                    
-                   
+                    if (question != null)
+                    {
+                        bool isCorrect = (question.IsCorrect == 1 && selectedAnswer == "1") ||
+                                         (question.IsCorrect == 2 && selectedAnswer == "2") ||
+                                         (question.IsCorrect == 3 && selectedAnswer == "3") ||
+                                         (question.IsCorrect == 4 && selectedAnswer == "4");
 
-                    //if (isCorrect)
-                    //{
-                    //    correctAnswers++;
-                    //}
+                        if (isCorrect)
+                        {
+                            correctAnswers++;
+                        }
+                    }
                 }
             }
 
-
-
-
-            return View("CheckAnswer", correctAnswers);
-
-
+            var result = Tuple.Create(correctAnswers, totalQuestions);
+            return View("CheckAnswer", result);
         }
     }
 }
