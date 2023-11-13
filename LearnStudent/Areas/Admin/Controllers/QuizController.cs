@@ -77,6 +77,7 @@ namespace LearnStudent.Areas.Admin.Controllers
                     }
 
                     _unitOfWork.Save();
+                    TempData["success"] = "Quiz created successfully";
                 }
                 else
                 {
@@ -100,7 +101,7 @@ namespace LearnStudent.Areas.Admin.Controllers
 
                 _unitOfWork.Save();
 
-                TempData["success"] = "Quiz created successfully";
+                TempData["success"] = "Quiz updated successfully";
 
                 return RedirectToAction("Index");
             }
