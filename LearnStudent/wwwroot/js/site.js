@@ -36,3 +36,12 @@ function showTabs() {
 
 
 
+function loadQuizzes(section) {
+    window.location.href = `/User/Quiz/Index?section=${section}`;
+    ViewBag.Section = section;
+}
+
+function loadLearningMaterials(section) {
+    window.location.href = `/User/LearningMaterials/Index?section=${section}`;
+    ViewBag.Section = section;
+}

@@ -83,14 +83,14 @@
                 <div class="dropdown-content">
                     <button style="font-size: 20px" class="dropdown-btn secondCategory">Statystyka 1<i class="arrow"></i></button>
                     <div class="dropdown-content">
-                        <a style="font-size: 16px" class="levels" asp-area="User" asp-controller="LearningMaterials" asp-action="Index">Materiały do nauki</a>
-                        <a style="font-size: 16px" class="levels" asp-area="User" asp-controller="Quiz" asp-action="Index"> Test</a>
+                        <a style="font-size: 16px" class="levels" href="javascript:void(0);" onclick="loadLearningMaterials('Statystyka')">Materiały do nauki</a>
+                        <a style="font-size: 16px" class="levels" href="javascript:void(0);" onclick="loadQuizzes('Statystyka')">Test</a>
                     </div>
 
                     <button style="font-size: 20px" class="dropdown-btn secondCategory">Statystyka 2<i class="arrow"></i></button>
                     <div class="dropdown-content">
-                        <a style="font-size: 16px" class="levels" href="#">Materiały do nauki</a>
-                        <a style="font-size: 16px" class="levels" href="#">Test</a>
+                        <a style="font-size: 16px" class="levels" href="javascript:void(0);" onclick="loadLearningMaterials('Statystyka')">Materiały do nauki</a>
+                        <a style="font-size: 16px" class="levels" href="javascript:void(0);" onclick="loadQuizzes('Statystyka')">Test</a>
                     </div>
                 </div>
 
@@ -99,14 +99,14 @@
 
                     <button style="font-size: 20px" class="dropdown-btn secondCategory">Logika 1<i class="arrow"></i></button>
                     <div class="dropdown-content">
-                        <a style="font-size: 16px" class="levels" href="#">Materiały do nauki</a>
-                        <a style="font-size: 16px" class="levels" href="#">Test</a>
+                        <a style="font-size: 16px" class="levels" href="javascript:void(0);" onclick="loadLearningMaterials('Logika')">Materiały do nauki</a>
+                        <a style="font-size: 16px" class="levels" href="javascript:void(0);" onclick="loadQuizzes('Logika')">Test</a>
                     </div>
 
                     <button style="font-size: 20px" class="dropdown-btn secondCategory">Logika 2<i class="arrow"></i></button>
                     <div class="dropdown-content">
-                        <a style="font-size: 16px" class="levels" href="#">Materiały do nauki</a>
-                        <a style="font-size: 16px" class="levels" href="#">Test</a>
+                        <a style="font-size: 16px" class="levels" href="javascript:void(0);" onclick="loadLearningMaterials('Logika')">Materiały do nauki</a>
+                        <a style="font-size: 16px" class="levels" href="javascript:void(0);" onclick="loadQuizzes('Logika')">Test</a>
                     </div>
                 </div>
             </div>
@@ -122,7 +122,7 @@
                     <button style="font-size: 20px" class="dropdown-btn secondCategory">Statystyka 1<i class="arrow"></i></button>
                     <div class="dropdown-content">
                         <a style="font-size: 16px" class="levels" asp-area="User" asp-controller="LearningMaterials" asp-action="Index">Materiały do nauki</a>
-                        <a style="font-size: 16px" class="levels" asp-area="User" asp-controller="Quiz" asp-action="Index"> Test</a>
+                        <a style="font-size: 16px" class="levels" href="javascript:void(0);" onclick="loadQuizzes('Statystyka')">Test</a>
                     </div>
 
                     <button style="font-size: 20px" class="dropdown-btn secondCategory">Statystyka 2<i class="arrow"></i></button>
@@ -138,7 +138,7 @@
                     <button style="font-size: 20px" class="dropdown-btn secondCategory">Logika 1<i class="arrow"></i></button>
                     <div class="dropdown-content">
                         <a style="font-size: 16px" class="levels" href="#">Materiały do nauki</a>
-                        <a style="font-size: 16px" class="levels" href="#">Test</a>
+                        <a style="font-size: 16px" class="levels" href="javascript:void(0);" onclick="loadQuizzes('Logika')">Test</a>
                     </div>
 
                     <button style="font-size: 20px" class="dropdown-btn secondCategory">Logika 2<i class="arrow"></i></button>
@@ -233,6 +233,6 @@
     <script src="https://cdn.tiny.cloud/1/73aiauzwcdykvenqcz6q151jcv8ex8gf50prwlxanpr5wff7/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     @await RenderSectionAsync("Scripts", required: false)
 
-
+    
 </body>
 </html>

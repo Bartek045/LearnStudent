@@ -15,11 +15,32 @@ namespace LearnStudent.Areas.User.Controllers
             _unitOfWork = unitOfWork;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string section)
         {
-            IEnumerable<Quiz> quizList = _unitOfWork.Quiz.GetAll(includeProperties: "Section,Questions");
+            IEnumerable<Quiz> quizList;
+
+            if (!string.IsNullOrEmpty(section))
+            {
+                quizList = _unitOfWork.Quiz.GetAll(
+                    filter: q => q.Section.Title == section,
+                    includeProperties: "Section,Questions"
+                );
+            }
+            else
+            {
+                quizList = _unitOfWork.Quiz.GetAll(includeProperties: "Section,Questions");
+            }
+
+            ViewBag.Section = section;
+
             return View(quizList);
         }
+
+
+
+
+
+
 
         public IActionResult CheckAnswer()
         {
@@ -27,7 +48,7 @@ namespace LearnStudent.Areas.User.Controllers
         }
 
         [HttpPost]
-        public IActionResult CheckAnswers(Dictionary<string, string> answers)
+        public IActionResult CheckAnswers(Dictionary<string, string> answers, string section)
         {
             int correctAnswers = 0;
             int totalQuestions = answers.Count;
@@ -55,6 +76,7 @@ namespace LearnStudent.Areas.User.Controllers
                 }
             }
 
+            ViewBag.Section = section; 
             var result = Tuple.Create(correctAnswers, totalQuestions);
             return View("CheckAnswer", result);
         }
