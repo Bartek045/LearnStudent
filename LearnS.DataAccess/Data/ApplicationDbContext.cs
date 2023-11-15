@@ -21,6 +21,8 @@ namespace LearnS.DataAccess.Data
         public DbSet<Quiz> Quiz { get; set; }
 
         public DbSet<Question> Questions { get; set; }
+
+        
        
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
