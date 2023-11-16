@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +19,7 @@ namespace LearnS.DataAccess.Repository.IRepository
         IQuestionRepository Question { get; }
 
         IApplicationUserRepository User { get; }
+        IExampleTaskRepository ExampleTask { get;}
 
         void Save();
 

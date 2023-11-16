@@ -21,9 +21,10 @@ namespace LearnS.DataAccess.Data
         public DbSet<Quiz> Quiz { get; set; }
 
         public DbSet<Question> Questions { get; set; }
+        public DbSet<ExampleTasks> ExampleTasks { get; set; }
 
-        
-       
+
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -107,9 +108,20 @@ namespace LearnS.DataAccess.Data
             Answer2 = "34",
             Answer3 = "44",
             Answer4 = "54",
-            IsCorrect = 1 
+            IsCorrect = 1
         }
     );
+            modelBuilder.Entity<ExampleTasks>().HasData(
+                new ExampleTasks
+                {
+                    Id = 1,
+                    Title = "Zadania z statystyki",
+                    ExampleTask = "Ile to 2 + 2?",
+                    Solution = "2 + 2 to 4 xD",
+                    SectionId = 2
+
+                }
+                );
         }
     }
 }

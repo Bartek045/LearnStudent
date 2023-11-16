@@ -45,3 +45,8 @@ function loadLearningMaterials(section) {
     window.location.href = `/User/LearningMaterials/Index?section=${section}`;
     ViewBag.Section = section;
 }
+
+function loadExampleTasks(section) {
+    window.location.href = `/User/ExampleTask/Index?section=${section}`;
+    ViewBag.Section = section;
+}
