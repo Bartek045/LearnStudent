@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "dMlCo+FbgeAIbVnXXki5CHpuuaBCl9H+8/4pXsSP0DPA09qV9NMEJVdRK3neMBUaAkwE2yM+VwV7g8ELV4m0+A==",
+  "dgSpecHash": "lqRagxo39/XlLSXAwDOfGHzUhTmw3UAPZIYEPASomMBEug+ZGlU9nqBNDDMu9hdukhPXuIbZo1Op8NSvvJFyAQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\barte\\Desktop\\LearnStudent\\LearnStudent\\LearnS.Utility\\LearnS.Utility.csproj",
   "expectedPackageFiles": [
@@ -19,12 +19,5 @@
     "C:\\Users\\barte\\.nuget\\packages\\microsoft.extensions.options\\7.0.1\\microsoft.extensions.options.7.0.1.nupkg.sha512",
     "C:\\Users\\barte\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0\\microsoft.extensions.primitives.7.0.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Wystąpił problem podczas czytania pliku pamięci podręcznej C:\\Users\\barte\\Desktop\\LearnStudent\\LearnStudent\\LearnS.Utility\\obj\\project.nuget.cache: Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }

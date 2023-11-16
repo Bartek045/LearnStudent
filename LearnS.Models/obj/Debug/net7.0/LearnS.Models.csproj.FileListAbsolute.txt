@@ -70,3 +70,4 @@ C:\Users\barte\Desktop\Projekt\LearnS.Models\obj\Debug\net7.0\LearnS.Models.dll
 C:\Users\barte\Desktop\Projekt\LearnS.Models\obj\Debug\net7.0\refint\LearnS.Models.dll
 C:\Users\barte\Desktop\Projekt\LearnS.Models\obj\Debug\net7.0\LearnS.Models.pdb
 C:\Users\barte\Desktop\Projekt\LearnS.Models\obj\Debug\net7.0\ref\LearnS.Models.dll
+C:\Users\barte\Desktop\LearnStudent\LearnStudent\LearnS.Models\obj\Debug\net7.0\LearnS.Models.sourcelink.json

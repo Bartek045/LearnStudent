@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "WiAp1oTwPSujjEsiwecSgCk52uaLTn7O3/ed3F0JFAthiDX1Xa3hYP6fbOLyZCpRJHsEcTJ/u1wiV4nh4tRu/g==",
+  "dgSpecHash": "6dHzlb5YIkUQ2BqA00jR+SEMbrO3ozycldVBKJCGVoxL8KCy9Q8p81EAXNPC0/176NHio+erHtibkVrtvYHc9g==",
   "success": true,
   "projectFilePath": "C:\\Users\\barte\\Desktop\\LearnStudent\\LearnStudent\\LearnS.DataAccess\\LearnS.DataAccess.csproj",
   "expectedPackageFiles": [
@@ -176,12 +176,5 @@
     "C:\\Users\\barte\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\barte\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Wystąpił problem podczas czytania pliku pamięci podręcznej C:\\Users\\barte\\Desktop\\LearnStudent\\LearnStudent\\LearnS.DataAccess\\obj\\project.nuget.cache: Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }

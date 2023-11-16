@@ -19,6 +19,8 @@ namespace LearnS.DataAccess.Repository.IRepository
 
         IQuestionRepository Question { get; }
 
+        IApplicationUserRepository User { get; }
+
         void Save();
 
 
