@@ -1,0 +1,35 @@
+﻿body {
+    font-family: Arial, sans-serif;
+}
+
+.top-questions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.filter-buttons {
+    display: flex;
+}
+
+    .filter-buttons button {
+        margin-right: 5px;
+        padding: 5px 15px;
+        border: 1px solid #ccc;
+        background-color: #f8f8f8;
+        cursor: pointer;
+    }
+
+        .filter-buttons button.active {
+            border-color: blue;
+            color: blue;
+        }
+
+.ask-button {
+    padding: 5px 20px;
+    background-color: blue;
+    color: white;
+    border: none;
+    cursor: pointer;
+}

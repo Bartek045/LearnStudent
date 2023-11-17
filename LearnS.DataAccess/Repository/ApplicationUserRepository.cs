@@ -21,7 +21,7 @@ namespace LearnS.DataAccess.Repository
 
         public void Update(ApplicationUser obj)
         {
-            _db.ApplicationUsers.Update(obj);
+            _db.Users.Update(obj);
         }
     }
 

@@ -1,0 +1,51 @@
+﻿@model List<LearnS.Models.ForumThread>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="~/css/Forum.css" asp-append-version="true" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Questions</title>
+    
+     
+    
+</head>
+<body>
+    <h2>Tematy na forum</h2>
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Content</th>
+                <th>Created At</th>
+                <th>User</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var forumThread in Model)
+            {
+                <tr>
+                    <td>@forumThread.Title</td>
+                    <td>@forumThread.Content</td>
+                    <td>@forumThread.CreatedAt</td>
+                    <td>@forumThread.User?.UserName</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div class="top-questions">
+        <div class="filter-buttons">
+            <button>Interesting</button>
+            <button class="active">Bountied</button>
+            <button>Hot</button>
+            <button>Week</button>
+            <button>Month</button>
+        </div>
+        <a class="btn btn-primary float-right" href="#">Ask Question</a>
+    </div>
+
+</body>
+</html>

@@ -2,10 +2,11 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System.Globalization;
 
 namespace LearnS.DataAccess.Data
 {
-    public class ApplicationDbContext : IdentityDbContext<IdentityUser>
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
@@ -13,7 +14,7 @@ namespace LearnS.DataAccess.Data
         }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Section> Sections { get; set; }
-        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+        public DbSet<ApplicationUser> Users { get; set; }
 
         public DbSet<AvatarsUpload> AvatarsUploads { get; set; }
 
@@ -23,11 +24,41 @@ namespace LearnS.DataAccess.Data
         public DbSet<Question> Questions { get; set; }
         public DbSet<ExampleTasks> ExampleTasks { get; set; }
 
+        public DbSet<ForumPost> ForumPosts { get; set; }
+        public DbSet<ForumThread> ForumThreads { get; set; }
+        public DbSet<ForumComment> ForumComments { get; set; }
+        public DbSet<ForumRating> ForumRatings { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
             base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<ForumThread>()
+                .HasMany(ft => ft.ForumPosts)
+                .WithOne(fp => fp.ForumThread)
+                .HasForeignKey(fp => fp.ForumThreadId)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            modelBuilder.Entity<ForumPost>()
+                .HasMany(fp => fp.ForumComments)
+                .WithOne(fc => fc.ForumPost)
+                .HasForeignKey(fc => fc.ForumPostId)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            modelBuilder.Entity<ForumComment>()
+                .HasOne(fc => fc.ForumPost)
+                .WithMany(fp => fp.ForumComments)
+                .HasForeignKey(fc => fc.ForumPostId)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            modelBuilder.Entity<ForumRating>()
+                .HasOne(fr => fr.ForumPost)
+                .WithMany(fp => fp.ForumRatings)
+                .HasForeignKey(fr => fr.ForumPostId)
+                .OnDelete(DeleteBehavior.NoAction);
+
+
 
             modelBuilder.Entity<Category>().HasData(
                 new Category { Id = 1, Name = "Math", DisplayOrder = 1 },
@@ -122,6 +153,57 @@ namespace LearnS.DataAccess.Data
 
                 }
                 );
+            modelBuilder.Entity<ForumThread>().HasData(
+             new ForumThread
+             {
+                 Id = 1,
+                 Title = "Tytuł testowy 1",
+                 Content = "zawartość testowa",
+                 CreatedAt = DateTime.Now,
+                 UserId = "f096fef9-cdf0-4298-81b1-52925b2ef44d",
+
+
+
+
+             }
+             );
+            modelBuilder.Entity<ForumPost>().HasData(
+             new ForumPost
+             {
+                 Id = 1,
+                 Content = "zawartość testowa",
+                 CreatedAt = DateTime.Now,
+                 ForumThreadId = 1,
+                 UserId = "f096fef9-cdf0-4298-81b1-52925b2ef44d",
+
+
+             }
+             );
+            modelBuilder.Entity<ForumRating>().HasData(
+               new ForumRating
+               {
+                   Id = 1,
+                   Value = 1,
+                   ForumPostId = 1,
+                   UserId = "f096fef9-cdf0-4298-81b1-52925b2ef44d",
+
+
+
+               }
+               );
+            modelBuilder.Entity<ForumComment>().HasData(
+             new ForumComment
+             {
+                 Id = 1,
+                 Content = "komentarz",
+                 CreatedAt = DateTime.Now,
+                 ForumPostId = 1,
+                 UserId = "f096fef9-cdf0-4298-81b1-52925b2ef44d",
+
+
+             }
+             );
+            modelBuilder.Ignore<CultureInfo>();
         }
     }
 }

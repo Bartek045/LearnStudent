@@ -20,7 +20,10 @@ namespace LearnS.DataAccess.Repository.IRepository
 
         IApplicationUserRepository User { get; }
         IExampleTaskRepository ExampleTask { get;}
-
+        IForumPostRepository ForumPost { get; }
+        IForumThreadRepository ForumThread { get; }
+        IForumCommentRepository ForumComment { get; }
+        IForumRatingRepository ForumRating { get; }
         void Save();
 
 

@@ -24,6 +24,11 @@ namespace LearnS.DataAccess.Repository
 
         public IApplicationUserRepository User { get; private set; }
         public IExampleTaskRepository ExampleTask { get; private set; }
+
+        public IForumPostRepository ForumPost { get; private set; }
+        public IForumThreadRepository ForumThread { get; private set; }
+        public IForumCommentRepository ForumComment { get; private set; }
+        public IForumRatingRepository ForumRating { get; private set; }
         public UnitOfWork(ApplicationDbContext db)
         {
             _db = db;
@@ -35,7 +40,10 @@ namespace LearnS.DataAccess.Repository
             Question = new QuestionRepository(_db);
             User = new ApplicationUserRepository(_db);
             ExampleTask = new ExampleTaskRepository(_db);
-
+            ForumPost = new ForumPostRepository(_db);
+            ForumThread = new ForumThreadRepository(_db);
+            ForumComment = new ForumCommentRepository(_db);
+            ForumRating = new ForumRatingRepository(_db);
         }
 
 
