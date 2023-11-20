@@ -18,9 +18,16 @@ namespace LearnS.DataAccess.Repository
         {
             _db = db;
         }
-        public async Task<IEnumerable<ForumThread>> GetAllThreadsAsync()
+        public async Task<List<ForumThread>> GetAllThreadsAsync(bool includeUser = false)
         {
-            return await _db.ForumThreads.ToListAsync();
+            if (includeUser)
+            {
+                return await _db.ForumThreads.Include(ft => ft.User).ToListAsync();
+            }
+            else
+            {
+                return await _db.ForumThreads.ToListAsync();
+            }
         }
 
         public void Update(ForumThread obj)

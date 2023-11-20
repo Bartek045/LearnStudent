@@ -10,6 +10,7 @@ namespace LearnS.DataAccess.Repository.IRepository
     public interface IForumThreadRepository : IRepository<ForumThread>
     {
         void Update(ForumThread obj);
-        Task<IEnumerable<ForumThread>> GetAllThreadsAsync();
+        
+        Task<List<ForumThread>> GetAllThreadsAsync(bool includeUser = false);
     }
 }

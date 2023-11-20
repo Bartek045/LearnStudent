@@ -1,0 +1,22 @@
+﻿@model LearnS.Models.ForumThread
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="~/css/Forum.css" asp-append-version="true" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@Model.Title</title>
+</head>
+<body>
+    <h2>@Model.Title</h2>
+    <p>Zawartość: @Model.Content</p>
+    <p>Dodano: @Model.CreatedAt</p>
+    <p>Użytkownik: @Model.User?.UserName</p>
+
+    <!-- Dodaj dowolne dodatkowe informacje o wątku, jeśli są potrzebne -->
+
+    <div class="back-to-list">
+        <a asp-area="User" asp-controller="Forum" asp-action="Index">Powrót do listy wątków</a>
+    </div>
+</body>
+</html>
