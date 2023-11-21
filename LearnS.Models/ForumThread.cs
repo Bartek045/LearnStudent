@@ -28,6 +28,8 @@ namespace LearnS.Models
         [ForeignKey("UserId")]
         [ValidateNever]
         public ApplicationUser User { get; set; }
+        [ValidateNever]
+        public int NumberOfViews { get; set; }
 
 
         [ValidateNever]

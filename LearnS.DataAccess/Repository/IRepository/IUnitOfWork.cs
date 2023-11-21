@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LearnS.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,6 +26,7 @@ namespace LearnS.DataAccess.Repository.IRepository
         IForumCommentRepository ForumComment { get; }
         IForumRatingRepository ForumRating { get; }
         void Save();
+        Task<List<ForumThread>> GetAllThreadsAsync(bool includeUser);
 
 
     }

@@ -4,6 +4,7 @@ using LearnS.DataAccess.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LearnS.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231121213711_UpdateForumsModelsaddForumcomment")]
+    partial class UpdateForumsModelsaddForumcomment
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -105,7 +108,7 @@ namespace LearnS.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("AvatarsUploads", (string)null);
+                    b.ToTable("AvatarsUploads");
 
                     b.HasData(
                         new
@@ -140,7 +143,7 @@ namespace LearnS.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories", (string)null);
+                    b.ToTable("Categories");
 
                     b.HasData(
                         new
@@ -191,7 +194,7 @@ namespace LearnS.DataAccess.Migrations
 
                     b.HasIndex("SectionId");
 
-                    b.ToTable("ExampleTasks", (string)null);
+                    b.ToTable("ExampleTasks");
 
                     b.HasData(
                         new
@@ -238,7 +241,7 @@ namespace LearnS.DataAccess.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("ForumComments", (string)null);
+                    b.ToTable("ForumComments");
 
                     b.HasData(
                         new
@@ -283,7 +286,7 @@ namespace LearnS.DataAccess.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("ForumPosts", (string)null);
+                    b.ToTable("ForumPosts");
 
                     b.HasData(
                         new
@@ -321,7 +324,7 @@ namespace LearnS.DataAccess.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("ForumRatings", (string)null);
+                    b.ToTable("ForumRatings");
 
                     b.HasData(
                         new
@@ -364,7 +367,7 @@ namespace LearnS.DataAccess.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("ForumThreads", (string)null);
+                    b.ToTable("ForumThreads");
 
                     b.HasData(
                         new
@@ -407,7 +410,7 @@ namespace LearnS.DataAccess.Migrations
 
                     b.HasIndex("SectionId");
 
-                    b.ToTable("LearningMaterials", (string)null);
+                    b.ToTable("LearningMaterials");
 
                     b.HasData(
                         new
@@ -458,7 +461,7 @@ namespace LearnS.DataAccess.Migrations
 
                     b.HasIndex("QuizId");
 
-                    b.ToTable("Questions", (string)null);
+                    b.ToTable("Questions");
 
                     b.HasData(
                         new
@@ -493,7 +496,7 @@ namespace LearnS.DataAccess.Migrations
 
                     b.HasIndex("SectionId");
 
-                    b.ToTable("Quiz", (string)null);
+                    b.ToTable("Quiz");
 
                     b.HasData(
                         new
@@ -534,7 +537,7 @@ namespace LearnS.DataAccess.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Sections", (string)null);
+                    b.ToTable("Sections");
 
                     b.HasData(
                         new

@@ -1,6 +1,7 @@
 ﻿using LearnS.DataAccess.Data;
 using LearnS.DataAccess.Repository.IRepository;
 using LearnS.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -51,5 +52,17 @@ namespace LearnS.DataAccess.Repository
         {
             _db.SaveChanges();
         }
+        public async Task<List<ForumThread>> GetAllThreadsAsync(bool includeUser)
+        {
+            if (includeUser)
+            {
+                return await _db.ForumThreads.Include(t => t.User).ToListAsync();
+            }
+            else
+            {
+                return await _db.ForumThreads.ToListAsync();
+            }
+        }
+
     }
 }

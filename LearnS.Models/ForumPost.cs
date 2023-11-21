@@ -40,5 +40,10 @@ namespace LearnS.Models
 
         [ValidateNever]
         public List<ForumRating> ForumRatings { get; set; }
+        [ValidateNever]
+        public int NumberOfViews { get; set; } = 0;
+        [ValidateNever]
+        [Display(Name = "Number of Comments")]
+        public int NumberOfComments => ForumComments?.Count ?? 0;
     }
 }

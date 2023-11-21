@@ -199,6 +199,7 @@ namespace LearnS.DataAccess.Data
                  CreatedAt = DateTime.Now,
                  ForumPostId = 1,
                  UserId = "f096fef9-cdf0-4298-81b1-52925b2ef44d",
+                 
 
 
              }
