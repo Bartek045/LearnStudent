@@ -7,8 +7,6 @@ using Microsoft.AspNetCore.Mvc;
 namespace LearnStudent.Areas.User.Controllers
 {
     [Area("User")]
-
-
     public class LearningMaterialsController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -16,13 +14,27 @@ namespace LearnStudent.Areas.User.Controllers
 
         public LearningMaterialsController(IUnitOfWork unitOfWork)
         {
-           
             _unitOfWork = unitOfWork;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string section)
         {
-            IEnumerable<LearningMaterials> learningmaterialslist = _unitOfWork.LearningMaterials.GetAll(includeProperties: "Section");
+            IEnumerable<LearningMaterials> learningmaterialslist;
+
+            if (!string.IsNullOrEmpty(section))
+            {
+                learningmaterialslist = _unitOfWork.LearningMaterials.GetAll(
+                    filter: lm => lm.Section.Title == section,
+                    includeProperties: "Section"
+                );
+            }
+            else
+            {
+                learningmaterialslist = _unitOfWork.LearningMaterials.GetAll(includeProperties: "Section");
+            }
+
+            ViewBag.Section = section; 
+
             return View(learningmaterialslist);
         }
     }

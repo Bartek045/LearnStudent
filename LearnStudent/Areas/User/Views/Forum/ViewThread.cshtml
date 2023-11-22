@@ -1,0 +1,62 @@
+﻿@model LearnS.Models.ForumThread
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="~/css/Forum.css" asp-append-version="true" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@Model.Title</title>
+</head>
+<body>
+    <h2>@Model.Title</h2>
+    <p>Zawartość: @Model.Content</p>
+    <p>Dodano: @Model.CreatedAt</p>
+
+    <div class="add-comment">
+        <h3>Dodaj odpowiedź</h3>
+        <!-- Formularz do dodawania odpowiedzi -->
+        <form asp-area="User" asp-controller="Forum" asp-action="AddReply" method="post">
+            <input type="hidden" asp-for="Id" />
+
+            <div>
+                <label for="replyContent">Treść odpowiedzi:</label>
+                <textarea id="replyContent" name="replyContent" rows="5" required></textarea>
+            </div>
+
+            <!-- Dodaj pole na UserID (jeśli potrzebne) -->
+            
+
+            <div>
+                <button type="submit">Dodaj odpowiedź</button>
+            </div>
+        </form>
+    </div>
+
+ 
+    <div class="forum-replies">
+        <h3>Odpowiedzi:</h3>
+        @if (Model.ForumPosts != null && Model.ForumPosts.Any())
+        {
+            foreach (var reply in Model.ForumPosts)
+            {
+                <div class="forum-reply">
+                    <p>Zawartość odpowiedzi: @reply.Content</p>
+                    <p>Dodano: @reply.CreatedAt</p>
+                    <p>Użytkownik: @reply.User?.UserName</p>
+                </div>
+            }
+        }
+        else
+        {
+            <p>Brak odpowiedzi.</p>
+        }
+    </div>
+
+
+
+    <div class="back-to-list">
+        <a asp-area="User" asp-controller="Forum" asp-action="Index">Powrót do listy wątków</a>
+    </div>
+</body>
+</html>

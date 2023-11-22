@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
 
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/Table.css"/>
+    <link rel="stylesheet" href="~/css/Table.css" />
 
 </head>
 <body>
@@ -22,38 +22,49 @@
                     <button style="background-color: initial; color: white; border: solid 1px white; border-radius: 5px; margin: 0 20px 0 0" class="openbtn" onclick="openNav()">☰</button>
                     <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">LearnStudent</a>
                 </div>
-                
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <div>
-                        
                     </div>
-                    
+
                     <partial name="_LoginPartial" />
-                    
+
                 </div>
 
                 <div class="avatarAndProfileTabs">
-                    
+
                     <div class="userAvatar" onclick="showTabs()">
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            var avatarPath = "/images/avatars/cat03.jpg";
+                            <img src="@avatarPath" alt="Avatar" width="45px" height="45px" ;">
+                        }
                     </div>
-                    
-                    
+
+
                     <div class="profileTabs" id="profileTabs">
-                        <p><a href="#">
+
+                        <p>
+
+                            <a class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index">
+
                                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
                                     <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
                                 </svg>
-                        </a></p>
-                        <p><a href="#">
+                            </a>
+                        </p>
+                        <p>
+                            <a href="#">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z" />
                                     <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
                                 </svg>
-                        </a></p>
+                            </a>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -63,17 +74,17 @@
     </header>
     <div id="mySidebar" class="sidebarLayout">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-        
-            
-            <a class="nav-link" asp-area="User" asp-controller="Home" asp-action="Index">Home</a>
-            <a class="nav-link" asp-area="User" asp-controller="Home" asp-action="Privacy">Privacy</a>
-            <a class="nav-link" asp-area="Admin" asp-controller="AdminPanel" asp-action="Index">Panel administratora</a>
+
+        <a class="nav-link" asp-area="User" asp-controller="Forum" asp-action="Index">Forum</a>
+        <a class="nav-link" asp-area="User" asp-controller="Home" asp-action="Index">Home</a>
+        <a class="nav-link" asp-area="User" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        <a class="nav-link" asp-area="Admin" asp-controller="AdminPanel" asp-action="Index">Panel administratora</a>
 
 
 
 
 
-            <!--mhm-->
+        <!--mhm-->
         <div class="dropdown">
             <button class="dropdown-btn mainCategory">Matematyka<i class="arrow"></i></button>
 
@@ -83,14 +94,16 @@
                 <div class="dropdown-content">
                     <button style="font-size: 20px" class="dropdown-btn secondCategory">Statystyka 1<i class="arrow"></i></button>
                     <div class="dropdown-content">
-                        <a style="font-size: 16px" class="levels" asp-area="User" asp-controller="LearningMaterials" asp-action="Index">Materiały do nauki</a>
-                        <a style="font-size: 16px" class="levels" asp-area="User" asp-controller="Quiz" asp-action="Index"> Test</a>
+                        <a style="font-size: 16px" class="levels" href="javascript:void(0);" onclick="loadLearningMaterials('Statystyka')">Materiały do nauki</a>
+                        <a style="font-size: 16px" class="levels" href="javascript:void(0);" onclick="loadExampleTasks('Statystyka')">Zadania</a>
+                        <a style="font-size: 16px" class="levels" href="javascript:void(0);" onclick="loadQuizzes('Statystyka')">Test</a>
+
                     </div>
 
                     <button style="font-size: 20px" class="dropdown-btn secondCategory">Statystyka 2<i class="arrow"></i></button>
                     <div class="dropdown-content">
-                        <a style="font-size: 16px" class="levels" href="#">Materiały do nauki</a>
-                        <a style="font-size: 16px" class="levels" href="#">Test</a>
+                        <a style="font-size: 16px" class="levels" href="javascript:void(0);" onclick="loadLearningMaterials('Statystyka')">Materiały do nauki</a>
+                        <a style="font-size: 16px" class="levels" href="javascript:void(0);" onclick="loadQuizzes('Statystyka')">Test</a>
                     </div>
                 </div>
 
@@ -99,14 +112,14 @@
 
                     <button style="font-size: 20px" class="dropdown-btn secondCategory">Logika 1<i class="arrow"></i></button>
                     <div class="dropdown-content">
-                        <a style="font-size: 16px" class="levels" href="#">Materiały do nauki</a>
-                        <a style="font-size: 16px" class="levels" href="#">Test</a>
+                        <a style="font-size: 16px" class="levels" href="javascript:void(0);" onclick="loadLearningMaterials('Logika')">Materiały do nauki</a>
+                        <a style="font-size: 16px" class="levels" href="javascript:void(0);" onclick="loadQuizzes('Logika')">Test</a>
                     </div>
 
                     <button style="font-size: 20px" class="dropdown-btn secondCategory">Logika 2<i class="arrow"></i></button>
                     <div class="dropdown-content">
-                        <a style="font-size: 16px" class="levels" href="#">Materiały do nauki</a>
-                        <a style="font-size: 16px" class="levels" href="#">Test</a>
+                        <a style="font-size: 16px" class="levels" href="javascript:void(0);" onclick="loadLearningMaterials('Logika')">Materiały do nauki</a>
+                        <a style="font-size: 16px" class="levels" href="javascript:void(0);" onclick="loadQuizzes('Logika')">Test</a>
                     </div>
                 </div>
             </div>
@@ -122,7 +135,7 @@
                     <button style="font-size: 20px" class="dropdown-btn secondCategory">Statystyka 1<i class="arrow"></i></button>
                     <div class="dropdown-content">
                         <a style="font-size: 16px" class="levels" asp-area="User" asp-controller="LearningMaterials" asp-action="Index">Materiały do nauki</a>
-                        <a style="font-size: 16px" class="levels" asp-area="User" asp-controller="Quiz" asp-action="Index"> Test</a>
+                        <a style="font-size: 16px" class="levels" href="javascript:void(0);" onclick="loadQuizzes('Statystyka')">Test</a>
                     </div>
 
                     <button style="font-size: 20px" class="dropdown-btn secondCategory">Statystyka 2<i class="arrow"></i></button>
@@ -138,7 +151,7 @@
                     <button style="font-size: 20px" class="dropdown-btn secondCategory">Logika 1<i class="arrow"></i></button>
                     <div class="dropdown-content">
                         <a style="font-size: 16px" class="levels" href="#">Materiały do nauki</a>
-                        <a style="font-size: 16px" class="levels" href="#">Test</a>
+                        <a style="font-size: 16px" class="levels" href="javascript:void(0);" onclick="loadQuizzes('Logika')">Test</a>
                     </div>
 
                     <button style="font-size: 20px" class="dropdown-btn secondCategory">Logika 2<i class="arrow"></i></button>
@@ -150,72 +163,12 @@
             </div>
         </div>
 
-
-
-
-            
-
-
-    
-
-                    
-            
-
-
-        
-            <!--
-            <div class="dropdown" id="dropdown3">
-                <button onclick="showContent3()" class="mainCategory">Elektrotechnika  <i class="arrow"></i></button>
-
-                <div id="dropdown-content3" class="dropdown-content">
-                    <div class="dropdown2">
-                        <button style="font-size: 16px" onclick="showContent31()" class="secondCategory">Elektrotechnika 1  <i class="arrow"></i></button>
-
-<<<<<<< HEAD
-                        <div id="dropdown-content31" class="dropdown-content2">
-                            <a style="font-size: 16px" class="levels" asp-area="User" asp-controller="LearningMaterials" asp-action="Index">Materiały do nauki</a>
-                            <a style="font-size: 16px" class="levels" asp-area="User" asp-controller="Quiz" asp-action="Index"> Test</a>
-                        </div>
-=======
-            <div id="dropdown-content1" class="dropdown-content">
-                <div class="dropdown2">
-                    <button style="font-size: 16px" onclick="showContent11()" class="secondCategory">Statystyka  <i class="arrow"></i></button>
-                    
-                    <div id="dropdown-content11" class="dropdown-content2">
-                        <a style="font-size: 16px" class="levels" asp-area="User" asp-controller="LearningMaterials" asp-action="Index">Materiały do nauki</a>
-                        <a style="font-size: 16px" class="levels" href="#">Zadania</a>
-                        <a style="font-size: 16px" class="levels" asp-area="User" asp-controller="Quiz" asp-action="Index"> Test</a>
->>>>>>> 0860c3ee02ba970fd9c439c93629d9648610e195
-                    </div>
-
-<<<<<<< HEAD
-                    <div class="dropdown2">
-                        <button style="font-size: 16px" onclick="showContent32()" class="secondCategory">Elektrotechnika 2  <i class="arrow"></i></button>
-
-                        <div id="dropdown-content32" class="dropdown-content2">
-                            <a style="font-size: 16px" class="levels" href="#">Materiały do nauki</a>
-                            <a style="font-size: 16px" class="levels" href="#">Test</a>
-                        </div>
-=======
-                <div  class="dropdown2">
-                    <button style="font-size: 16px" onclick="showContent12()" class="secondCategory">Logika  <i class="arrow"></i></button>
-                    
-                    <div id="dropdown-content12" class="dropdown-content2">
-                        <a style="font-size: 16px" class="levels" href="#">Materiały do nauki</a>
-                        <a style="font-size: 16px" class="levels" href="#">Zadania</a>
-                        <a style="font-size: 16px" class="levels" asp-area="User" asp-controller="Quiz" asp-action="Index"> Test</a>
->>>>>>> 0860c3ee02ba970fd9c439c93629d9648610e195
-                    </div>
-
-                </div>
-            </div>
-        -->
     </div>
 
-    
+
     <div class="container">
         <main role="main" class="pb-3">
-            
+
             @RenderBody()
         </main>
     </div>
@@ -227,7 +180,7 @@
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script> 
+    <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="//cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js" asp-append-version="true"></script>
     <script src="https://cdn.tiny.cloud/1/73aiauzwcdykvenqcz6q151jcv8ex8gf50prwlxanpr5wff7/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>

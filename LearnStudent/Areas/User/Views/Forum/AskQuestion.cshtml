@@ -1,0 +1,22 @@
+﻿
+@model ForumVM
+
+<h2>Zadaj Pytanie</h2>
+
+<form asp-action="AskQuestion" method="post">
+    <div class="form-group">
+        <label asp-for="ForumThread.Title" class="control-label"></label>
+        <input asp-for="ForumThread.Title" class="form-control" />
+        <span asp-validation-for="ForumThread.Title" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ForumThread.Content" class="control-label"></label>
+        <textarea asp-for="ForumThread.Content" class="form-control"></textarea>
+        <span asp-validation-for="ForumThread.Content" class="text-danger"></span>
+    </div>
+    <input asp-for="ForumThread.CreatedAt" type="hidden" />
+    <input asp-for="ForumThread.User.UserName" type="hidden" />
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

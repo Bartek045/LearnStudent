@@ -70,3 +70,4 @@ C:\Users\barte\Desktop\Projekt\LearnS.Utility\obj\Debug\net7.0\LearnS.Utility.dl
 C:\Users\barte\Desktop\Projekt\LearnS.Utility\obj\Debug\net7.0\refint\LearnS.Utility.dll
 C:\Users\barte\Desktop\Projekt\LearnS.Utility\obj\Debug\net7.0\LearnS.Utility.pdb
 C:\Users\barte\Desktop\Projekt\LearnS.Utility\obj\Debug\net7.0\ref\LearnS.Utility.dll
+C:\Users\barte\Desktop\LearnStudent\LearnStudent\LearnS.Utility\obj\Debug\net7.0\LearnS.Utility.sourcelink.json

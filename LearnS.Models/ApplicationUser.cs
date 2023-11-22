@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -8,14 +9,10 @@ using System.Threading.Tasks;
 
 namespace LearnS.Models
 {
-    public class ApplicationUser:IdentityUser
+    public class ApplicationUser : IdentityUser
     {
-        [Required]
-        public string Name {  get; set; }
+        [ValidateNever]
+        public List<ForumPost> ForumPost { get; set; }
 
-        public string? StreetAddress { get; set; }
-        public string? City { get; set; }
-        public string? Region { get; set; }
-        public string? PostalCode { get; set; }
     }
 }

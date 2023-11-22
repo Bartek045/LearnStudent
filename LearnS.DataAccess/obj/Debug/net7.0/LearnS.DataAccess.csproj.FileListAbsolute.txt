@@ -112,3 +112,4 @@ C:\Users\barte\Desktop\Projekt\LearnS.DataAccess\obj\Debug\net7.0\refint\LearnS.
 C:\Users\barte\Desktop\Projekt\LearnS.DataAccess\obj\Debug\net7.0\LearnS.DataAccess.pdb
 C:\Users\barte\Desktop\Projekt\LearnS.DataAccess\obj\Debug\net7.0\LearnS.DataAccess.genruntimeconfig.cache
 C:\Users\barte\Desktop\Projekt\LearnS.DataAccess\obj\Debug\net7.0\ref\LearnS.DataAccess.dll
+C:\Users\barte\Desktop\LearnStudent\LearnStudent\LearnS.DataAccess\obj\Debug\net7.0\LearnS.DataAccess.sourcelink.json

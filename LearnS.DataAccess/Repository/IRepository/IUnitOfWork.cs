@@ -1,4 +1,4 @@
-﻿
+﻿using LearnS.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +19,14 @@ namespace LearnS.DataAccess.Repository.IRepository
 
         IQuestionRepository Question { get; }
 
+        IApplicationUserRepository User { get; }
+        IExampleTaskRepository ExampleTask { get;}
+        IForumPostRepository ForumPost { get; }
+        IForumThreadRepository ForumThread { get; }
+        IForumCommentRepository ForumComment { get; }
+        IForumRatingRepository ForumRating { get; }
         void Save();
+        Task<List<ForumThread>> GetAllThreadsAsync(bool includeUser);
 
 
     }

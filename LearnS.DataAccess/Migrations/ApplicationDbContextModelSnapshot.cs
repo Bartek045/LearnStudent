@@ -22,6 +22,71 @@ namespace LearnS.DataAccess.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("LearnS.Models.ApplicationUser", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("AccessFailedCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("PasswordHash")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedEmail")
+                        .HasDatabaseName("EmailIndex");
+
+                    b.HasIndex("NormalizedUserName")
+                        .IsUnique()
+                        .HasDatabaseName("UserNameIndex")
+                        .HasFilter("[NormalizedUserName] IS NOT NULL");
+
+                    b.ToTable("AspNetUsers", (string)null);
+                });
+
             modelBuilder.Entity("LearnS.Models.AvatarsUpload", b =>
                 {
                     b.Property<int>("Id")
@@ -40,7 +105,7 @@ namespace LearnS.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("AvatarsUploads");
+                    b.ToTable("AvatarsUploads", (string)null);
 
                     b.HasData(
                         new
@@ -75,7 +140,7 @@ namespace LearnS.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Categories", (string)null);
 
                     b.HasData(
                         new
@@ -95,6 +160,221 @@ namespace LearnS.DataAccess.Migrations
                             Id = 3,
                             DisplayOrder = 3,
                             Name = "Physics"
+                        });
+                });
+
+            modelBuilder.Entity("LearnS.Models.ExampleTasks", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ExampleTask")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("SectionId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Solution")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SectionId");
+
+                    b.ToTable("ExampleTasks", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            ExampleTask = "Ile to 2 + 2?",
+                            SectionId = 2,
+                            Solution = "2 + 2 to 4 xD",
+                            Title = "Zadania z statystyki"
+                        });
+                });
+
+            modelBuilder.Entity("LearnS.Models.ForumComment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("CreatedAt");
+
+                    b.Property<int>("ForumPostId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ForumThreadId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ForumPostId");
+
+                    b.HasIndex("ForumThreadId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("ForumComments", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Content = "komentarz",
+                            CreatedAt = new DateTime(2023, 11, 21, 22, 37, 11, 342, DateTimeKind.Local).AddTicks(2628),
+                            ForumPostId = 1,
+                            UserId = "f096fef9-cdf0-4298-81b1-52925b2ef44d"
+                        });
+                });
+
+            modelBuilder.Entity("LearnS.Models.ForumPost", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("CreatedAt");
+
+                    b.Property<int>("ForumThreadId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("NumberOfViews")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ForumThreadId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("ForumPosts", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Content = "zawartość testowa",
+                            CreatedAt = new DateTime(2023, 11, 21, 22, 37, 11, 342, DateTimeKind.Local).AddTicks(2592),
+                            ForumThreadId = 1,
+                            NumberOfViews = 0,
+                            UserId = "f096fef9-cdf0-4298-81b1-52925b2ef44d"
+                        });
+                });
+
+            modelBuilder.Entity("LearnS.Models.ForumRating", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("ForumPostId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("Value")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ForumPostId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("ForumRatings", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            ForumPostId = 1,
+                            UserId = "f096fef9-cdf0-4298-81b1-52925b2ef44d",
+                            Value = 1
+                        });
+                });
+
+            modelBuilder.Entity("LearnS.Models.ForumThread", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("CreatedAt");
+
+                    b.Property<int>("NumberOfViews")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("ForumThreads", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Content = "zawartość testowa",
+                            CreatedAt = new DateTime(2023, 11, 21, 22, 37, 11, 342, DateTimeKind.Local).AddTicks(2525),
+                            NumberOfViews = 0,
+                            Title = "Tytuł testowy 1",
+                            UserId = "f096fef9-cdf0-4298-81b1-52925b2ef44d"
                         });
                 });
 
@@ -127,7 +407,7 @@ namespace LearnS.DataAccess.Migrations
 
                     b.HasIndex("SectionId");
 
-                    b.ToTable("LearningMaterials");
+                    b.ToTable("LearningMaterials", (string)null);
 
                     b.HasData(
                         new
@@ -178,7 +458,7 @@ namespace LearnS.DataAccess.Migrations
 
                     b.HasIndex("QuizId");
 
-                    b.ToTable("Questions");
+                    b.ToTable("Questions", (string)null);
 
                     b.HasData(
                         new
@@ -213,7 +493,7 @@ namespace LearnS.DataAccess.Migrations
 
                     b.HasIndex("SectionId");
 
-                    b.ToTable("Quiz");
+                    b.ToTable("Quiz", (string)null);
 
                     b.HasData(
                         new
@@ -254,7 +534,7 @@ namespace LearnS.DataAccess.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Sections");
+                    b.ToTable("Sections", (string)null);
 
                     b.HasData(
                         new
@@ -333,79 +613,6 @@ namespace LearnS.DataAccess.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetRoleClaims", (string)null);
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUser", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int>("AccessFailedCount")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Email")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.Property<bool>("EmailConfirmed")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("LockoutEnabled")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTimeOffset?>("LockoutEnd")
-                        .HasColumnType("datetimeoffset");
-
-                    b.Property<string>("NormalizedEmail")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.Property<string>("NormalizedUserName")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.Property<string>("PasswordHash")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("PhoneNumberConfirmed")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("SecurityStamp")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("TwoFactorEnabled")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("UserName")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("NormalizedEmail")
-                        .HasDatabaseName("EmailIndex");
-
-                    b.HasIndex("NormalizedUserName")
-                        .IsUnique()
-                        .HasDatabaseName("UserNameIndex")
-                        .HasFilter("[NormalizedUserName] IS NOT NULL");
-
-                    b.ToTable("AspNetUsers", (string)null);
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("IdentityUser");
-
-                    b.UseTphMappingStrategy();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -489,27 +696,87 @@ namespace LearnS.DataAccess.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("LearnS.Models.ApplicationUser", b =>
+            modelBuilder.Entity("LearnS.Models.ExampleTasks", b =>
                 {
-                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
+                    b.HasOne("LearnS.Models.Section", "Section")
+                        .WithMany()
+                        .HasForeignKey("SectionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Property<string>("City")
-                        .HasColumnType("nvarchar(max)");
+                    b.Navigation("Section");
+                });
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+            modelBuilder.Entity("LearnS.Models.ForumComment", b =>
+                {
+                    b.HasOne("LearnS.Models.ForumPost", "ForumPost")
+                        .WithMany("ForumComments")
+                        .HasForeignKey("ForumPostId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
 
-                    b.Property<string>("PostalCode")
-                        .HasColumnType("nvarchar(max)");
+                    b.HasOne("LearnS.Models.ForumThread", null)
+                        .WithMany("ForumComments")
+                        .HasForeignKey("ForumThreadId");
 
-                    b.Property<string>("Region")
-                        .HasColumnType("nvarchar(max)");
+                    b.HasOne("LearnS.Models.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Property<string>("StreetAddress")
-                        .HasColumnType("nvarchar(max)");
+                    b.Navigation("ForumPost");
 
-                    b.HasDiscriminator().HasValue("ApplicationUser");
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("LearnS.Models.ForumPost", b =>
+                {
+                    b.HasOne("LearnS.Models.ForumThread", "ForumThread")
+                        .WithMany("ForumPosts")
+                        .HasForeignKey("ForumThreadId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("LearnS.Models.ApplicationUser", "User")
+                        .WithMany("ForumPost")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ForumThread");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("LearnS.Models.ForumRating", b =>
+                {
+                    b.HasOne("LearnS.Models.ForumPost", "ForumPost")
+                        .WithMany("ForumRatings")
+                        .HasForeignKey("ForumPostId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("LearnS.Models.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ForumPost");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("LearnS.Models.ForumThread", b =>
+                {
+                    b.HasOne("LearnS.Models.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("LearnS.Models.LearningMaterials", b =>
@@ -567,7 +834,7 @@ namespace LearnS.DataAccess.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                    b.HasOne("LearnS.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -576,7 +843,7 @@ namespace LearnS.DataAccess.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                    b.HasOne("LearnS.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -591,7 +858,7 @@ namespace LearnS.DataAccess.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                    b.HasOne("LearnS.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -600,11 +867,30 @@ namespace LearnS.DataAccess.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                    b.HasOne("LearnS.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("LearnS.Models.ApplicationUser", b =>
+                {
+                    b.Navigation("ForumPost");
+                });
+
+            modelBuilder.Entity("LearnS.Models.ForumPost", b =>
+                {
+                    b.Navigation("ForumComments");
+
+                    b.Navigation("ForumRatings");
+                });
+
+            modelBuilder.Entity("LearnS.Models.ForumThread", b =>
+                {
+                    b.Navigation("ForumComments");
+
+                    b.Navigation("ForumPosts");
                 });
 
             modelBuilder.Entity("LearnS.Models.Quiz", b =>
