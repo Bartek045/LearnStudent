@@ -1,14 +1,8 @@
 {
   "version": 2,
-<<<<<<< HEAD
   "dgSpecHash": "iZ0wGuhss557aXHMG505UgA7eGCvaYkrRhWRoRpRD7DNqzGae3dM8Q/LsWkbKHN2VMva86ejeBLUFsIhAwXzkw==",
   "success": true,
   "projectFilePath": "C:\\Users\\gaben\\OneDrive\\Pulpit\\learnstudent\\LearnStudent\\LearnS.DataAccess\\LearnS.DataAccess.csproj",
-=======
-  "dgSpecHash": "WiAp1oTwPSujjEsiwecSgCk52uaLTn7O3/ed3F0JFAthiDX1Xa3hYP6fbOLyZCpRJHsEcTJ/u1wiV4nh4tRu/g==",
-  "success": true,
-  "projectFilePath": "C:\\Users\\barte\\Desktop\\LearnStudent\\LearnStudent\\LearnS.DataAccess\\LearnS.DataAccess.csproj",
->>>>>>> 0860c3ee02ba970fd9c439c93629d9648610e195
   "expectedPackageFiles": [
     "C:\\Users\\gaben\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\gaben\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
