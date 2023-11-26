@@ -15,7 +15,6 @@
         <thead>
             <tr>
                 <th class="hidden-column">Głosy, Odpowiedzi, Wyświetlenia</th>
-                
                 <th class="hidden-column">Tytuł</th>
             </tr>
         </thead>
@@ -29,10 +28,7 @@
                             @totalRatings
                         }
                         <br />
-                        Odpowiedzi: @{
-                            var totalComments = forumThread.ForumPosts?.Sum(fp => fp.NumberOfComments) ?? 0;
-                            @totalComments
-                        }
+                        Odpowiedzi: <span class="replaycount">@forumThread.ReplyCount</span>
                         <br />
                         Wyświetlenia: <span class="number-of-views">@forumThread.NumberOfViews</span>
                     </td>
@@ -44,14 +40,7 @@
         </tbody>
     </table>
 
-    <div class="top-questions">
-        <div class="filter-buttons">
-            <button>Interesting</button>
-            <button class="active">Bountied</button>
-            <button>Hot</button>
-            <button>Week</button>
-            <button>Month</button>
-        </div>
+   
         <a class="btn btn-primary float-right" asp-area="User" asp-controller="Forum" asp-action="AskQuestion">Zadaj Pytanie</a>
     </div>
 </body>

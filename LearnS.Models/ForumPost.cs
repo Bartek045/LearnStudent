@@ -29,7 +29,7 @@ namespace LearnS.Models
         [ValidateNever]
         public ForumThread ForumThread { get; set; }
 
-
+        [ValidateNever]
         public string UserId { get; set; }
         [ForeignKey("UserId")]
         [ValidateNever]
@@ -39,6 +39,7 @@ namespace LearnS.Models
         public List<ForumComment> ForumComments { get; set; }
 
         [ValidateNever]
+
         public List<ForumRating> ForumRatings { get; set; }
         [ValidateNever]
         public int NumberOfViews { get; set; } = 0;

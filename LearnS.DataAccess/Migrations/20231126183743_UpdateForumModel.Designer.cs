@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LearnS.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231121213711_UpdateForumsModelsaddForumcomment")]
-    partial class UpdateForumsModelsaddForumcomment
+    [Migration("20231126183743_UpdateForumModel")]
+    partial class UpdateForumModel
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -226,9 +226,6 @@ namespace LearnS.DataAccess.Migrations
                     b.Property<int>("ForumPostId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("ForumThreadId")
-                        .HasColumnType("int");
-
                     b.Property<string>("UserId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
@@ -236,8 +233,6 @@ namespace LearnS.DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("ForumPostId");
-
-                    b.HasIndex("ForumThreadId");
 
                     b.HasIndex("UserId");
 
@@ -248,7 +243,7 @@ namespace LearnS.DataAccess.Migrations
                         {
                             Id = 1,
                             Content = "komentarz",
-                            CreatedAt = new DateTime(2023, 11, 21, 22, 37, 11, 342, DateTimeKind.Local).AddTicks(2628),
+                            CreatedAt = new DateTime(2023, 11, 26, 19, 37, 43, 567, DateTimeKind.Local).AddTicks(9521),
                             ForumPostId = 1,
                             UserId = "f096fef9-cdf0-4298-81b1-52925b2ef44d"
                         });
@@ -293,7 +288,7 @@ namespace LearnS.DataAccess.Migrations
                         {
                             Id = 1,
                             Content = "zawartość testowa",
-                            CreatedAt = new DateTime(2023, 11, 21, 22, 37, 11, 342, DateTimeKind.Local).AddTicks(2592),
+                            CreatedAt = new DateTime(2023, 11, 26, 19, 37, 43, 567, DateTimeKind.Local).AddTicks(9482),
                             ForumThreadId = 1,
                             NumberOfViews = 0,
                             UserId = "f096fef9-cdf0-4298-81b1-52925b2ef44d"
@@ -355,6 +350,9 @@ namespace LearnS.DataAccess.Migrations
                     b.Property<int>("NumberOfViews")
                         .HasColumnType("int");
 
+                    b.Property<int>("ReplyCount")
+                        .HasColumnType("int");
+
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -374,8 +372,9 @@ namespace LearnS.DataAccess.Migrations
                         {
                             Id = 1,
                             Content = "zawartość testowa",
-                            CreatedAt = new DateTime(2023, 11, 21, 22, 37, 11, 342, DateTimeKind.Local).AddTicks(2525),
+                            CreatedAt = new DateTime(2023, 11, 26, 19, 37, 43, 567, DateTimeKind.Local).AddTicks(9415),
                             NumberOfViews = 0,
+                            ReplyCount = 0,
                             Title = "Tytuł testowy 1",
                             UserId = "f096fef9-cdf0-4298-81b1-52925b2ef44d"
                         });
@@ -715,12 +714,8 @@ namespace LearnS.DataAccess.Migrations
                     b.HasOne("LearnS.Models.ForumPost", "ForumPost")
                         .WithMany("ForumComments")
                         .HasForeignKey("ForumPostId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
-
-                    b.HasOne("LearnS.Models.ForumThread", null)
-                        .WithMany("ForumComments")
-                        .HasForeignKey("ForumThreadId");
 
                     b.HasOne("LearnS.Models.ApplicationUser", "User")
                         .WithMany()
@@ -738,7 +733,7 @@ namespace LearnS.DataAccess.Migrations
                     b.HasOne("LearnS.Models.ForumThread", "ForumThread")
                         .WithMany("ForumPosts")
                         .HasForeignKey("ForumThreadId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("LearnS.Models.ApplicationUser", "User")
@@ -757,7 +752,7 @@ namespace LearnS.DataAccess.Migrations
                     b.HasOne("LearnS.Models.ForumPost", "ForumPost")
                         .WithMany("ForumRatings")
                         .HasForeignKey("ForumPostId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("LearnS.Models.ApplicationUser", "User")
@@ -891,8 +886,6 @@ namespace LearnS.DataAccess.Migrations
 
             modelBuilder.Entity("LearnS.Models.ForumThread", b =>
                 {
-                    b.Navigation("ForumComments");
-
                     b.Navigation("ForumPosts");
                 });
 

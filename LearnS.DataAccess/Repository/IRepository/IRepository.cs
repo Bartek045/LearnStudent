@@ -12,5 +12,6 @@ namespace LearnS.DataAccess.Repository.IRepository
         void Add(T entity);
         void Remove(T entity);
         void RemoveRange(IEnumerable<T> entity);
+        IEnumerable<T> Find(Expression<Func<T, bool>> expression);
     }
 }

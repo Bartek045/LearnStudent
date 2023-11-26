@@ -1,14 +1,8 @@
 {
   "version": 2,
-<<<<<<< HEAD
-  "dgSpecHash": "Eqz7ncl6M1jtZAA6IaR0viTm6ido/cWKCXx0fXu0Ke0B1DmYQzur57cesJBZ3/moSucyYxRXfF4wfzcH/DvKEQ==",
-  "success": true,
-  "projectFilePath": "C:\\Users\\gaben\\OneDrive\\Pulpit\\learnstudent\\LearnStudent\\LearnS.Utility\\LearnS.Utility.csproj",
-=======
   "dgSpecHash": "xjKgvymTxVPzn1DP1hj7mLlTnj4m8TC2uZa5ezcGLrQAhUwEKdx5lRutxWqPkMzfdfkaYmDEsM6e0aW9mzqXkg==",
   "success": true,
   "projectFilePath": "C:\\Users\\barte\\Desktop\\LearnStudent\\LearnStudent\\LearnS.Utility\\LearnS.Utility.csproj",
->>>>>>> 21ddeed76cebd73d3499bb4338bdc053d013a71a
   "expectedPackageFiles": [
     "C:\\Users\\barte\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\7.0.14\\microsoft.aspnetcore.cryptography.internal.7.0.14.nupkg.sha512",
     "C:\\Users\\barte\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\7.0.14\\microsoft.aspnetcore.cryptography.keyderivation.7.0.14.nupkg.sha512",
@@ -25,5 +19,12 @@
     "C:\\Users\\barte\\.nuget\\packages\\microsoft.extensions.options\\7.0.1\\microsoft.extensions.options.7.0.1.nupkg.sha512",
     "C:\\Users\\barte\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0\\microsoft.extensions.primitives.7.0.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Wystąpił problem podczas czytania pliku pamięci podręcznej C:\\Users\\barte\\Desktop\\LearnStudent\\LearnStudent\\LearnS.Utility\\obj\\project.nuget.cache: Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

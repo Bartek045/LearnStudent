@@ -67,5 +67,11 @@ namespace LearnS.DataAccess.Repository
         {
             dbSet.RemoveRange(entity);
         }
+
+        public IEnumerable<T> Find(Expression<Func<T, bool>> expression)
+        {
+            
+            return _db.Set<T>().Where(expression).ToList();
+        }
     }
 }

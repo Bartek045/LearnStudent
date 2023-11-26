@@ -1,14 +1,8 @@
 {
   "version": 2,
-<<<<<<< HEAD
-  "dgSpecHash": "iZ0wGuhss557aXHMG505UgA7eGCvaYkrRhWRoRpRD7DNqzGae3dM8Q/LsWkbKHN2VMva86ejeBLUFsIhAwXzkw==",
-  "success": true,
-  "projectFilePath": "C:\\Users\\gaben\\OneDrive\\Pulpit\\learnstudent\\LearnStudent\\LearnS.DataAccess\\LearnS.DataAccess.csproj",
-=======
   "dgSpecHash": "/1dSgq1VrAuImVJtLE0r+ZIkOSWf6guy/IAnuW/SVFMirOYXX0XUPfDaDVp9KHiH20DXIHmV5C8gG432gxKO4A==",
   "success": true,
   "projectFilePath": "C:\\Users\\barte\\Desktop\\LearnStudent\\LearnStudent\\LearnS.DataAccess\\LearnS.DataAccess.csproj",
->>>>>>> 21ddeed76cebd73d3499bb4338bdc053d013a71a
   "expectedPackageFiles": [
     "C:\\Users\\barte\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\barte\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
@@ -185,5 +179,12 @@
     "C:\\Users\\barte\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\barte\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Wystąpił problem podczas czytania pliku pamięci podręcznej C:\\Users\\barte\\Desktop\\LearnStudent\\LearnStudent\\LearnS.DataAccess\\obj\\project.nuget.cache: Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

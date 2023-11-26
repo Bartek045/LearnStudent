@@ -7064,19 +7064,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
-      "projectUniqueName": "C:\\Users\\gaben\\OneDrive\\Pulpit\\learnstudent\\LearnStudent\\LearnS.Models\\LearnS.Models.csproj",
-      "projectName": "LearnS.Models",
-      "projectPath": "C:\\Users\\gaben\\OneDrive\\Pulpit\\learnstudent\\LearnStudent\\LearnS.Models\\LearnS.Models.csproj",
-      "packagesPath": "C:\\Users\\gaben\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\gaben\\OneDrive\\Pulpit\\learnstudent\\LearnStudent\\LearnS.Models\\obj\\",
-=======
       "projectUniqueName": "C:\\Users\\barte\\Desktop\\LearnStudent\\LearnStudent\\LearnS.Models\\LearnS.Models.csproj",
       "projectName": "LearnS.Models",
       "projectPath": "C:\\Users\\barte\\Desktop\\LearnStudent\\LearnStudent\\LearnS.Models\\LearnS.Models.csproj",
       "packagesPath": "C:\\Users\\barte\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\barte\\Desktop\\LearnStudent\\LearnStudent\\LearnS.Models\\obj\\",
->>>>>>> 21ddeed76cebd73d3499bb4338bdc053d013a71a
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -7142,5 +7134,13 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Wystąpił problem podczas czytania pliku pamięci podręcznej C:\\Users\\barte\\Desktop\\LearnStudent\\LearnStudent\\LearnS.Models\\obj\\project.nuget.cache: Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

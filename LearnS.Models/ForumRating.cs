@@ -15,8 +15,8 @@ namespace LearnS.Models
         [Key]
         public int Id { get; set; }
 
-        [Required]
-        [Range(1, 5)]
+      
+        
         public int Value { get; set; }
 
 
@@ -29,6 +29,7 @@ namespace LearnS.Models
         [ForeignKey("UserId")]
         [ValidateNever]
         public string UserId { get; set; }
+        [ValidateNever]
         public ApplicationUser User { get; set; }
     }
 }

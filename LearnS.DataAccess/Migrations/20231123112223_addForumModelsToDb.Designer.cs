@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LearnS.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231120083249_UpdateForumModels")]
-    partial class UpdateForumModels
+    [Migration("20231123112223_addForumModelsToDb")]
+    partial class addForumModelsToDb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -243,7 +243,7 @@ namespace LearnS.DataAccess.Migrations
                         {
                             Id = 1,
                             Content = "komentarz",
-                            CreatedAt = new DateTime(2023, 11, 20, 9, 32, 49, 311, DateTimeKind.Local).AddTicks(4781),
+                            CreatedAt = new DateTime(2023, 11, 23, 12, 22, 23, 67, DateTimeKind.Local).AddTicks(3630),
                             ForumPostId = 1,
                             UserId = "f096fef9-cdf0-4298-81b1-52925b2ef44d"
                         });
@@ -288,7 +288,7 @@ namespace LearnS.DataAccess.Migrations
                         {
                             Id = 1,
                             Content = "zawartość testowa",
-                            CreatedAt = new DateTime(2023, 11, 20, 9, 32, 49, 311, DateTimeKind.Local).AddTicks(4723),
+                            CreatedAt = new DateTime(2023, 11, 23, 12, 22, 23, 67, DateTimeKind.Local).AddTicks(3591),
                             ForumThreadId = 1,
                             NumberOfViews = 0,
                             UserId = "f096fef9-cdf0-4298-81b1-52925b2ef44d"
@@ -347,6 +347,9 @@ namespace LearnS.DataAccess.Migrations
                         .HasColumnType("datetime2")
                         .HasColumnName("CreatedAt");
 
+                    b.Property<int>("NumberOfViews")
+                        .HasColumnType("int");
+
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -366,7 +369,8 @@ namespace LearnS.DataAccess.Migrations
                         {
                             Id = 1,
                             Content = "zawartość testowa",
-                            CreatedAt = new DateTime(2023, 11, 20, 9, 32, 49, 309, DateTimeKind.Local).AddTicks(5018),
+                            CreatedAt = new DateTime(2023, 11, 23, 12, 22, 23, 67, DateTimeKind.Local).AddTicks(3518),
+                            NumberOfViews = 0,
                             Title = "Tytuł testowy 1",
                             UserId = "f096fef9-cdf0-4298-81b1-52925b2ef44d"
                         });
