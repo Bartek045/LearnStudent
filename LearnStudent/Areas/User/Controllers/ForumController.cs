@@ -25,16 +25,7 @@ namespace LearnStudent.Areas.User.Controllers
             _unitOfWork = unitOfWork;
             _userManager = userManager;
         }
-        private async Task<bool> IsUserAdmin()
-        {
-            var user = await _userManager.GetUserAsync(User);
-            if (user != null)
-            {
-                return await _userManager.IsInRoleAsync(user, SD.Role_Admin);
-            }
 
-            return false;
-        }
 
         public async Task<IActionResult> AskQuestion(int? id)
         {
@@ -54,7 +45,6 @@ namespace LearnStudent.Areas.User.Controllers
 
             return View(forumVM);
         }
-
 
         public async Task<IActionResult> ViewThreadAsync(int id)
         {
@@ -76,18 +66,19 @@ namespace LearnStudent.Areas.User.Controllers
             return View(forumThread);
         }
 
+
         private void UpdateReplyCount(int threadId)
         {
             var thread = _unitOfWork.ForumThread.Get(t => t.Id == threadId, includeProperties: "ForumPosts");
 
             if (thread != null)
             {
-              
                 thread.ReplyCount = thread.ForumPosts.Count;
                 _unitOfWork.ForumThread.Update(thread);
                 _unitOfWork.Save();
             }
         }
+
 
 
 
@@ -109,7 +100,6 @@ namespace LearnStudent.Areas.User.Controllers
 
             return View(forumThreads);
         }
-
 
         [HttpPost]
         public async Task<IActionResult> AskQuestion(ForumVM forumVM)
@@ -187,15 +177,11 @@ namespace LearnStudent.Areas.User.Controllers
                 _unitOfWork.Save();
             }
 
-            forumThread.NumberOfViews++;
-            _unitOfWork.ForumThread.Update(forumThread);
-            _unitOfWork.Save();
-
-            forumThread.NumberOfViews++;
             UpdateReplyCount(forumThread.Id);
 
             return RedirectToAction("ViewThread", new { id = forumThread.Id });
         }
+
 
         [HttpPost]
         public async Task<IActionResult> AddComment(int replyId, string commentContent)
@@ -313,25 +299,30 @@ namespace LearnStudent.Areas.User.Controllers
 
             return RedirectToAction("ViewThread", new { id = commentToDelete.ForumPost.ForumThreadId });
         }
-
         [HttpPost]
         public async Task<IActionResult> DeleteThread(int threadId)
         {
-            var userId = _userManager.GetUserId(User);
-            Debug.WriteLine($"Zalogowany użytkownik: {userId}");
-
-            var threadToDelete = _unitOfWork.ForumThread.Get(t => t.Id == threadId && t.UserId == userId);
+            var threadToDelete = _unitOfWork.ForumThread.Get(t => t.Id == threadId);
 
             if (threadToDelete == null)
             {
                 return NotFound();
             }
 
+            var relatedPosts = _unitOfWork.ForumPost.Find(fp => fp.ForumThreadId == threadId);
+            var relatedPostIds = relatedPosts.Select(fp => fp.Id);
+
+            var relatedRatings = _unitOfWork.ForumRating.Find(r => relatedPostIds.Contains(r.ForumPostId));
+
+            _unitOfWork.ForumRating.RemoveRange(relatedRatings);  
+            _unitOfWork.ForumPost.RemoveRange(relatedPosts);
             _unitOfWork.ForumThread.Remove(threadToDelete);
             _unitOfWork.Save();
 
             return RedirectToAction("Index");
         }
+
+
 
 
 
