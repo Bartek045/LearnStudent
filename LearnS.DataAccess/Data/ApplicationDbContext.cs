@@ -166,7 +166,7 @@ namespace LearnS.DataAccess.Data
                  Title = "Tytuł testowy 1",
                  Content = "zawartość testowa",
                  CreatedAt = DateTime.Now,
-                 UserId = "f096fef9-cdf0-4298-81b1-52925b2ef44d",
+                 UserId = "09799bcd-3aed-47cd-a6a2-4f80de96b979",
 
 
 
@@ -180,7 +180,7 @@ namespace LearnS.DataAccess.Data
                  Content = "zawartość testowa",
                  CreatedAt = DateTime.Now,
                  ForumThreadId = 1,
-                 UserId = "f096fef9-cdf0-4298-81b1-52925b2ef44d",
+                 UserId = "09799bcd-3aed-47cd-a6a2-4f80de96b979",
 
 
              }
@@ -191,7 +191,7 @@ namespace LearnS.DataAccess.Data
                    Id = 1,
                    Value = 1,
                    ForumPostId = 1,
-                   UserId = "f096fef9-cdf0-4298-81b1-52925b2ef44d",
+                   UserId = "09799bcd-3aed-47cd-a6a2-4f80de96b979",
 
 
 
@@ -204,7 +204,7 @@ namespace LearnS.DataAccess.Data
             Content = "komentarz",
             CreatedAt = DateTime.Now,
             ForumPostId = 1,
-            UserId = "f096fef9-cdf0-4298-81b1-52925b2ef44d"
+            UserId = "09799bcd-3aed-47cd-a6a2-4f80de96b979"
         }
     );
 

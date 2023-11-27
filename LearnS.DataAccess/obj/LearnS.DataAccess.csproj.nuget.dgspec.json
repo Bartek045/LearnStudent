@@ -1,7 +1,6 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
     "C:\\Users\\gaben\\OneDrive\\Pulpit\\learnstudent\\LearnStudent\\LearnS.DataAccess\\LearnS.DataAccess.csproj": {}
   },
   "projects": {
@@ -13,19 +12,6 @@
         "projectPath": "C:\\Users\\gaben\\OneDrive\\Pulpit\\learnstudent\\LearnStudent\\LearnS.DataAccess\\LearnS.DataAccess.csproj",
         "packagesPath": "C:\\Users\\gaben\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\gaben\\OneDrive\\Pulpit\\learnstudent\\LearnStudent\\LearnS.DataAccess\\obj\\",
-=======
-    "C:\\Users\\barte\\Desktop\\LearnStudent\\LearnStudent\\LearnS.DataAccess\\LearnS.DataAccess.csproj": {}
-  },
-  "projects": {
-    "C:\\Users\\barte\\Desktop\\LearnStudent\\LearnStudent\\LearnS.DataAccess\\LearnS.DataAccess.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\barte\\Desktop\\LearnStudent\\LearnStudent\\LearnS.DataAccess\\LearnS.DataAccess.csproj",
-        "projectName": "LearnS.DataAccess",
-        "projectPath": "C:\\Users\\barte\\Desktop\\LearnStudent\\LearnStudent\\LearnS.DataAccess\\LearnS.DataAccess.csproj",
-        "packagesPath": "C:\\Users\\barte\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\barte\\Desktop\\LearnStudent\\LearnStudent\\LearnS.DataAccess\\obj\\",
->>>>>>> 6113c47f3671bb0999db347718e4aaf988e3e20d
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\gaben\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -42,19 +28,11 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-<<<<<<< HEAD
               "C:\\Users\\gaben\\OneDrive\\Pulpit\\learnstudent\\LearnStudent\\LearnS.Models\\LearnS.Models.csproj": {
                 "projectPath": "C:\\Users\\gaben\\OneDrive\\Pulpit\\learnstudent\\LearnStudent\\LearnS.Models\\LearnS.Models.csproj"
               },
               "C:\\Users\\gaben\\OneDrive\\Pulpit\\learnstudent\\LearnStudent\\LearnS.Utility\\LearnS.Utility.csproj": {
                 "projectPath": "C:\\Users\\gaben\\OneDrive\\Pulpit\\learnstudent\\LearnStudent\\LearnS.Utility\\LearnS.Utility.csproj"
-=======
-              "C:\\Users\\barte\\Desktop\\LearnStudent\\LearnStudent\\LearnS.Models\\LearnS.Models.csproj": {
-                "projectPath": "C:\\Users\\barte\\Desktop\\LearnStudent\\LearnStudent\\LearnS.Models\\LearnS.Models.csproj"
-              },
-              "C:\\Users\\barte\\Desktop\\LearnStudent\\LearnStudent\\LearnS.Utility\\LearnS.Utility.csproj": {
-                "projectPath": "C:\\Users\\barte\\Desktop\\LearnStudent\\LearnStudent\\LearnS.Utility\\LearnS.Utility.csproj"
->>>>>>> 6113c47f3671bb0999db347718e4aaf988e3e20d
               }
             }
           }
@@ -108,7 +86,6 @@
         }
       }
     },
-<<<<<<< HEAD
     "C:\\Users\\gaben\\OneDrive\\Pulpit\\learnstudent\\LearnStudent\\LearnS.Models\\LearnS.Models.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -117,16 +94,6 @@
         "projectPath": "C:\\Users\\gaben\\OneDrive\\Pulpit\\learnstudent\\LearnStudent\\LearnS.Models\\LearnS.Models.csproj",
         "packagesPath": "C:\\Users\\gaben\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\gaben\\OneDrive\\Pulpit\\learnstudent\\LearnStudent\\LearnS.Models\\obj\\",
-=======
-    "C:\\Users\\barte\\Desktop\\LearnStudent\\LearnStudent\\LearnS.Models\\LearnS.Models.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\barte\\Desktop\\LearnStudent\\LearnStudent\\LearnS.Models\\LearnS.Models.csproj",
-        "projectName": "LearnS.Models",
-        "projectPath": "C:\\Users\\barte\\Desktop\\LearnStudent\\LearnStudent\\LearnS.Models\\LearnS.Models.csproj",
-        "packagesPath": "C:\\Users\\barte\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\barte\\Desktop\\LearnStudent\\LearnStudent\\LearnS.Models\\obj\\",
->>>>>>> 6113c47f3671bb0999db347718e4aaf988e3e20d
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\gaben\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -188,7 +155,6 @@
         }
       }
     },
-<<<<<<< HEAD
     "C:\\Users\\gaben\\OneDrive\\Pulpit\\learnstudent\\LearnStudent\\LearnS.Utility\\LearnS.Utility.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -197,16 +163,6 @@
         "projectPath": "C:\\Users\\gaben\\OneDrive\\Pulpit\\learnstudent\\LearnStudent\\LearnS.Utility\\LearnS.Utility.csproj",
         "packagesPath": "C:\\Users\\gaben\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\gaben\\OneDrive\\Pulpit\\learnstudent\\LearnStudent\\LearnS.Utility\\obj\\",
-=======
-    "C:\\Users\\barte\\Desktop\\LearnStudent\\LearnStudent\\LearnS.Utility\\LearnS.Utility.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\barte\\Desktop\\LearnStudent\\LearnStudent\\LearnS.Utility\\LearnS.Utility.csproj",
-        "projectName": "LearnS.Utility",
-        "projectPath": "C:\\Users\\barte\\Desktop\\LearnStudent\\LearnStudent\\LearnS.Utility\\LearnS.Utility.csproj",
-        "packagesPath": "C:\\Users\\barte\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\barte\\Desktop\\LearnStudent\\LearnStudent\\LearnS.Utility\\obj\\",
->>>>>>> 6113c47f3671bb0999db347718e4aaf988e3e20d
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\gaben\\AppData\\Roaming\\NuGet\\NuGet.Config",
