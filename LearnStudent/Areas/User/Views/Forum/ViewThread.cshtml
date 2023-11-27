@@ -105,31 +105,27 @@
         }
     </div>
 
-    
+
     <form asp-area="User" asp-controller="Forum" asp-action="DeleteThread" method="post">
         <p>Zalogowany użytkownik: @User.Identity.Name, ID: @(User.FindFirstValue(ClaimTypes.NameIdentifier))</p>
         <p>Właściciel wątku: @Model.User?.UserName, ID: @Model.User?.Id</p>
 
-
         <input type="hidden" name="ownerId" value="@Model.User?.Id" />
-
         <input type="hidden" name="threadId" value="@Model.Id" />
 
-        @if (User.Identity.IsAuthenticated && User.FindFirstValue(ClaimTypes.NameIdentifier) == Model.User?.Id)
-        {
+        
             <button type="submit">Usuń cały wątek</button>
-        }
-        else
-        {
-            <p>Nie masz uprawnień do usunięcia tego wątku.</p>
-        }
+        
+      
+        
+           
+        
     </form>
-
-
-
 
     <div class="back-to-list">
         <a asp-area="User" asp-controller="Forum" asp-action="Index">Powrót do listy wątków</a>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </body>
 </html>

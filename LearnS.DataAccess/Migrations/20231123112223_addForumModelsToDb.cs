@@ -120,22 +120,22 @@ namespace LearnS.DataAccess.Migrations
             migrationBuilder.InsertData(
                 table: "ForumThreads",
                 columns: new[] { "Id", "Content", "CreatedAt", "NumberOfViews", "Title", "UserId" },
-                values: new object[] { 1, "zawartość testowa", new DateTime(2023, 11, 23, 12, 22, 23, 67, DateTimeKind.Local).AddTicks(3518), 0, "Tytuł testowy 1", "f096fef9-cdf0-4298-81b1-52925b2ef44d" });
+                values: new object[] { 1, "zawartość testowa", new DateTime(2023, 11, 23, 12, 22, 23, 67, DateTimeKind.Local).AddTicks(3518), 0, "Tytuł testowy 1", "09799bcd-3aed-47cd-a6a2-4f80de96b979" });
 
             migrationBuilder.InsertData(
                 table: "ForumPosts",
                 columns: new[] { "Id", "Content", "CreatedAt", "ForumThreadId", "NumberOfViews", "UserId" },
-                values: new object[] { 1, "zawartość testowa", new DateTime(2023, 11, 23, 12, 22, 23, 67, DateTimeKind.Local).AddTicks(3591), 1, 0, "f096fef9-cdf0-4298-81b1-52925b2ef44d" });
+                values: new object[] { 1, "zawartość testowa", new DateTime(2023, 11, 23, 12, 22, 23, 67, DateTimeKind.Local).AddTicks(3591), 1, 0, "09799bcd-3aed-47cd-a6a2-4f80de96b979" });
 
             migrationBuilder.InsertData(
                 table: "ForumComments",
                 columns: new[] { "Id", "Content", "CreatedAt", "ForumPostId", "UserId" },
-                values: new object[] { 1, "komentarz", new DateTime(2023, 11, 23, 12, 22, 23, 67, DateTimeKind.Local).AddTicks(3630), 1, "f096fef9-cdf0-4298-81b1-52925b2ef44d" });
+                values: new object[] { 1, "komentarz", new DateTime(2023, 11, 23, 12, 22, 23, 67, DateTimeKind.Local).AddTicks(3630), 1, "09799bcd-3aed-47cd-a6a2-4f80de96b979" });
 
             migrationBuilder.InsertData(
                 table: "ForumRatings",
                 columns: new[] { "Id", "ForumPostId", "UserId", "Value" },
-                values: new object[] { 1, 1, "f096fef9-cdf0-4298-81b1-52925b2ef44d", 1 });
+                values: new object[] { 1, 1, "09799bcd-3aed-47cd-a6a2-4f80de96b979", 1 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_ForumComments_ForumPostId",
