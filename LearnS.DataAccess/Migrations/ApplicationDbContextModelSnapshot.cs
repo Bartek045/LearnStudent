@@ -105,7 +105,7 @@ namespace LearnS.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("AvatarsUploads", (string)null);
+                    b.ToTable("AvatarsUploads");
 
                     b.HasData(
                         new
@@ -140,7 +140,7 @@ namespace LearnS.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories", (string)null);
+                    b.ToTable("Categories");
 
                     b.HasData(
                         new
@@ -191,7 +191,7 @@ namespace LearnS.DataAccess.Migrations
 
                     b.HasIndex("SectionId");
 
-                    b.ToTable("ExampleTasks", (string)null);
+                    b.ToTable("ExampleTasks");
 
                     b.HasData(
                         new
@@ -223,9 +223,6 @@ namespace LearnS.DataAccess.Migrations
                     b.Property<int>("ForumPostId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("ForumThreadId")
-                        .HasColumnType("int");
-
                     b.Property<string>("UserId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
@@ -234,18 +231,16 @@ namespace LearnS.DataAccess.Migrations
 
                     b.HasIndex("ForumPostId");
 
-                    b.HasIndex("ForumThreadId");
-
                     b.HasIndex("UserId");
 
-                    b.ToTable("ForumComments", (string)null);
+                    b.ToTable("ForumComments");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
                             Content = "komentarz",
-                            CreatedAt = new DateTime(2023, 11, 21, 22, 37, 11, 342, DateTimeKind.Local).AddTicks(2628),
+                            CreatedAt = new DateTime(2023, 11, 26, 20, 23, 28, 590, DateTimeKind.Local).AddTicks(7197),
                             ForumPostId = 1,
                             UserId = "f096fef9-cdf0-4298-81b1-52925b2ef44d"
                         });
@@ -283,14 +278,14 @@ namespace LearnS.DataAccess.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("ForumPosts", (string)null);
+                    b.ToTable("ForumPosts");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
                             Content = "zawartość testowa",
-                            CreatedAt = new DateTime(2023, 11, 21, 22, 37, 11, 342, DateTimeKind.Local).AddTicks(2592),
+                            CreatedAt = new DateTime(2023, 11, 26, 20, 23, 28, 590, DateTimeKind.Local).AddTicks(7156),
                             ForumThreadId = 1,
                             NumberOfViews = 0,
                             UserId = "f096fef9-cdf0-4298-81b1-52925b2ef44d"
@@ -321,7 +316,7 @@ namespace LearnS.DataAccess.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("ForumRatings", (string)null);
+                    b.ToTable("ForumRatings");
 
                     b.HasData(
                         new
@@ -352,6 +347,9 @@ namespace LearnS.DataAccess.Migrations
                     b.Property<int>("NumberOfViews")
                         .HasColumnType("int");
 
+                    b.Property<int>("ReplyCount")
+                        .HasColumnType("int");
+
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -364,15 +362,16 @@ namespace LearnS.DataAccess.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("ForumThreads", (string)null);
+                    b.ToTable("ForumThreads");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
                             Content = "zawartość testowa",
-                            CreatedAt = new DateTime(2023, 11, 21, 22, 37, 11, 342, DateTimeKind.Local).AddTicks(2525),
+                            CreatedAt = new DateTime(2023, 11, 26, 20, 23, 28, 590, DateTimeKind.Local).AddTicks(7082),
                             NumberOfViews = 0,
+                            ReplyCount = 0,
                             Title = "Tytuł testowy 1",
                             UserId = "f096fef9-cdf0-4298-81b1-52925b2ef44d"
                         });
@@ -407,7 +406,7 @@ namespace LearnS.DataAccess.Migrations
 
                     b.HasIndex("SectionId");
 
-                    b.ToTable("LearningMaterials", (string)null);
+                    b.ToTable("LearningMaterials");
 
                     b.HasData(
                         new
@@ -458,7 +457,7 @@ namespace LearnS.DataAccess.Migrations
 
                     b.HasIndex("QuizId");
 
-                    b.ToTable("Questions", (string)null);
+                    b.ToTable("Questions");
 
                     b.HasData(
                         new
@@ -493,7 +492,7 @@ namespace LearnS.DataAccess.Migrations
 
                     b.HasIndex("SectionId");
 
-                    b.ToTable("Quiz", (string)null);
+                    b.ToTable("Quiz");
 
                     b.HasData(
                         new
@@ -534,7 +533,7 @@ namespace LearnS.DataAccess.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Sections", (string)null);
+                    b.ToTable("Sections");
 
                     b.HasData(
                         new
@@ -712,12 +711,8 @@ namespace LearnS.DataAccess.Migrations
                     b.HasOne("LearnS.Models.ForumPost", "ForumPost")
                         .WithMany("ForumComments")
                         .HasForeignKey("ForumPostId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
-
-                    b.HasOne("LearnS.Models.ForumThread", null)
-                        .WithMany("ForumComments")
-                        .HasForeignKey("ForumThreadId");
 
                     b.HasOne("LearnS.Models.ApplicationUser", "User")
                         .WithMany()
@@ -735,7 +730,7 @@ namespace LearnS.DataAccess.Migrations
                     b.HasOne("LearnS.Models.ForumThread", "ForumThread")
                         .WithMany("ForumPosts")
                         .HasForeignKey("ForumThreadId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("LearnS.Models.ApplicationUser", "User")
@@ -754,7 +749,7 @@ namespace LearnS.DataAccess.Migrations
                     b.HasOne("LearnS.Models.ForumPost", "ForumPost")
                         .WithMany("ForumRatings")
                         .HasForeignKey("ForumPostId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("LearnS.Models.ApplicationUser", "User")
@@ -771,7 +766,7 @@ namespace LearnS.DataAccess.Migrations
             modelBuilder.Entity("LearnS.Models.ForumThread", b =>
                 {
                     b.HasOne("LearnS.Models.ApplicationUser", "User")
-                        .WithMany()
+                        .WithMany("ForumThreads")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -877,6 +872,8 @@ namespace LearnS.DataAccess.Migrations
             modelBuilder.Entity("LearnS.Models.ApplicationUser", b =>
                 {
                     b.Navigation("ForumPost");
+
+                    b.Navigation("ForumThreads");
                 });
 
             modelBuilder.Entity("LearnS.Models.ForumPost", b =>
@@ -888,8 +885,6 @@ namespace LearnS.DataAccess.Migrations
 
             modelBuilder.Entity("LearnS.Models.ForumThread", b =>
                 {
-                    b.Navigation("ForumComments");
-
                     b.Navigation("ForumPosts");
                 });
 

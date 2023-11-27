@@ -1,4 +1,5 @@
-﻿@model LearnS.Models.ForumThread
+﻿@using System.Security.Claims
+@model LearnS.Models.ForumThread
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,28 +13,22 @@
     <h2>@Model.Title</h2>
     <p>Zawartość: @Model.Content</p>
     <p>Dodano: @Model.CreatedAt</p>
+           
 
-    <div class="add-comment">
+    <div class="add-reply">
         <h3>Dodaj odpowiedź</h3>
-        <!-- Formularz do dodawania odpowiedzi -->
         <form asp-area="User" asp-controller="Forum" asp-action="AddReply" method="post">
-            <input type="hidden" asp-for="Id" />
-
+            <input type="hidden" name="id" value="@Model.Id" />
             <div>
                 <label for="replyContent">Treść odpowiedzi:</label>
                 <textarea id="replyContent" name="replyContent" rows="5" required></textarea>
             </div>
-
-            <!-- Dodaj pole na UserID (jeśli potrzebne) -->
-            
-
             <div>
                 <button type="submit">Dodaj odpowiedź</button>
             </div>
         </form>
     </div>
 
- 
     <div class="forum-replies">
         <h3>Odpowiedzi:</h3>
         @if (Model.ForumPosts != null && Model.ForumPosts.Any())
@@ -44,6 +39,63 @@
                     <p>Zawartość odpowiedzi: @reply.Content</p>
                     <p>Dodano: @reply.CreatedAt</p>
                     <p>Użytkownik: @reply.User?.UserName</p>
+
+                    @if (User.Identity.IsAuthenticated && reply.User?.Id == User.FindFirstValue(ClaimTypes.NameIdentifier))
+                    {
+                        <form asp-area="User" asp-controller="Forum" asp-action="DeleteReply" method="post">
+                            <input type="hidden" name="replyId" value="@reply.Id" />
+                            <button type="submit">Usuń odpowiedź</button>
+                        </form>
+                    }
+                    <form asp-area="User" asp-controller="Forum" asp-action="AddRating" method="post">
+                        <input type="hidden" name="postId" value="@reply.Id" />
+                        <input type="hidden" name="rating" value="1" />
+                        <button type="submit">+</button>
+                    </form>
+
+                    <form asp-area="User" asp-controller="Forum" asp-action="AddRating" method="post">
+                        <input type="hidden" name="postId" value="@reply.Id" />
+                        <input type="hidden" name="rating" value="-1" />
+                        <button type="submit">-</button>
+                    </form>
+
+                    <form asp-area="User" asp-controller="Forum" asp-action="AddComment" method="post">
+                        <input type="hidden" name="replyId" value="@reply.Id" />
+                        <div>
+                            <label for="commentContent">Treść komentarza:</label>
+                            <textarea id="commentContent" name="commentContent" rows="3" required></textarea>
+                        </div>
+                        <div>
+                            <button type="submit">Dodaj komentarz</button>
+                        </div>
+                    </form>
+
+                    @if (reply.ForumComments != null && reply.ForumComments.Any())
+                    {
+                        <div class="forum-comments">
+                            <h4>Komentarze:</h4>
+                            @foreach (var comment in reply.ForumComments)
+                            {
+                                <div class="forum-comment">
+                                    <p>Zawartość komentarza: @comment.Content</p>
+                                    <p>Dodano: @comment.CreatedAt</p>
+                                    <p>Użytkownik: @comment.User?.UserName</p>
+
+                                    @if (User.Identity.IsAuthenticated && comment.User?.Id == User.FindFirstValue(ClaimTypes.NameIdentifier))
+                                    {
+                                        <form asp-area="User" asp-controller="Forum" asp-action="DeleteComment" method="post">
+                                            <input type="hidden" name="commentId" value="@comment.Id" />
+                                            <button type="submit">Usuń komentarz</button>
+                                        </form>
+                                    }
+                                </div>
+                            }
+                        </div>
+                    }
+                    else
+                    {
+                        <p>Brak komentarzy.</p>
+                    }
                 </div>
             }
         }
@@ -52,6 +104,27 @@
             <p>Brak odpowiedzi.</p>
         }
     </div>
+
+    
+    <form asp-area="User" asp-controller="Forum" asp-action="DeleteThread" method="post">
+        <p>Zalogowany użytkownik: @User.Identity.Name, ID: @(User.FindFirstValue(ClaimTypes.NameIdentifier))</p>
+        <p>Właściciel wątku: @Model.User?.UserName, ID: @Model.User?.Id</p>
+
+
+        <input type="hidden" name="ownerId" value="@Model.User?.Id" />
+
+        <input type="hidden" name="threadId" value="@Model.Id" />
+
+        @if (User.Identity.IsAuthenticated && User.FindFirstValue(ClaimTypes.NameIdentifier) == Model.User?.Id)
+        {
+            <button type="submit">Usuń cały wątek</button>
+        }
+        else
+        {
+            <p>Nie masz uprawnień do usunięcia tego wątku.</p>
+        }
+    </form>
+
 
 
 

@@ -6,67 +6,56 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace LearnS.DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class UpdateForumModels : Migration
+    public partial class addForumThreadListToUser : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<int>(
-                name: "NumberOfViews",
-                table: "ForumPosts",
-                type: "int",
-                nullable: false,
-                defaultValue: 0);
-
             migrationBuilder.UpdateData(
                 table: "ForumComments",
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "CreatedAt",
-                value: new DateTime(2023, 11, 20, 9, 32, 49, 311, DateTimeKind.Local).AddTicks(4781));
+                value: new DateTime(2023, 11, 26, 20, 23, 28, 590, DateTimeKind.Local).AddTicks(7197));
 
             migrationBuilder.UpdateData(
                 table: "ForumPosts",
                 keyColumn: "Id",
                 keyValue: 1,
-                columns: new[] { "CreatedAt", "NumberOfViews" },
-                values: new object[] { new DateTime(2023, 11, 20, 9, 32, 49, 311, DateTimeKind.Local).AddTicks(4723), 0 });
+                column: "CreatedAt",
+                value: new DateTime(2023, 11, 26, 20, 23, 28, 590, DateTimeKind.Local).AddTicks(7156));
 
             migrationBuilder.UpdateData(
                 table: "ForumThreads",
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "CreatedAt",
-                value: new DateTime(2023, 11, 20, 9, 32, 49, 309, DateTimeKind.Local).AddTicks(5018));
+                value: new DateTime(2023, 11, 26, 20, 23, 28, 590, DateTimeKind.Local).AddTicks(7082));
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropColumn(
-                name: "NumberOfViews",
-                table: "ForumPosts");
-
             migrationBuilder.UpdateData(
                 table: "ForumComments",
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "CreatedAt",
-                value: new DateTime(2023, 11, 17, 20, 30, 56, 115, DateTimeKind.Local).AddTicks(5947));
+                value: new DateTime(2023, 11, 26, 19, 37, 43, 567, DateTimeKind.Local).AddTicks(9521));
 
             migrationBuilder.UpdateData(
                 table: "ForumPosts",
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "CreatedAt",
-                value: new DateTime(2023, 11, 17, 20, 30, 56, 115, DateTimeKind.Local).AddTicks(5912));
+                value: new DateTime(2023, 11, 26, 19, 37, 43, 567, DateTimeKind.Local).AddTicks(9482));
 
             migrationBuilder.UpdateData(
                 table: "ForumThreads",
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "CreatedAt",
-                value: new DateTime(2023, 11, 17, 20, 30, 56, 115, DateTimeKind.Local).AddTicks(5840));
+                value: new DateTime(2023, 11, 26, 19, 37, 43, 567, DateTimeKind.Local).AddTicks(9415));
         }
     }
 }

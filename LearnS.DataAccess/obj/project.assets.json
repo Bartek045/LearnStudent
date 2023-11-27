@@ -8976,11 +8976,19 @@
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\gaben\\OneDrive\\Pulpit\\learnstudent\\LearnStudent\\LearnS.DataAccess\\LearnS.DataAccess.csproj",
       "projectName": "LearnS.DataAccess",
       "projectPath": "C:\\Users\\gaben\\OneDrive\\Pulpit\\learnstudent\\LearnStudent\\LearnS.DataAccess\\LearnS.DataAccess.csproj",
       "packagesPath": "C:\\Users\\gaben\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\gaben\\OneDrive\\Pulpit\\learnstudent\\LearnStudent\\LearnS.DataAccess\\obj\\",
+=======
+      "projectUniqueName": "C:\\Users\\barte\\Desktop\\LearnStudent\\LearnStudent\\LearnS.DataAccess\\LearnS.DataAccess.csproj",
+      "projectName": "LearnS.DataAccess",
+      "projectPath": "C:\\Users\\barte\\Desktop\\LearnStudent\\LearnStudent\\LearnS.DataAccess\\LearnS.DataAccess.csproj",
+      "packagesPath": "C:\\Users\\barte\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\barte\\Desktop\\LearnStudent\\LearnStudent\\LearnS.DataAccess\\obj\\",
+>>>>>>> 6113c47f3671bb0999db347718e4aaf988e3e20d
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\gaben\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -8997,11 +9005,19 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
+<<<<<<< HEAD
             "C:\\Users\\gaben\\OneDrive\\Pulpit\\learnstudent\\LearnStudent\\LearnS.Models\\LearnS.Models.csproj": {
               "projectPath": "C:\\Users\\gaben\\OneDrive\\Pulpit\\learnstudent\\LearnStudent\\LearnS.Models\\LearnS.Models.csproj"
             },
             "C:\\Users\\gaben\\OneDrive\\Pulpit\\learnstudent\\LearnStudent\\LearnS.Utility\\LearnS.Utility.csproj": {
               "projectPath": "C:\\Users\\gaben\\OneDrive\\Pulpit\\learnstudent\\LearnStudent\\LearnS.Utility\\LearnS.Utility.csproj"
+=======
+            "C:\\Users\\barte\\Desktop\\LearnStudent\\LearnStudent\\LearnS.Models\\LearnS.Models.csproj": {
+              "projectPath": "C:\\Users\\barte\\Desktop\\LearnStudent\\LearnStudent\\LearnS.Models\\LearnS.Models.csproj"
+            },
+            "C:\\Users\\barte\\Desktop\\LearnStudent\\LearnStudent\\LearnS.Utility\\LearnS.Utility.csproj": {
+              "projectPath": "C:\\Users\\barte\\Desktop\\LearnStudent\\LearnStudent\\LearnS.Utility\\LearnS.Utility.csproj"
+>>>>>>> 6113c47f3671bb0999db347718e4aaf988e3e20d
             }
           }
         }
@@ -9060,7 +9076,11 @@
       "code": "Undefined",
       "level": "Warning",
       "warningLevel": 1,
+<<<<<<< HEAD
       "message": "Wystąpił problem podczas czytania pliku pamięci podręcznej C:\\Users\\gaben\\OneDrive\\Pulpit\\learnstudent\\LearnStudent\\LearnS.DataAccess\\obj\\project.nuget.cache: Invalid property identifier character: <. Path 'version', line 3, position 0."
+=======
+      "message": "Wystąpił problem podczas czytania pliku pamięci podręcznej C:\\Users\\barte\\Desktop\\LearnStudent\\LearnStudent\\LearnS.DataAccess\\obj\\project.nuget.cache: Invalid property identifier character: <. Path 'version', line 3, position 0."
+>>>>>>> 6113c47f3671bb0999db347718e4aaf988e3e20d
     }
   ]
 }

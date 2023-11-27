@@ -13,6 +13,8 @@ namespace LearnS.Models
     {
         [ValidateNever]
         public List<ForumPost> ForumPost { get; set; }
+        [ValidateNever]
+        public List<ForumThread> ForumThreads { get; set; }
 
     }
 }

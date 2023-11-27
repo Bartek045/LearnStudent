@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "F1wHPreGWr5P/alG0xhKxLDzjehIXq+DU9lFj0FJ1/CloQJUq4U5kDvb/htH/vHw2zhXOZkiIXvlsXJa09NKpQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\gaben\\OneDrive\\Pulpit\\learnstudent\\LearnStudent\\LearnS.Models\\LearnS.Models.csproj",
+=======
+  "dgSpecHash": "2F+Pe8WcjTUG4fkx7ZPmsCsnE+Eb3CxAOxsttZF8iXP7MTQP+ILjLVAi1LIx7DH0oiqOt3FgaiaNqyeaY2xoBw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\barte\\Desktop\\LearnStudent\\LearnStudent\\LearnS.Models\\LearnS.Models.csproj",
+>>>>>>> 6113c47f3671bb0999db347718e4aaf988e3e20d
   "expectedPackageFiles": [
     "C:\\Users\\gaben\\.nuget\\packages\\microsoft.aspnetcore.antiforgery\\2.2.0\\microsoft.aspnetcore.antiforgery.2.2.0.nupkg.sha512",
     "C:\\Users\\gaben\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
@@ -144,7 +150,11 @@
       "code": "Undefined",
       "level": "Warning",
       "warningLevel": 1,
+<<<<<<< HEAD
       "message": "Wystąpił problem podczas czytania pliku pamięci podręcznej C:\\Users\\gaben\\OneDrive\\Pulpit\\learnstudent\\LearnStudent\\LearnS.Models\\obj\\project.nuget.cache: Invalid property identifier character: <. Path 'version', line 3, position 0."
+=======
+      "message": "Wystąpił problem podczas czytania pliku pamięci podręcznej C:\\Users\\barte\\Desktop\\LearnStudent\\LearnStudent\\LearnS.Models\\obj\\project.nuget.cache: Invalid property identifier character: <. Path 'version', line 3, position 0."
+>>>>>>> 6113c47f3671bb0999db347718e4aaf988e3e20d
     }
   ]
 }

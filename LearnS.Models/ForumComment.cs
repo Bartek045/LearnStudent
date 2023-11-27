@@ -28,14 +28,12 @@ namespace LearnS.Models
         [ValidateNever]
         public ForumPost ForumPost { get; set; }
 
-        public int ForumThreadId { get; set; }
-        [ForeignKey("ForumThreadId")]
-        [ValidateNever]
-        public ForumThread ForumThread { get; set; }
+      
 
         [ForeignKey("UserId")]
         [ValidateNever]
         public string UserId { get; set; }
+        [ValidateNever]
         public ApplicationUser User { get; set; }
     }
 }

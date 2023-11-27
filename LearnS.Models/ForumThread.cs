@@ -23,7 +23,7 @@ namespace LearnS.Models
         public string Content { get; set; }
         [Column("CreatedAt")]
         public DateTime CreatedAt { get; set; }
-
+        [ValidateNever]
         public string UserId { get; set; }
         [ForeignKey("UserId")]
         [ValidateNever]
@@ -34,5 +34,7 @@ namespace LearnS.Models
 
         [ValidateNever]
         public List<ForumPost> ForumPosts { get; set; }
+        [ValidateNever]
+        public int ReplyCount { get; set; }
     }
 }

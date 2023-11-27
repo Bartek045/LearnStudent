@@ -34,29 +34,35 @@ namespace LearnS.DataAccess.Data
         {
 
             base.OnModelCreating(modelBuilder);
+
             modelBuilder.Entity<ForumThread>()
-                .HasMany(ft => ft.ForumPosts)
-                .WithOne(fp => fp.ForumThread)
-                .HasForeignKey(fp => fp.ForumThreadId)
-                .OnDelete(DeleteBehavior.NoAction);
+             .HasMany(thread => thread.ForumPosts)
+             .WithOne(post => post.ForumThread)
+             .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<ForumPost>()
+                 .HasMany(fp => fp.ForumRatings)
+                 .WithOne(fr => fr.ForumPost)
+                 .HasForeignKey(fr => fr.ForumPostId)
+                 .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<ForumPost>()
                 .HasMany(fp => fp.ForumComments)
                 .WithOne(fc => fc.ForumPost)
                 .HasForeignKey(fc => fc.ForumPostId)
-                .OnDelete(DeleteBehavior.NoAction);
+                .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<ForumComment>()
                 .HasOne(fc => fc.ForumPost)
                 .WithMany(fp => fp.ForumComments)
                 .HasForeignKey(fc => fc.ForumPostId)
-                .OnDelete(DeleteBehavior.NoAction);
+                .OnDelete(DeleteBehavior.Restrict); 
 
             modelBuilder.Entity<ForumRating>()
                 .HasOne(fr => fr.ForumPost)
                 .WithMany(fp => fp.ForumRatings)
                 .HasForeignKey(fr => fr.ForumPostId)
-                .OnDelete(DeleteBehavior.NoAction);
+                .OnDelete(DeleteBehavior.Restrict); 
 
 
 
@@ -192,18 +198,16 @@ namespace LearnS.DataAccess.Data
                }
                );
             modelBuilder.Entity<ForumComment>().HasData(
-             new ForumComment
-             {
-                 Id = 1,
-                 Content = "komentarz",
-                 CreatedAt = DateTime.Now,
-                 ForumPostId = 1,
-                 UserId = "f096fef9-cdf0-4298-81b1-52925b2ef44d",
-                 
+        new ForumComment
+        {
+            Id = 1,
+            Content = "komentarz",
+            CreatedAt = DateTime.Now,
+            ForumPostId = 1,
+            UserId = "f096fef9-cdf0-4298-81b1-52925b2ef44d"
+        }
+    );
 
-
-             }
-             );
             modelBuilder.Ignore<CultureInfo>();
         }
     }

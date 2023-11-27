@@ -6,14 +6,12 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace LearnS.DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class addPostRatingCommentThreadToDb : Migration
+    public partial class addForumModelsToDb : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropColumn(
-                name: "Discriminator",
-                table: "AspNetUsers");
+           
 
             migrationBuilder.CreateTable(
                 name: "ForumThreads",
@@ -24,7 +22,8 @@ namespace LearnS.DataAccess.Migrations
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Content = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    NumberOfViews = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -46,7 +45,8 @@ namespace LearnS.DataAccess.Migrations
                     Content = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ForumThreadId = table.Column<int>(type: "int", nullable: false),
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    NumberOfViews = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -119,18 +119,18 @@ namespace LearnS.DataAccess.Migrations
 
             migrationBuilder.InsertData(
                 table: "ForumThreads",
-                columns: new[] { "Id", "Content", "CreatedAt", "Title", "UserId" },
-                values: new object[] { 1, "zawartość testowa", new DateTime(2023, 11, 17, 20, 30, 56, 115, DateTimeKind.Local).AddTicks(5840), "Tytuł testowy 1", "f096fef9-cdf0-4298-81b1-52925b2ef44d" });
+                columns: new[] { "Id", "Content", "CreatedAt", "NumberOfViews", "Title", "UserId" },
+                values: new object[] { 1, "zawartość testowa", new DateTime(2023, 11, 23, 12, 22, 23, 67, DateTimeKind.Local).AddTicks(3518), 0, "Tytuł testowy 1", "f096fef9-cdf0-4298-81b1-52925b2ef44d" });
 
             migrationBuilder.InsertData(
                 table: "ForumPosts",
-                columns: new[] { "Id", "Content", "CreatedAt", "ForumThreadId", "UserId" },
-                values: new object[] { 1, "zawartość testowa", new DateTime(2023, 11, 17, 20, 30, 56, 115, DateTimeKind.Local).AddTicks(5912), 1, "f096fef9-cdf0-4298-81b1-52925b2ef44d" });
+                columns: new[] { "Id", "Content", "CreatedAt", "ForumThreadId", "NumberOfViews", "UserId" },
+                values: new object[] { 1, "zawartość testowa", new DateTime(2023, 11, 23, 12, 22, 23, 67, DateTimeKind.Local).AddTicks(3591), 1, 0, "f096fef9-cdf0-4298-81b1-52925b2ef44d" });
 
             migrationBuilder.InsertData(
                 table: "ForumComments",
                 columns: new[] { "Id", "Content", "CreatedAt", "ForumPostId", "UserId" },
-                values: new object[] { 1, "komentarz", new DateTime(2023, 11, 17, 20, 30, 56, 115, DateTimeKind.Local).AddTicks(5947), 1, "f096fef9-cdf0-4298-81b1-52925b2ef44d" });
+                values: new object[] { 1, "komentarz", new DateTime(2023, 11, 23, 12, 22, 23, 67, DateTimeKind.Local).AddTicks(3630), 1, "f096fef9-cdf0-4298-81b1-52925b2ef44d" });
 
             migrationBuilder.InsertData(
                 table: "ForumRatings",
