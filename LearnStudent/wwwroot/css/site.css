@@ -685,16 +685,17 @@ bg-success {
 
 
 .profileTabs {
-    position: fixed;
+    position: absolute;
     display: none;
     background-color: #192E2F;
-    width: 45px;
+    width: 80px;
     height: 54px;
     flex-direction: column;
     align-items: center;
     padding: 2px;
     box-shadow: 3px 3px 2px grey;
     z-index: 100000;
+    right: 0;
 
 }
 

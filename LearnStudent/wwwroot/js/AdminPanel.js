@@ -30,7 +30,12 @@ sidebar.addEventListener("mouseleave", () => {
     }
 });
 
+
+
 darkLight.addEventListener("click", () => {
+
+    const darkMode = localStorage.getItem
+
     body.classList.toggle("dark");
     if (body.classList.contains("dark")) {
         document.setI
