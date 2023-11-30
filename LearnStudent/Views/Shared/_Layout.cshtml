@@ -75,94 +75,108 @@
     </header>
     <div id="mySidebar" class="sidebarLayout">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-        <a class="nav-link" asp-area="User" asp-controller="AvatarShop" asp-action="Index">Sklep Avatarów</a>
-        <a class="nav-link" asp-area="User" asp-controller="Forum" asp-action="Index">Forum</a>
+
         <a class="nav-link" asp-area="User" asp-controller="Home" asp-action="Index">Home</a>
         <a class="nav-link" asp-area="User" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        <a class="nav-link" asp-area="Admin" asp-controller="AdminPanel" asp-action="Index">Panel administratora</a>
 
-
-
-
-
-        <!--mhm-->
-        <div class="dropdown">
-            <button class="dropdown-btn mainCategory">Matematyka<i class="arrow"></i></button>
-
-            <div class="dropdown-content">
-                <button class="mainCategory dropdown-btn">Statystyka  <i class="arrow"></i></button>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <a class="nav-link" asp-area="User" asp-controller="AvatarShop" asp-action="Index">Sklep Avatarów</a>
+            <a class="nav-link" asp-area="User" asp-controller="Forum" asp-action="Index">Forum</a>
+           
+            <div class="dropdown">
+                <button class="dropdown-btn mainCategory">Matematyka<i class="arrow"></i></button>
 
                 <div class="dropdown-content">
-                    <button style="font-size: 20px" class="dropdown-btn secondCategory">Statystyka 1<i class="arrow"></i></button>
-                    <div class="dropdown-content">
-                        <a style="font-size: 16px" class="levels" href="javascript:void(0);" onclick="loadLearningMaterials('Statystyka')">Materiały do nauki</a>
-                        <a style="font-size: 16px" class="levels" href="javascript:void(0);" onclick="loadExampleTasks('Statystyka')">Zadania</a>
-                        <a style="font-size: 16px" class="levels" href="javascript:void(0);" onclick="loadQuizzes('Statystyka')">Test</a>
+                    <button class="mainCategory dropdown-btn">Statystyka  <i class="arrow"></i></button>
 
+                    <div class="dropdown-content">
+                        <button style="font-size: 20px" class="dropdown-btn secondCategory">Statystyka 1<i class="arrow"></i></button>
+                        <div class="dropdown-content">
+                            <a style="font-size: 16px" class="levels" href="javascript:void(0);" onclick="loadLearningMaterials('Statystyka')">Materiały do nauki</a>
+                            <a style="font-size: 16px" class="levels" href="javascript:void(0);" onclick="loadExampleTasks('Statystyka')">Zadania</a>
+                            <a style="font-size: 16px" class="levels" href="javascript:void(0);" onclick="loadQuizzes('Statystyka')">Test</a>
+
+                        </div>
+
+                        <button style="font-size: 20px" class="dropdown-btn secondCategory">Statystyka 2<i class="arrow"></i></button>
+                        <div class="dropdown-content">
+                            <a style="font-size: 16px" class="levels" href="javascript:void(0);" onclick="loadLearningMaterials('Statystyka')">Materiały do nauki</a>
+                            <a style="font-size: 16px" class="levels" href="javascript:void(0);" onclick="loadQuizzes('Statystyka')">Test</a>
+                        </div>
                     </div>
 
-                    <button style="font-size: 20px" class="dropdown-btn secondCategory">Statystyka 2<i class="arrow"></i></button>
+                    <button class="mainCategory dropdown-btn">Logika  <i class="arrow"></i></button>
                     <div class="dropdown-content">
-                        <a style="font-size: 16px" class="levels" href="javascript:void(0);" onclick="loadLearningMaterials('Statystyka')">Materiały do nauki</a>
-                        <a style="font-size: 16px" class="levels" href="javascript:void(0);" onclick="loadQuizzes('Statystyka')">Test</a>
-                    </div>
-                </div>
 
-                <button class="mainCategory dropdown-btn">Logika  <i class="arrow"></i></button>
-                <div class="dropdown-content">
+                        <button style="font-size: 20px" class="dropdown-btn secondCategory">Logika 1<i class="arrow"></i></button>
+                        <div class="dropdown-content">
+                            <a style="font-size: 16px" class="levels" href="javascript:void(0);" onclick="loadLearningMaterials('Logika')">Materiały do nauki</a>
+                            <a style="font-size: 16px" class="levels" href="javascript:void(0);" onclick="loadQuizzes('Logika')">Test</a>
+                        </div>
 
-                    <button style="font-size: 20px" class="dropdown-btn secondCategory">Logika 1<i class="arrow"></i></button>
-                    <div class="dropdown-content">
-                        <a style="font-size: 16px" class="levels" href="javascript:void(0);" onclick="loadLearningMaterials('Logika')">Materiały do nauki</a>
-                        <a style="font-size: 16px" class="levels" href="javascript:void(0);" onclick="loadQuizzes('Logika')">Test</a>
-                    </div>
-
-                    <button style="font-size: 20px" class="dropdown-btn secondCategory">Logika 2<i class="arrow"></i></button>
-                    <div class="dropdown-content">
-                        <a style="font-size: 16px" class="levels" href="javascript:void(0);" onclick="loadLearningMaterials('Logika')">Materiały do nauki</a>
-                        <a style="font-size: 16px" class="levels" href="javascript:void(0);" onclick="loadQuizzes('Logika')">Test</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="dropdown">
-            <button class="dropdown-btn mainCategory">Informatyka<i class="arrow"></i></button>
-
-            <div class="dropdown-content">
-                <button class="mainCategory dropdown-btn">Statystyka  <i class="arrow"></i></button>
-
-                <div class="dropdown-content">
-                    <button style="font-size: 20px" class="dropdown-btn secondCategory">Statystyka 1<i class="arrow"></i></button>
-                    <div class="dropdown-content">
-                        <a style="font-size: 16px" class="levels" asp-area="User" asp-controller="LearningMaterials" asp-action="Index">Materiały do nauki</a>
-                        <a style="font-size: 16px" class="levels" href="javascript:void(0);" onclick="loadQuizzes('Statystyka')">Test</a>
-                    </div>
-
-                    <button style="font-size: 20px" class="dropdown-btn secondCategory">Statystyka 2<i class="arrow"></i></button>
-                    <div class="dropdown-content">
-                        <a style="font-size: 16px" class="levels" href="#">Materiały do nauki</a>
-                        <a style="font-size: 16px" class="levels" href="#">Test</a>
-                    </div>
-                </div>
-
-                <button class="mainCategory dropdown-btn">Logika  <i class="arrow"></i></button>
-                <div class="dropdown-content">
-
-                    <button style="font-size: 20px" class="dropdown-btn secondCategory">Logika 1<i class="arrow"></i></button>
-                    <div class="dropdown-content">
-                        <a style="font-size: 16px" class="levels" href="#">Materiały do nauki</a>
-                        <a style="font-size: 16px" class="levels" href="javascript:void(0);" onclick="loadQuizzes('Logika')">Test</a>
-                    </div>
-
-                    <button style="font-size: 20px" class="dropdown-btn secondCategory">Logika 2<i class="arrow"></i></button>
-                    <div class="dropdown-content">
-                        <a style="font-size: 16px" class="levels" href="#">Materiały do nauki</a>
-                        <a style="font-size: 16px" class="levels" href="#">Test</a>
+                        <button style="font-size: 20px" class="dropdown-btn secondCategory">Logika 2<i class="arrow"></i></button>
+                        <div class="dropdown-content">
+                            <a style="font-size: 16px" class="levels" href="javascript:void(0);" onclick="loadLearningMaterials('Logika')">Materiały do nauki</a>
+                            <a style="font-size: 16px" class="levels" href="javascript:void(0);" onclick="loadQuizzes('Logika')">Test</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+            <div class="dropdown">
+                <button class="dropdown-btn mainCategory">Informatyka<i class="arrow"></i></button>
+
+                <div class="dropdown-content">
+                    <button class="mainCategory dropdown-btn">Statystyka  <i class="arrow"></i></button>
+
+                    <div class="dropdown-content">
+                        <button style="font-size: 20px" class="dropdown-btn secondCategory">Statystyka 1<i class="arrow"></i></button>
+                        <div class="dropdown-content">
+                            <a style="font-size: 16px" class="levels" asp-area="User" asp-controller="LearningMaterials" asp-action="Index">Materiały do nauki</a>
+                            <a style="font-size: 16px" class="levels" href="javascript:void(0);" onclick="loadQuizzes('Statystyka')">Test</a>
+                        </div>
+
+                        <button style="font-size: 20px" class="dropdown-btn secondCategory">Statystyka 2<i class="arrow"></i></button>
+                        <div class="dropdown-content">
+                            <a style="font-size: 16px" class="levels" href="#">Materiały do nauki</a>
+                            <a style="font-size: 16px" class="levels" href="#">Test</a>
+                        </div>
+                    </div>
+
+                    <button class="mainCategory dropdown-btn">Logika  <i class="arrow"></i></button>
+                    <div class="dropdown-content">
+
+                        <button style="font-size: 20px" class="dropdown-btn secondCategory">Logika 1<i class="arrow"></i></button>
+                        <div class="dropdown-content">
+                            <a style="font-size: 16px" class="levels" href="#">Materiały do nauki</a>
+                            <a style="font-size: 16px" class="levels" href="javascript:void(0);" onclick="loadQuizzes('Logika')">Test</a>
+                        </div>
+
+                        <button style="font-size: 20px" class="dropdown-btn secondCategory">Logika 2<i class="arrow"></i></button>
+                        <div class="dropdown-content">
+                            <a style="font-size: 16px" class="levels" href="#">Materiały do nauki</a>
+                            <a style="font-size: 16px" class="levels" href="#">Test</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+      
+
+        @if (User.IsInRole("Admin"))
+        {
+            <a class="nav-link" asp-area="Admin" asp-controller="AdminPanel" asp-action="Index">Panel administratora</a>
+        }
+ 
+
+
+
+
+        
+        
+
+        
 
     </div>
 
