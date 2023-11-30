@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,9 @@ namespace LearnS.Models.ViewModels
         public IEnumerable<SelectListItem> SectionList { get; set; }
 
         public List<Question> Questions { get; set; }
+        [ValidateNever]
+        [DisplayName("Liczba punktów")]
+        public int Points { get; set; }
     }
 }
 

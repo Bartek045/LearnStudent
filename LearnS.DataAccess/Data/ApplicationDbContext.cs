@@ -131,7 +131,8 @@ namespace LearnS.DataAccess.Data
          {
              Id = 1,
              Title = "Quiz matematyka test",
-             SectionId = 2
+             SectionId = 2,
+             Points = 100
          }
      );
             modelBuilder.Entity<Question>().HasData(

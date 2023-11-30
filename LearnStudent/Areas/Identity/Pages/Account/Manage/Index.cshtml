@@ -12,7 +12,7 @@
         <div class="user-avatar">
             @if (User.Identity.IsAuthenticated)
             {
-                var avatarPath = "/images/avatars/cat03.jpg"; 
+                var avatarPath = "/images/avatars/defaultavatar.jpg";
                 <img src="@avatarPath" alt="Avatar" width="100" height="100" />
                 <button id="change-avatar-button" class="btn btn-secondary mt-2">Zmień zdjęcie</button>
             }

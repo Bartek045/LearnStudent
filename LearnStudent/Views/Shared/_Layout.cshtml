@@ -30,20 +30,27 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <div>
                     </div>
-
+                    @if (!User.Identity.IsAuthenticated)
+                    {
                     <partial name="_LoginPartial" />
+                    }
 
                 </div>
 
                 <div class="avatarAndProfileTabs">
 
-                    <div class="userAvatar" onclick="showTabs()">
-                        @if (User.Identity.IsAuthenticated)
-                        {
-                            var avatarPath = "/images/avatars/cat03.jpg";
-                            <img src="@avatarPath" alt="Avatar" width="45px" height="45px" ;">
-                        }
-                    </div>
+                    @{
+                        string avatarPath = "/images/avatars/defaultavatar.jpg";
+                    }
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <div class="userAvatar" onclick="showTabs()">
+                            <img src="@avatarPath" alt="Avatar" width="45px" height="45px">
+                        </div>
+                    }
+
+
 
 
                     <div style="margin-top: 5px" class="profileTabs" id="profileTabs">
@@ -51,14 +58,13 @@
                         <p>
 
                             <a class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index">
-
                                 Profil
                             </a>
                         </p>
                         <p>
-                            <a class="nav-link" href="#">
-                                Wyloguj
-                            </a>
+                            <form class="nav-link" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
+                                <button type="submit" class="nav-link btn btn-link text-white">Wyloguj</button>
+                            </form>
                         </p>
                     </div>
                 </div>
@@ -69,7 +75,7 @@
     </header>
     <div id="mySidebar" class="sidebarLayout">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-
+        <a class="nav-link" asp-area="User" asp-controller="AvatarShop" asp-action="Index">Sklep Avatarów</a>
         <a class="nav-link" asp-area="User" asp-controller="Forum" asp-action="Index">Forum</a>
         <a class="nav-link" asp-area="User" asp-controller="Home" asp-action="Index">Home</a>
         <a class="nav-link" asp-area="User" asp-controller="Home" asp-action="Privacy">Privacy</a>

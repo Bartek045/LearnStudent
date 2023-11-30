@@ -66,10 +66,11 @@ namespace LearnStudent.Areas.Admin.Controllers
                 if (quizVM.Quiz.Id == 0)
                 {
                     // add new quiz
+                    quizVM.Quiz.Points = quizVM.Points;  // Set the points for the quiz
                     _unitOfWork.Quiz.Add(quizVM.Quiz);
                     _unitOfWork.Save(); // save changes to generate the id for the quiz
 
-                    //add question
+                    // add question
                     foreach (var question in quizVM.Questions)
                     {
                         question.QuizId = quizVM.Quiz.Id;
@@ -83,6 +84,7 @@ namespace LearnStudent.Areas.Admin.Controllers
                 {
                     // Update quiz
                     _unitOfWork.Quiz.Update(quizVM.Quiz);
+                    quizVM.Quiz.Points = quizVM.Points;  // Update the points for the quiz
 
                     // Update question
                     var existingQuestions = _unitOfWork.Question.GetAll().Where(q => q.QuizId == quizVM.Quiz.Id).ToList();
@@ -107,7 +109,7 @@ namespace LearnStudent.Areas.Admin.Controllers
             }
             else
             {
-                //Back list
+                // Back list
                 quizVM.SectionList = _unitOfWork.Section.GetAll().Select(u => new SelectListItem
                 {
                     Text = u.Title,
@@ -117,6 +119,7 @@ namespace LearnStudent.Areas.Admin.Controllers
                 return View(quizVM);
             }
         }
+
 
         #region API CALLS
         [HttpGet]

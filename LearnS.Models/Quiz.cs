@@ -23,6 +23,10 @@ namespace LearnS.Models
         [ForeignKey("SectionId")]
         [ValidateNever]
         public Section Section { get; set; }
+
+        [ValidateNever]
+        [DisplayName("Liczba punktów")]
+        public int Points { get; set; }
         [ValidateNever]
         public List<Question> Questions { get; set; }
     }

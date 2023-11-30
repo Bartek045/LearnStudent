@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,13 @@ namespace LearnS.Models
         public List<ForumPost> ForumPost { get; set; }
         [ValidateNever]
         public List<ForumThread> ForumThreads { get; set; }
+
+        [ValidateNever]
+        public int Points { get; set; }
+        [ValidateNever]
+        [Required]
+        [DisplayName("Poziom")]
+        public int Level { get; set; }
 
     }
 }
