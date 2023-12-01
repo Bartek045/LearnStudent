@@ -52,7 +52,7 @@
                     <p>@reply.Content</p>
                     <hr>
                     
-                    <p>Użytkownik: @reply.User?.UserName</p>
+                    
 
                     <form asp-area="User" asp-controller="Forum" asp-action="DeleteReply" method="post">
                         <input type="hidden" name="replyId" value="@reply.Id" />
