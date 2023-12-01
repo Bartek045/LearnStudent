@@ -25,7 +25,7 @@ namespace LearnStudent.Areas.Identity.Pages.Account.Manage
             _userManager = userManager;
             _signInManager = signInManager;
         }
-
+        public int UserProfileCompletionPercentage { get; set; } // Dodaj tę właściwość
         /// <summary>
         ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
         ///     directly from your code. This API may change or be removed in future releases.
@@ -60,7 +60,7 @@ namespace LearnStudent.Areas.Identity.Pages.Account.Manage
             [Display(Name = "Phone number")]
             public string PhoneNumber { get; set; }
         }
-
+        public int Coins { get; set; }
         private async Task LoadAsync(ApplicationUser user)
         {
             var userName = await _userManager.GetUserNameAsync(user);
@@ -72,6 +72,7 @@ namespace LearnStudent.Areas.Identity.Pages.Account.Manage
             {
                 PhoneNumber = phoneNumber
             };
+            Coins = user.Coins;
         }
 
         public async Task<IActionResult> OnGetAsync()

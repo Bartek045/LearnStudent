@@ -30,6 +30,7 @@ namespace LearnS.DataAccess.Repository
         public IForumThreadRepository ForumThread { get; private set; }
         public IForumCommentRepository ForumComment { get; private set; }
         public IForumRatingRepository ForumRating { get; private set; }
+        public IApplicationUserRepository ApplicationUser { get; private set; }
         public UnitOfWork(ApplicationDbContext db)
         {
             _db = db;

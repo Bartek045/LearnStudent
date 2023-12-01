@@ -25,6 +25,7 @@ namespace LearnS.DataAccess.Repository.IRepository
         IForumThreadRepository ForumThread { get; }
         IForumCommentRepository ForumComment { get; }
         IForumRatingRepository ForumRating { get; }
+
         void Save();
         Task<List<ForumThread>> GetAllThreadsAsync(bool includeUser);
 

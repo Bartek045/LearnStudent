@@ -30,6 +30,9 @@ namespace LearnS.DataAccess.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
+                    b.Property<int>("Coins")
+                        .HasColumnType("int");
+
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
@@ -40,6 +43,9 @@ namespace LearnS.DataAccess.Migrations
 
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
+
+                    b.Property<int>("Level")
+                        .HasColumnType("int");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
@@ -63,6 +69,9 @@ namespace LearnS.DataAccess.Migrations
 
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
+
+                    b.Property<int>("Points")
+                        .HasColumnType("int");
 
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
@@ -95,6 +104,9 @@ namespace LearnS.DataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int>("CoinsValue")
+                        .HasColumnType("int");
+
                     b.Property<string>("ImageUrl")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -111,12 +123,14 @@ namespace LearnS.DataAccess.Migrations
                         new
                         {
                             Id = 1,
+                            CoinsValue = 10,
                             ImageUrl = "",
                             Name = "test"
                         },
                         new
                         {
                             Id = 2,
+                            CoinsValue = 20,
                             ImageUrl = "",
                             Name = "kot"
                         });
@@ -240,7 +254,7 @@ namespace LearnS.DataAccess.Migrations
                         {
                             Id = 1,
                             Content = "komentarz",
-                            CreatedAt = new DateTime(2023, 11, 26, 20, 23, 28, 590, DateTimeKind.Local).AddTicks(7197),
+                            CreatedAt = new DateTime(2023, 12, 1, 11, 46, 9, 993, DateTimeKind.Local).AddTicks(2849),
                             ForumPostId = 1,
                             UserId = "f096fef9-cdf0-4298-81b1-52925b2ef44d"
                         });
@@ -285,7 +299,7 @@ namespace LearnS.DataAccess.Migrations
                         {
                             Id = 1,
                             Content = "zawartość testowa",
-                            CreatedAt = new DateTime(2023, 11, 26, 20, 23, 28, 590, DateTimeKind.Local).AddTicks(7156),
+                            CreatedAt = new DateTime(2023, 12, 1, 11, 46, 9, 993, DateTimeKind.Local).AddTicks(2812),
                             ForumThreadId = 1,
                             NumberOfViews = 0,
                             UserId = "f096fef9-cdf0-4298-81b1-52925b2ef44d"
@@ -369,7 +383,7 @@ namespace LearnS.DataAccess.Migrations
                         {
                             Id = 1,
                             Content = "zawartość testowa",
-                            CreatedAt = new DateTime(2023, 11, 26, 20, 23, 28, 590, DateTimeKind.Local).AddTicks(7082),
+                            CreatedAt = new DateTime(2023, 12, 1, 11, 46, 9, 993, DateTimeKind.Local).AddTicks(2687),
                             NumberOfViews = 0,
                             ReplyCount = 0,
                             Title = "Tytuł testowy 1",
@@ -481,6 +495,12 @@ namespace LearnS.DataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int>("Coins")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Points")
+                        .HasColumnType("int");
+
                     b.Property<int>("SectionId")
                         .HasColumnType("int");
 
@@ -498,6 +518,8 @@ namespace LearnS.DataAccess.Migrations
                         new
                         {
                             Id = 1,
+                            Coins = 100,
+                            Points = 100,
                             SectionId = 2,
                             Title = "Quiz matematyka test"
                         });
@@ -559,6 +581,46 @@ namespace LearnS.DataAccess.Migrations
                             CategoryId = 1,
                             Description = "Parametryczne testy istotności",
                             Title = "Statystyka"
+                        });
+                });
+
+            modelBuilder.Entity("LearnS.Models.UserAvatar", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("AvatarId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsLocked")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsOwned")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AvatarId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UserAvatar");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AvatarId = 1,
+                            IsLocked = true,
+                            IsOwned = false,
+                            UserId = "f096fef9-cdf0-4298-81b1-52925b2ef44d"
                         });
                 });
 
@@ -818,6 +880,25 @@ namespace LearnS.DataAccess.Migrations
                     b.Navigation("Category");
                 });
 
+            modelBuilder.Entity("LearnS.Models.UserAvatar", b =>
+                {
+                    b.HasOne("LearnS.Models.AvatarsUpload", "Avatar")
+                        .WithMany("Users")
+                        .HasForeignKey("AvatarId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("LearnS.Models.ApplicationUser", "User")
+                        .WithMany("OwnedAvatars")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Avatar");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -874,6 +955,13 @@ namespace LearnS.DataAccess.Migrations
                     b.Navigation("ForumPost");
 
                     b.Navigation("ForumThreads");
+
+                    b.Navigation("OwnedAvatars");
+                });
+
+            modelBuilder.Entity("LearnS.Models.AvatarsUpload", b =>
+                {
+                    b.Navigation("Users");
                 });
 
             modelBuilder.Entity("LearnS.Models.ForumPost", b =>

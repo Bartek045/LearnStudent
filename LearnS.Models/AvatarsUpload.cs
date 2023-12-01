@@ -21,5 +21,12 @@ namespace LearnS.Models
         [ValidateNever]
         public string ImageUrl { get; set; }
 
+        [ValidateNever]
+        [DisplayName("Wartść monet")]
+        public int CoinsValue { get; set; }
+        [ValidateNever]
+
+        public virtual ICollection<UserAvatar> Users { get; set; }
+
     }
 }

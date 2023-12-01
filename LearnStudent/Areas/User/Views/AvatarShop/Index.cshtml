@@ -1,0 +1,53 @@
+﻿@model List<AvatarsUpload>
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="~/css/AvatarsUpload.css" />
+</head>
+<div class="row">
+    @foreach (var avatarsUpload in Model)
+    {
+        <div class="col-md-4">
+            <div class="avatar-container">
+                <img src="@avatarsUpload.ImageUrl" class="avatar-image" />
+            </div>
+            <div>
+                <strong>Nazwa: </strong>@avatarsUpload.Name
+            </div>
+            <div>
+                <strong>Wartość monet: </strong>@avatarsUpload.CoinsValue
+            </div>
+            <div>
+                <p>Liczba monet do zakupu: @avatarsUpload.CoinsValue</p>
+                @if (User.Identity.IsAuthenticated && avatarsUpload.Users != null)
+                {
+                    var userOwnsAvatar = avatarsUpload.Users.Any(ua => ua.AvatarId == avatarsUpload.Id && ua.IsOwned);
+
+               
+                    var isAvatarLocked = avatarsUpload.Users.Any(ua => ua.AvatarId == avatarsUpload.Id && ua.IsLocked);
+
+                    if (userOwnsAvatar)
+                    {
+                        <p>Posiadasz ten avatar</p>
+                    }
+                    else
+                    {
+                        if (isAvatarLocked)
+                        {
+                            <p>Avatar zablokowany</p>
+                        }
+                        else
+                        {
+                            <form method="post" action="@Url.Action("PurchaseAvatar", "YourController")">
+                                <input type="hidden" name="avatarId" value="@avatarsUpload.Id" />
+                                <button type="submit">Kup avatar</button>
+                            </form>
+                        }
+                    }
+                }
+            </div>
+        </div>
+    }
+</div>
+
+

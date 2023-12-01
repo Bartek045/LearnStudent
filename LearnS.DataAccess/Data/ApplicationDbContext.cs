@@ -98,18 +98,34 @@ namespace LearnS.DataAccess.Data
 
 
                 );
-            modelBuilder.Entity<AvatarsUpload>().HasData(
+            modelBuilder.Entity<UserAvatar>().HasData(
+
+
+              new UserAvatar
+              {
+                  Id = 1,
+                  UserId = "09799bcd-3aed-47cd-a6a2-4f80de96b979",
+                  AvatarId = 1,
+                  IsLocked = true,
+                  IsOwned = false,
+              }
+              );
+          modelBuilder.Entity<AvatarsUpload>().HasData(
+            
+              
                 new AvatarsUpload
                 {
                     Id = 1,
                     Name = "test",
-                    ImageUrl = ""
+                    ImageUrl = "",
+                    CoinsValue = 10,
                 },
                 new AvatarsUpload
                 {
                     Id = 2,
                     Name = "kot",
-                    ImageUrl = ""
+                    ImageUrl = "",
+                    CoinsValue = 20,
                 }
                 );
 
@@ -131,7 +147,9 @@ namespace LearnS.DataAccess.Data
          {
              Id = 1,
              Title = "Quiz matematyka test",
-             SectionId = 2
+             SectionId = 2,
+             Points = 100,
+             Coins = 100,
          }
      );
             modelBuilder.Entity<Question>().HasData(
