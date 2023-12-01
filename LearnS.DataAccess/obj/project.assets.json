@@ -9060,7 +9060,7 @@
       "code": "Undefined",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Wystąpił problem podczas czytania pliku pamięci podręcznej C:\\Users\\gaben\\OneDrive\\Pulpit\\learnstudent\\LearnStudent\\LearnS.DataAccess\\obj\\project.nuget.cache: Invalid property identifier character: <. Path 'version', line 3, position 0."
+      "message": "Wystąpił problem podczas czytania pliku pamięci podręcznej C:\\Users\\gaben\\OneDrive\\Pulpit\\learnstudent\\LearnStudent\\LearnS.DataAccess\\obj\\project.nuget.cache: Invalid property identifier character: <. Path 'expectedPackageFiles', line 182, position 0."
     }
   ]
 }

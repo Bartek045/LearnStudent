@@ -47,10 +47,9 @@ namespace LearnS.DataAccess.Data
                  .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<ForumPost>()
-                .HasMany(fp => fp.ForumComments)
-                .WithOne(fc => fc.ForumPost)
-                .HasForeignKey(fc => fc.ForumPostId)
-                .OnDelete(DeleteBehavior.Cascade);
+        .HasMany(fp => fp.ForumComments)
+        .WithOne(fc => fc.ForumPost)
+        .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<ForumComment>()
                 .HasOne(fc => fc.ForumPost)

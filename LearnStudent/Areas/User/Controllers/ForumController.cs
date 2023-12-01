@@ -48,7 +48,7 @@ namespace LearnStudent.Areas.User.Controllers
 
         public async Task<IActionResult> ViewThreadAsync(int id)
         {
-            var forumThread = _unitOfWork.ForumThread.Get(u => u.Id == id, includeProperties: "User");
+            var forumThread = _unitOfWork.ForumThread.Get(u => u.Id == id, includeProperties: "User,ForumPosts.ForumComments");
 
             if (forumThread == null)
             {
@@ -65,6 +65,7 @@ namespace LearnStudent.Areas.User.Controllers
 
             return View(forumThread);
         }
+
 
 
         private void UpdateReplyCount(int threadId)
@@ -326,8 +327,6 @@ namespace LearnStudent.Areas.User.Controllers
 
 
 
-
-
         [HttpPost]
         public async Task<IActionResult> DeleteReply(int replyId)
         {
@@ -344,19 +343,17 @@ namespace LearnStudent.Areas.User.Controllers
                 return Forbid();
             }
 
-            
-            var ratingsToDelete = _unitOfWork.ForumRating.Find(r => r.ForumPostId == replyId);
-            _unitOfWork.ForumRating.RemoveRange(ratingsToDelete);
+            _unitOfWork.ForumRating.RemoveRange(replyToDelete.ForumRatings);
+            _unitOfWork.ForumComment.RemoveRange(replyToDelete.ForumComments);
 
-           
             _unitOfWork.ForumPost.Remove(replyToDelete);
             _unitOfWork.Save();
 
-           
             UpdateReplyCount(replyToDelete.ForumThreadId);
 
             return RedirectToAction("ViewThread", new { id = replyToDelete.ForumThreadId });
         }
+
 
 
 
