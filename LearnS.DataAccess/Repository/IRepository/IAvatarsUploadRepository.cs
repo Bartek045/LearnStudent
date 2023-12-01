@@ -9,6 +9,7 @@ namespace LearnS.DataAccess.Repository.IRepository
 {
     public interface IAvatarsUploadRepository : IRepository<AvatarsUpload>
     {
+        
         void Update(AvatarsUpload obj);
 
     }

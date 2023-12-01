@@ -19,6 +19,11 @@
                     <span asp-validation-for="AvatarsUpload.Name" class="text-danger"></span>
                 </div>
                 <div class="form-floating py-2 col-12">
+                    <input asp-for="AvatarsUpload.CoinsValue" class="form-control border-0 shadow" />
+                    <label asp-for="AvatarsUpload.CoinsValue" class="ms-2"></label>
+                    <span asp-validation-for="AvatarsUpload.CoinsValue" class="text-danger"></span>
+                </div>
+                <div class="form-floating py-2 col-12">
                     <input type="file" name="file" class="form-control border-0 shadow" />
                     <label asp-for="AvatarsUpload.ImageUrl" class="ms-2"></label>
                 </div>

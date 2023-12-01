@@ -20,9 +20,14 @@ namespace LearnS.Models
         [ValidateNever]
         public int Points { get; set; }
         [ValidateNever]
+        public int Coins { get; set; }
+        [ValidateNever]
         [Required]
         [DisplayName("Poziom")]
         public int Level { get; set; }
+
+        [ValidateNever]
+        public virtual ICollection<UserAvatar> OwnedAvatars { get; set; }
 
     }
 }

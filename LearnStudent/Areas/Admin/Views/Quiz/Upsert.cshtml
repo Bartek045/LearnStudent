@@ -9,10 +9,16 @@
         <span asp-validation-for="Quiz.Title" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label asp-for="Points" class="control-label">Liczba punktów</label>
-        <input asp-for="Points" class="form-control" />
-        <span asp-validation-for="Points" class="text-danger"></span>
+        <label asp-for="Quiz.Points" class="control-label">Liczba punktów</label>
+        <input asp-for="Quiz.Points" class="form-control" />
+        <span asp-validation-for="Quiz.Points" class="text-danger"></span>
     </div>
+    <div class="form-group">
+        <label asp-for="Quiz.Coins" class="control-label">Liczba monet</label>
+        <input asp-for="Quiz.Coins" class="form-control" />
+        <span asp-validation-for="Quiz.Coins" class="text-danger"></span>
+    </div>
+
     <div class="form-floating py-2 col-12">
         <select asp-for="Quiz.SectionId" asp-items="@Model.SectionList" class="form-select border-0 shadow">
             <option disabled selected>---Wybierz Dział---</option>

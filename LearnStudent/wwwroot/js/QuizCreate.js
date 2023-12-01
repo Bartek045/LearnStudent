@@ -11,6 +11,7 @@ function loadDataTable() {
             { data: 'title', "width": "15%" },
             { data: 'section.title', "width": "10%" },
             { data: 'points', "width": "10%" },
+            { data: 'coins', "width": "10%" },
             {
                 data: 'id',
                 "render": function (data) {

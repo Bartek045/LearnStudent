@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LearnS.Models;
 
 namespace LearnS.Models.ViewModels
 {
@@ -13,6 +14,8 @@ namespace LearnS.Models.ViewModels
         public AvatarsUpload AvatarsUpload { get; set; }
         [ValidateNever]
         public IEnumerable<SelectListItem> AvatarsList { get; set; }
+
+        
 
     }
 }

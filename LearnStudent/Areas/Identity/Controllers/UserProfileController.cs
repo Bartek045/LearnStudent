@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace LearnStudent.Areas.User.Controllers
+namespace LearnStudent.Areas.Identity.Controllers
 {
-    public class UserProfilController : Controller
+    public class UserProfileController : Controller
     {
         public IActionResult Index()
         {

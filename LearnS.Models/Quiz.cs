@@ -28,6 +28,9 @@ namespace LearnS.Models
         [DisplayName("Liczba punktów")]
         public int Points { get; set; }
         [ValidateNever]
+        [DisplayName("Liczba monet")]
+        public int Coins { get; set; }
+        [ValidateNever]
         public List<Question> Questions { get; set; }
     }
 }

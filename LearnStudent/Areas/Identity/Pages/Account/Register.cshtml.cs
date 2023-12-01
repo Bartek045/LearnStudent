@@ -152,13 +152,13 @@ namespace LearnStudent.Areas.Identity.Pages.Account
                 {
                     _logger.LogInformation("User created a new account with password.");
 
-                    // Pobierz identyfikator użytkownika po utworzeniu konta
+                   
                     var userId = await _userManager.GetUserIdAsync(user);
 
                     // Ustaw UserId na identyfikatorze użytkownika
                     user.Id = userId;
 
-                    // Ustawienie roli użytkownika
+                   
                     if (!String.IsNullOrEmpty(Input.Role))
                     {
                         await _userManager.AddToRoleAsync(user, Input.Role);

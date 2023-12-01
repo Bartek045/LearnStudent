@@ -4,6 +4,7 @@ using LearnS.DataAccess.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LearnS.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231201102244_addUserAvatarToUser")]
+    partial class addUserAvatarToUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -254,7 +257,7 @@ namespace LearnS.DataAccess.Migrations
                         {
                             Id = 1,
                             Content = "komentarz",
-                            CreatedAt = new DateTime(2023, 12, 1, 11, 46, 9, 993, DateTimeKind.Local).AddTicks(2849),
+                            CreatedAt = new DateTime(2023, 12, 1, 11, 22, 44, 183, DateTimeKind.Local).AddTicks(1800),
                             ForumPostId = 1,
                             UserId = "f096fef9-cdf0-4298-81b1-52925b2ef44d"
                         });
@@ -299,7 +302,7 @@ namespace LearnS.DataAccess.Migrations
                         {
                             Id = 1,
                             Content = "zawartość testowa",
-                            CreatedAt = new DateTime(2023, 12, 1, 11, 46, 9, 993, DateTimeKind.Local).AddTicks(2812),
+                            CreatedAt = new DateTime(2023, 12, 1, 11, 22, 44, 183, DateTimeKind.Local).AddTicks(1761),
                             ForumThreadId = 1,
                             NumberOfViews = 0,
                             UserId = "f096fef9-cdf0-4298-81b1-52925b2ef44d"
@@ -383,7 +386,7 @@ namespace LearnS.DataAccess.Migrations
                         {
                             Id = 1,
                             Content = "zawartość testowa",
-                            CreatedAt = new DateTime(2023, 12, 1, 11, 46, 9, 993, DateTimeKind.Local).AddTicks(2687),
+                            CreatedAt = new DateTime(2023, 12, 1, 11, 22, 44, 183, DateTimeKind.Local).AddTicks(1692),
                             NumberOfViews = 0,
                             ReplyCount = 0,
                             Title = "Tytuł testowy 1",
@@ -612,16 +615,6 @@ namespace LearnS.DataAccess.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("UserAvatar");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            AvatarId = 1,
-                            IsLocked = true,
-                            IsOwned = false,
-                            UserId = "f096fef9-cdf0-4298-81b1-52925b2ef44d"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

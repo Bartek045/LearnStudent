@@ -10,14 +10,13 @@ using System.Threading.Tasks;
 namespace LearnS.Models.ViewModels
 {
     public class QuizVM
-    { public Quiz Quiz { get; set; }
+    {
+        public Quiz Quiz { get; set; }
         [ValidateNever]
         public IEnumerable<SelectListItem> SectionList { get; set; }
 
         public List<Question> Questions { get; set; }
-        [ValidateNever]
-        [DisplayName("Liczba punktów")]
-        public int Points { get; set; }
-    }
-}
 
+    }
+
+}

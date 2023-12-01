@@ -1,5 +1,6 @@
 ﻿using LearnS.DataAccess.Repository.IRepository;
 using LearnS.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
@@ -9,10 +10,11 @@ namespace LearnStudent.Areas.User.Controllers
     public class QuizController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
-
-        public QuizController(IUnitOfWork unitOfWork)
+        private readonly UserManager<ApplicationUser> _userManager;
+        public QuizController(IUnitOfWork unitOfWork, UserManager<ApplicationUser> userManager)
         {
             _unitOfWork = unitOfWork;
+            _userManager = userManager;
         }
 
         public IActionResult Index(string section)
@@ -48,7 +50,7 @@ namespace LearnStudent.Areas.User.Controllers
         }
 
         [HttpPost]
-        public IActionResult CheckAnswers(Dictionary<string, string> answers, string section)
+        public async Task<IActionResult> CheckAnswersAsync(Dictionary<string, string> answers, string section)
         {
             int correctAnswers = 0;
             int totalQuestions = answers.Count;
@@ -76,7 +78,25 @@ namespace LearnStudent.Areas.User.Controllers
                 }
             }
 
-            ViewBag.Section = section; 
+            // Pobierz aktualnego użytkownika
+            var user = await _userManager.GetUserAsync(User);
+
+            if (user != null)
+            {
+                // Przydziel monety za cały quiz
+                var quiz = _unitOfWork.Quiz.Get(q => q.Section.Title == section); // Pobierz quiz dla danej sekcji
+
+                if (quiz != null)
+                {
+                    int coinsForQuiz = quiz.Coins; // Pobierz liczbę monet za cały quiz
+                    user.Coins += coinsForQuiz;
+
+                    // Zapisz zmiany w bazie danych
+                    await _userManager.UpdateAsync(user);
+                }
+            }
+
+            ViewBag.Section = section;
             var result = Tuple.Create(correctAnswers, totalQuestions);
             return View("CheckAnswer", result);
         }
