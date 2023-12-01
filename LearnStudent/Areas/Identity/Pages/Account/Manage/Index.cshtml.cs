@@ -61,6 +61,7 @@ namespace LearnStudent.Areas.Identity.Pages.Account.Manage
             public string PhoneNumber { get; set; }
         }
         public int Coins { get; set; }
+        public int Points { get; set; }
         private async Task LoadAsync(ApplicationUser user)
         {
             var userName = await _userManager.GetUserNameAsync(user);
@@ -73,6 +74,7 @@ namespace LearnStudent.Areas.Identity.Pages.Account.Manage
                 PhoneNumber = phoneNumber
             };
             Coins = user.Coins;
+            Points = user.Points;
         }
 
         public async Task<IActionResult> OnGetAsync()
@@ -84,6 +86,7 @@ namespace LearnStudent.Areas.Identity.Pages.Account.Manage
             }
 
             await LoadAsync(user);
+
             return Page();
         }
 
