@@ -15,11 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LearnS.Utility")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-<<<<<<< Updated upstream
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e6a830099a175513f52d2ab331fe1b4c7539d45c")]
-=======
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ec8ae9ce71349c110e7292f93e54ece95f585fd8")]
->>>>>>> Stashed changes
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("LearnS.Utility")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LearnS.Utility")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
