@@ -15,16 +15,10 @@
             @if (User.Identity.IsAuthenticated)
             {
                 var avatarPath = "/images/avatars/defaultavatar.jpg";
-               <div style="display: flex; flex-direction: column">
+                <div style="display: flex; flex-direction: column">
                     <img id="avatar-image" src="@avatarPath" alt="Avatar" width="100" height="100" />
                     <input type="file" id="avatar-input" style="display: none;" />
-                   <button style="max-width: 150px" id="change-avatar-button" class="btn btn-secondary mt-2" asp-controller="AvatarShop" asp-action="PurchasedAvatars">Zmień zdjęcie</button>
-
-
-                <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; max-width: 120px">
-                <img src="@avatarPath" alt="Avatar" width="100" height="100" />
-                
-                <button style="max-width: 150px" id="change-avatar-button" class="btn btn-secondary mt-2">Zmień zdjęcie</button>
+                    <button style="max-width: 150px" id="change-avatar-button" class="btn btn-secondary mt-2" asp-controller="AvatarShop" asp-action="PurchasedAvatars">Zmień zdjęcie</button>
 
                 </div>
             }
@@ -50,7 +44,7 @@
     <div class="col-md-6">
         <p>Monety: @Model.Coins</p>
         <p>Punkty: @Model.Points</p>
-        @* <p>Level: @Model.Level</p> *@
+      @*   <p>Level: @Model.Level</p> *@
     </div>
 </div>
 <div id="progress-bar--container">
@@ -64,10 +58,14 @@
 </div>
 
 <style>
-  
+
 </style>
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
+    <script src="~/js/Progressbar.js"></script>
+
+
+
     
 
     <script>
