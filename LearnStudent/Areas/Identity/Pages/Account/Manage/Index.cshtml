@@ -4,7 +4,9 @@
     ViewData["Title"] = "Profil";
     ViewData["ActivePage"] = ManageNavPages.Index;
 }
-
+<head>
+    <link rel="stylesheet" href="~/css/Progressbar.css" />
+</head>
 <h3>@ViewData["Title"]</h3>
 <partial name="_StatusMessage" for="StatusMessage" />
 <div class="row">
@@ -14,9 +16,10 @@
             {
                 var avatarPath = "/images/avatars/defaultavatar.jpg";
                 <div style="display: flex; flex-direction: column">
-                <img src="@avatarPath" alt="Avatar" width="100" height="100" />
-                
-                <button style="max-width: 150px" id="change-avatar-button" class="btn btn-secondary mt-2">Zmień zdjęcie</button>
+                    <img id="avatar-image" src="@avatarPath" alt="Avatar" width="100" height="100" />
+                    <input type="file" id="avatar-input" style="display: none;" />
+                   <button style="max-width: 150px" id="change-avatar-button" class="btn btn-secondary mt-2" asp-controller="AvatarShop" asp-action="PurchasedAvatars">Zmień zdjęcie</button>
+
                 </div>
             }
         </div>
@@ -41,6 +44,7 @@
     <div class="col-md-6">
         <p>Monety: @Model.Coins</p>
         <p>Punkty: @Model.Points</p>
+        @* <p>Level: @Model.Level</p> *@
     </div>
 </div>
 <div id="progress-bar--container">
@@ -48,62 +52,39 @@
         <circle stroke="#EAEAEA" stroke-width="5.5" cx="50" cy="50" r="30" fill="none" />
         <circle id="progress--circle" stroke="#28411B" stroke-width="5.5" cx="50" cy="50" r="30" fill="none" pathLength="100" />
         <text id="progress--text" x="50" y="48" text-anchor="middle" dominant-baseline="middle">0%</text>
-        <text id="progress--text" class="progress--text--second" x="50" y="55" text-anchor="middle" dominant-baseline="middle">Poziom 1</text>
+        <text id="progress--text-second" class="progress--text--second" x="50" y="55" text-anchor="middle" dominant-baseline="middle" transform="rotate(90 50 50)">Poziom 1</text>
+
     </svg>
 </div>
 
 <style>
-    :root {
-        --accent-color: #EAEAEA;
-        --primary-color: #28411B;
-        --primary-font: "JetBrains Mono";
-    }
-
-    #progress-bar--container {
-        display: flex;
-        justify-content: center;
-    }
-
-        #progress-bar--container svg {
-            width: 400px;
-        }
-
-    #progress--circle {
-        stroke-dasharray: 100;
-        stroke-dashoffset: 100;
-        stroke-linecap: round;
-    }
-
-    #progress--text {
-        font-family: var(--primary-font);
-        fill: var(--primary-color);
-        font-weight: 750;
-        font-size: 5.5px;
-        transform-origin: center;
-        transform: rotate(90deg);
-    }
-
-    svg {
-        transform: rotate(-90deg);
-    }
-
-    .meter-info {
-        box-sizing: border-box;
-        font-family: var(--primary-font);
-        font-weight: bold;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        background-color: var(--accent-color);
-        padding: 30px 20px;
-    }
-
-    #meter--ranger {
-        width: 100%;
-    }
+  
 </style>
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
-    <script src="~/js/Progresbar.js"></script>
+    
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const points = @Model.Points; // Pobierz punkty użytkownika z modelu
+            const level = Math.floor(points / 200); // Oblicz poziom na podstawie punktów
+            const progressInLevel = points % 200; // Oblicz postęp w danym poziomie
+            const progressPercent = (progressInLevel / 200) * 100; // Oblicz procentowy postęp
+
+            const meter = document.getElementById("progress--circle");
+            const insideText = document.getElementById("progress--text");
+            const insideTextSecond = document.getElementById("progress--text-second");
+
+            insideText.textContent = `${progressPercent.toFixed(0)}%`;
+            insideTextSecond.textContent = `Poziom ${level + 1}`;
+            meter.style.strokeDashoffset = 100 - progressPercent;
+
+            if (progressPercent === 0) {
+                meter.style.stroke = "none";
+            } else {
+                meter.style.stroke = "#28411B";
+            }
+        });
+
+    </script>
 }

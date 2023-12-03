@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LearnS.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231201102244_addUserAvatarToUser")]
-    partial class addUserAvatarToUser
+    [Migration("20231202114302_addAvatarPurchaseToDB")]
+    partial class addAvatarPurchaseToDB
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -97,6 +97,31 @@ namespace LearnS.DataAccess.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+                });
+
+            modelBuilder.Entity("LearnS.Models.AvatarPurchase", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("AvatarId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("PurchaseDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AvatarPurchases");
                 });
 
             modelBuilder.Entity("LearnS.Models.AvatarsUpload", b =>
@@ -257,7 +282,7 @@ namespace LearnS.DataAccess.Migrations
                         {
                             Id = 1,
                             Content = "komentarz",
-                            CreatedAt = new DateTime(2023, 12, 1, 11, 22, 44, 183, DateTimeKind.Local).AddTicks(1800),
+                            CreatedAt = new DateTime(2023, 12, 2, 12, 43, 1, 919, DateTimeKind.Local).AddTicks(9282),
                             ForumPostId = 1,
                             UserId = "f096fef9-cdf0-4298-81b1-52925b2ef44d"
                         });
@@ -302,7 +327,7 @@ namespace LearnS.DataAccess.Migrations
                         {
                             Id = 1,
                             Content = "zawartość testowa",
-                            CreatedAt = new DateTime(2023, 12, 1, 11, 22, 44, 183, DateTimeKind.Local).AddTicks(1761),
+                            CreatedAt = new DateTime(2023, 12, 2, 12, 43, 1, 919, DateTimeKind.Local).AddTicks(9240),
                             ForumThreadId = 1,
                             NumberOfViews = 0,
                             UserId = "f096fef9-cdf0-4298-81b1-52925b2ef44d"
@@ -386,7 +411,7 @@ namespace LearnS.DataAccess.Migrations
                         {
                             Id = 1,
                             Content = "zawartość testowa",
-                            CreatedAt = new DateTime(2023, 12, 1, 11, 22, 44, 183, DateTimeKind.Local).AddTicks(1692),
+                            CreatedAt = new DateTime(2023, 12, 2, 12, 43, 1, 919, DateTimeKind.Local).AddTicks(9171),
                             NumberOfViews = 0,
                             ReplyCount = 0,
                             Title = "Tytuł testowy 1",
@@ -587,36 +612,6 @@ namespace LearnS.DataAccess.Migrations
                         });
                 });
 
-            modelBuilder.Entity("LearnS.Models.UserAvatar", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("AvatarId")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("IsLocked")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsOwned")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AvatarId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("UserAvatar");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -750,6 +745,17 @@ namespace LearnS.DataAccess.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("LearnS.Models.AvatarPurchase", b =>
+                {
+                    b.HasOne("LearnS.Models.ApplicationUser", "User")
+                        .WithMany("AvatarPurchases")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("LearnS.Models.ExampleTasks", b =>
                 {
                     b.HasOne("LearnS.Models.Section", "Section")
@@ -873,25 +879,6 @@ namespace LearnS.DataAccess.Migrations
                     b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("LearnS.Models.UserAvatar", b =>
-                {
-                    b.HasOne("LearnS.Models.AvatarsUpload", "Avatar")
-                        .WithMany("Users")
-                        .HasForeignKey("AvatarId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("LearnS.Models.ApplicationUser", "User")
-                        .WithMany("OwnedAvatars")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Avatar");
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -945,16 +932,11 @@ namespace LearnS.DataAccess.Migrations
 
             modelBuilder.Entity("LearnS.Models.ApplicationUser", b =>
                 {
+                    b.Navigation("AvatarPurchases");
+
                     b.Navigation("ForumPost");
 
                     b.Navigation("ForumThreads");
-
-                    b.Navigation("OwnedAvatars");
-                });
-
-            modelBuilder.Entity("LearnS.Models.AvatarsUpload", b =>
-                {
-                    b.Navigation("Users");
                 });
 
             modelBuilder.Entity("LearnS.Models.ForumPost", b =>

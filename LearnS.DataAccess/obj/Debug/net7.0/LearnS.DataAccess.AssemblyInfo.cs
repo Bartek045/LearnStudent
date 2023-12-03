@@ -14,11 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LearnS.DataAccess")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-<<<<<<< Updated upstream
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e6a830099a175513f52d2ab331fe1b4c7539d45c")]
-=======
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ec8ae9ce71349c110e7292f93e54ece95f585fd8")]
->>>>>>> Stashed changes
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0551f540bf57cf2bbd06cbc399c948d20c23f8ac")]
 [assembly: System.Reflection.AssemblyProductAttribute("LearnS.DataAccess")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LearnS.DataAccess")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

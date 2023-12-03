@@ -29,6 +29,8 @@ namespace LearnS.DataAccess.Data
         public DbSet<ForumComment> ForumComments { get; set; }
         public DbSet<ForumRating> ForumRatings { get; set; }
 
+        public DbSet<AvatarPurchase> AvatarPurchases { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -61,9 +63,18 @@ namespace LearnS.DataAccess.Data
                 .HasOne(fr => fr.ForumPost)
                 .WithMany(fp => fp.ForumRatings)
                 .HasForeignKey(fr => fr.ForumPostId)
-                .OnDelete(DeleteBehavior.Restrict); 
+                .OnDelete(DeleteBehavior.Restrict);
 
+            modelBuilder.Entity<AvatarPurchase>()
+                .HasOne(ap => ap.User)
+                .WithMany(u => u.AvatarPurchases)
+                .HasForeignKey(ap => ap.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
 
+            modelBuilder.Entity<AvatarPurchase>()
+             .HasOne(ap => ap.Avatar)
+             .WithMany()
+             .HasForeignKey(ap => ap.AvatarId);
 
             modelBuilder.Entity<Category>().HasData(
                 new Category { Id = 1, Name = "Math", DisplayOrder = 1 },
@@ -98,36 +109,28 @@ namespace LearnS.DataAccess.Data
 
 
                 );
-            modelBuilder.Entity<UserAvatar>().HasData(
+  
 
+         
 
-              new UserAvatar
-              {
-                  Id = 1,
-                  UserId = "09799bcd-3aed-47cd-a6a2-4f80de96b979",
-                  AvatarId = 1,
-                  IsLocked = true,
-                  IsOwned = false,
-              }
-              );
-          modelBuilder.Entity<AvatarsUpload>().HasData(
-            
-              
-                new AvatarsUpload
-                {
-                    Id = 1,
-                    Name = "test",
-                    ImageUrl = "",
-                    CoinsValue = 10,
-                },
-                new AvatarsUpload
-                {
-                    Id = 2,
-                    Name = "kot",
-                    ImageUrl = "",
-                    CoinsValue = 20,
-                }
-                );
+             modelBuilder.Entity<AvatarsUpload>().HasData(
+    new AvatarsUpload
+    {
+        Id = 1,
+        Name = "test",
+        ImageUrl = "",
+        CoinsValue = 10,
+     
+    },
+    new AvatarsUpload
+    {
+        Id = 2, 
+        Name = "kot",
+        ImageUrl = "",
+        CoinsValue = 20,
+    }
+);
+
 
             modelBuilder.Entity<LearningMaterials>().HasData(
                 new LearningMaterials
@@ -183,7 +186,7 @@ namespace LearnS.DataAccess.Data
                  Title = "Tytuł testowy 1",
                  Content = "zawartość testowa",
                  CreatedAt = DateTime.Now,
-                 UserId = "09799bcd-3aed-47cd-a6a2-4f80de96b979",
+                 UserId = "f096fef9-cdf0-4298-81b1-52925b2ef44d",
 
 
 
@@ -197,7 +200,7 @@ namespace LearnS.DataAccess.Data
                  Content = "zawartość testowa",
                  CreatedAt = DateTime.Now,
                  ForumThreadId = 1,
-                 UserId = "09799bcd-3aed-47cd-a6a2-4f80de96b979",
+                 UserId = "f096fef9-cdf0-4298-81b1-52925b2ef44d",
 
 
              }
@@ -208,7 +211,7 @@ namespace LearnS.DataAccess.Data
                    Id = 1,
                    Value = 1,
                    ForumPostId = 1,
-                   UserId = "09799bcd-3aed-47cd-a6a2-4f80de96b979",
+                   UserId = "f096fef9-cdf0-4298-81b1-52925b2ef44d",
 
 
 
@@ -221,7 +224,7 @@ namespace LearnS.DataAccess.Data
             Content = "komentarz",
             CreatedAt = DateTime.Now,
             ForumPostId = 1,
-            UserId = "09799bcd-3aed-47cd-a6a2-4f80de96b979"
+            UserId = "f096fef9-cdf0-4298-81b1-52925b2ef44d"
         }
     );
 

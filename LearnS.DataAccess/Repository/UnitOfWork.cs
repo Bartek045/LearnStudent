@@ -31,6 +31,7 @@ namespace LearnS.DataAccess.Repository
         public IForumCommentRepository ForumComment { get; private set; }
         public IForumRatingRepository ForumRating { get; private set; }
         public IApplicationUserRepository ApplicationUser { get; private set; }
+       public IAvatarPurchaseRepositroy AvatarPurchase { get; private set; }
         public UnitOfWork(ApplicationDbContext db)
         {
             _db = db;
@@ -46,6 +47,7 @@ namespace LearnS.DataAccess.Repository
             ForumThread = new ForumThreadRepository(_db);
             ForumComment = new ForumCommentRepository(_db);
             ForumRating = new ForumRatingRepository(_db);
+            AvatarPurchase = new AvatarPurchaseRepositroy(_db);
         }
 
 

@@ -25,9 +25,16 @@ namespace LearnS.Models
         [Required]
         [DisplayName("Poziom")]
         public int Level { get; set; }
-
         [ValidateNever]
-        public virtual ICollection<UserAvatar> OwnedAvatars { get; set; }
+        public List<AvatarPurchase> AvatarPurchases { get; set; }
+      
+        [ValidateNever]
+        public List<AvatarPurchase> PurchasedAvatars { get; set; }
+        
+        public void CalculateLevel()
+        {
 
+            Level = Points / 200 + 1;
+        }
     }
 }

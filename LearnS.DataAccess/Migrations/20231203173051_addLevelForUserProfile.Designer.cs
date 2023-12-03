@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LearnS.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231130195133_addAvatarsToUserModel")]
-    partial class addAvatarsToUserModel
+    [Migration("20231203173051_addLevelForUserProfile")]
+    partial class addLevelForUserProfile
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,9 +33,12 @@ namespace LearnS.DataAccess.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
-                    b.Property<string>("AvatarUrl")
+                    b.Property<string>("AvatarPath")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Coins")
+                        .HasColumnType("int");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
@@ -100,6 +103,43 @@ namespace LearnS.DataAccess.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("LearnS.Models.AvatarPurchase", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("AvatarId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("AvatarsUploadId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("PurchaseDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ApplicationUserId");
+
+                    b.HasIndex("AvatarId");
+
+                    b.HasIndex("AvatarsUploadId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AvatarPurchases");
+                });
+
             modelBuilder.Entity("LearnS.Models.AvatarsUpload", b =>
                 {
                     b.Property<int>("Id")
@@ -107,6 +147,9 @@ namespace LearnS.DataAccess.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CoinsValue")
+                        .HasColumnType("int");
 
                     b.Property<string>("ImageUrl")
                         .IsRequired()
@@ -124,12 +167,14 @@ namespace LearnS.DataAccess.Migrations
                         new
                         {
                             Id = 1,
+                            CoinsValue = 10,
                             ImageUrl = "",
                             Name = "test"
                         },
                         new
                         {
                             Id = 2,
+                            CoinsValue = 20,
                             ImageUrl = "",
                             Name = "kot"
                         });
@@ -253,7 +298,7 @@ namespace LearnS.DataAccess.Migrations
                         {
                             Id = 1,
                             Content = "komentarz",
-                            CreatedAt = new DateTime(2023, 11, 30, 20, 51, 33, 474, DateTimeKind.Local).AddTicks(1134),
+                            CreatedAt = new DateTime(2023, 12, 3, 18, 30, 51, 481, DateTimeKind.Local).AddTicks(6345),
                             ForumPostId = 1,
                             UserId = "f096fef9-cdf0-4298-81b1-52925b2ef44d"
                         });
@@ -298,7 +343,7 @@ namespace LearnS.DataAccess.Migrations
                         {
                             Id = 1,
                             Content = "zawartość testowa",
-                            CreatedAt = new DateTime(2023, 11, 30, 20, 51, 33, 474, DateTimeKind.Local).AddTicks(1092),
+                            CreatedAt = new DateTime(2023, 12, 3, 18, 30, 51, 481, DateTimeKind.Local).AddTicks(6294),
                             ForumThreadId = 1,
                             NumberOfViews = 0,
                             UserId = "f096fef9-cdf0-4298-81b1-52925b2ef44d"
@@ -382,7 +427,7 @@ namespace LearnS.DataAccess.Migrations
                         {
                             Id = 1,
                             Content = "zawartość testowa",
-                            CreatedAt = new DateTime(2023, 11, 30, 20, 51, 33, 474, DateTimeKind.Local).AddTicks(1021),
+                            CreatedAt = new DateTime(2023, 12, 3, 18, 30, 51, 481, DateTimeKind.Local).AddTicks(6220),
                             NumberOfViews = 0,
                             ReplyCount = 0,
                             Title = "Tytuł testowy 1",
@@ -494,6 +539,9 @@ namespace LearnS.DataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int>("Coins")
+                        .HasColumnType("int");
+
                     b.Property<int>("Points")
                         .HasColumnType("int");
 
@@ -514,6 +562,7 @@ namespace LearnS.DataAccess.Migrations
                         new
                         {
                             Id = 1,
+                            Coins = 100,
                             Points = 100,
                             SectionId = 2,
                             Title = "Quiz matematyka test"
@@ -712,6 +761,33 @@ namespace LearnS.DataAccess.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("LearnS.Models.AvatarPurchase", b =>
+                {
+                    b.HasOne("LearnS.Models.ApplicationUser", null)
+                        .WithMany("PurchasedAvatars")
+                        .HasForeignKey("ApplicationUserId");
+
+                    b.HasOne("LearnS.Models.AvatarsUpload", "Avatar")
+                        .WithMany()
+                        .HasForeignKey("AvatarId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("LearnS.Models.AvatarsUpload", null)
+                        .WithMany("AvatarPurchases")
+                        .HasForeignKey("AvatarsUploadId");
+
+                    b.HasOne("LearnS.Models.ApplicationUser", "User")
+                        .WithMany("AvatarPurchases")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Avatar");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("LearnS.Models.ExampleTasks", b =>
                 {
                     b.HasOne("LearnS.Models.Section", "Section")
@@ -888,9 +964,18 @@ namespace LearnS.DataAccess.Migrations
 
             modelBuilder.Entity("LearnS.Models.ApplicationUser", b =>
                 {
+                    b.Navigation("AvatarPurchases");
+
                     b.Navigation("ForumPost");
 
                     b.Navigation("ForumThreads");
+
+                    b.Navigation("PurchasedAvatars");
+                });
+
+            modelBuilder.Entity("LearnS.Models.AvatarsUpload", b =>
+                {
+                    b.Navigation("AvatarPurchases");
                 });
 
             modelBuilder.Entity("LearnS.Models.ForumPost", b =>

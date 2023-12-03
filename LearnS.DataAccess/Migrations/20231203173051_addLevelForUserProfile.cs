@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace LearnS.DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class addUserAvatarToDb : Migration
+    public partial class addLevelForUserProfile : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -16,21 +16,21 @@ namespace LearnS.DataAccess.Migrations
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "CreatedAt",
-                value: new DateTime(2023, 12, 1, 11, 20, 36, 607, DateTimeKind.Local).AddTicks(5302));
+                value: new DateTime(2023, 12, 3, 18, 30, 51, 481, DateTimeKind.Local).AddTicks(6345));
 
             migrationBuilder.UpdateData(
                 table: "ForumPosts",
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "CreatedAt",
-                value: new DateTime(2023, 12, 1, 11, 20, 36, 607, DateTimeKind.Local).AddTicks(5257));
+                value: new DateTime(2023, 12, 3, 18, 30, 51, 481, DateTimeKind.Local).AddTicks(6294));
 
             migrationBuilder.UpdateData(
                 table: "ForumThreads",
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "CreatedAt",
-                value: new DateTime(2023, 12, 1, 11, 20, 36, 607, DateTimeKind.Local).AddTicks(5175));
+                value: new DateTime(2023, 12, 3, 18, 30, 51, 481, DateTimeKind.Local).AddTicks(6220));
         }
 
         /// <inheritdoc />
@@ -41,21 +41,21 @@ namespace LearnS.DataAccess.Migrations
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "CreatedAt",
-                value: new DateTime(2023, 12, 1, 11, 9, 37, 542, DateTimeKind.Local).AddTicks(1998));
+                value: new DateTime(2023, 12, 3, 12, 45, 24, 69, DateTimeKind.Local).AddTicks(6971));
 
             migrationBuilder.UpdateData(
                 table: "ForumPosts",
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "CreatedAt",
-                value: new DateTime(2023, 12, 1, 11, 9, 37, 542, DateTimeKind.Local).AddTicks(1959));
+                value: new DateTime(2023, 12, 3, 12, 45, 24, 69, DateTimeKind.Local).AddTicks(6905));
 
             migrationBuilder.UpdateData(
                 table: "ForumThreads",
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "CreatedAt",
-                value: new DateTime(2023, 12, 1, 11, 9, 37, 542, DateTimeKind.Local).AddTicks(1887));
+                value: new DateTime(2023, 12, 3, 12, 45, 24, 69, DateTimeKind.Local).AddTicks(6819));
         }
     }
 }

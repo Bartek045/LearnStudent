@@ -4,6 +4,7 @@ using LearnS.DataAccess.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LearnS.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231202120833_addAvatarPathToUser")]
+    partial class addAvatarPathToUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -108,13 +111,7 @@ namespace LearnS.DataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("ApplicationUserId")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<int>("AvatarId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("AvatarsUploadId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("PurchaseDate")
@@ -125,12 +122,6 @@ namespace LearnS.DataAccess.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ApplicationUserId");
-
-                    b.HasIndex("AvatarId");
-
-                    b.HasIndex("AvatarsUploadId");
 
                     b.HasIndex("UserId");
 
@@ -295,7 +286,7 @@ namespace LearnS.DataAccess.Migrations
                         {
                             Id = 1,
                             Content = "komentarz",
-                            CreatedAt = new DateTime(2023, 12, 3, 18, 30, 51, 481, DateTimeKind.Local).AddTicks(6345),
+                            CreatedAt = new DateTime(2023, 12, 2, 13, 8, 32, 722, DateTimeKind.Local).AddTicks(5645),
                             ForumPostId = 1,
                             UserId = "f096fef9-cdf0-4298-81b1-52925b2ef44d"
                         });
@@ -340,7 +331,7 @@ namespace LearnS.DataAccess.Migrations
                         {
                             Id = 1,
                             Content = "zawartość testowa",
-                            CreatedAt = new DateTime(2023, 12, 3, 18, 30, 51, 481, DateTimeKind.Local).AddTicks(6294),
+                            CreatedAt = new DateTime(2023, 12, 2, 13, 8, 32, 722, DateTimeKind.Local).AddTicks(5423),
                             ForumThreadId = 1,
                             NumberOfViews = 0,
                             UserId = "f096fef9-cdf0-4298-81b1-52925b2ef44d"
@@ -424,7 +415,7 @@ namespace LearnS.DataAccess.Migrations
                         {
                             Id = 1,
                             Content = "zawartość testowa",
-                            CreatedAt = new DateTime(2023, 12, 3, 18, 30, 51, 481, DateTimeKind.Local).AddTicks(6220),
+                            CreatedAt = new DateTime(2023, 12, 2, 13, 8, 32, 722, DateTimeKind.Local).AddTicks(5214),
                             NumberOfViews = 0,
                             ReplyCount = 0,
                             Title = "Tytuł testowy 1",
@@ -760,27 +751,11 @@ namespace LearnS.DataAccess.Migrations
 
             modelBuilder.Entity("LearnS.Models.AvatarPurchase", b =>
                 {
-                    b.HasOne("LearnS.Models.ApplicationUser", null)
-                        .WithMany("PurchasedAvatars")
-                        .HasForeignKey("ApplicationUserId");
-
-                    b.HasOne("LearnS.Models.AvatarsUpload", "Avatar")
-                        .WithMany()
-                        .HasForeignKey("AvatarId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("LearnS.Models.AvatarsUpload", null)
-                        .WithMany("AvatarPurchases")
-                        .HasForeignKey("AvatarsUploadId");
-
                     b.HasOne("LearnS.Models.ApplicationUser", "User")
                         .WithMany("AvatarPurchases")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Avatar");
 
                     b.Navigation("User");
                 });
@@ -966,13 +941,6 @@ namespace LearnS.DataAccess.Migrations
                     b.Navigation("ForumPost");
 
                     b.Navigation("ForumThreads");
-
-                    b.Navigation("PurchasedAvatars");
-                });
-
-            modelBuilder.Entity("LearnS.Models.AvatarsUpload", b =>
-                {
-                    b.Navigation("AvatarPurchases");
                 });
 
             modelBuilder.Entity("LearnS.Models.ForumPost", b =>

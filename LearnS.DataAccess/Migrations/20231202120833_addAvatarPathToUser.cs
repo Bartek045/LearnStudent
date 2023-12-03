@@ -6,13 +6,13 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace LearnS.DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class addAvatarsToUserModel : Migration
+    public partial class addAvatarPathToUser : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<string>(
-                name: "AvatarUrl",
+                name: "AvatarPath",
                 table: "AspNetUsers",
                 type: "nvarchar(max)",
                 nullable: false,
@@ -23,28 +23,28 @@ namespace LearnS.DataAccess.Migrations
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "CreatedAt",
-                value: new DateTime(2023, 11, 30, 20, 51, 33, 474, DateTimeKind.Local).AddTicks(1134));
+                value: new DateTime(2023, 12, 2, 13, 8, 32, 722, DateTimeKind.Local).AddTicks(5645));
 
             migrationBuilder.UpdateData(
                 table: "ForumPosts",
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "CreatedAt",
-                value: new DateTime(2023, 11, 30, 20, 51, 33, 474, DateTimeKind.Local).AddTicks(1092));
+                value: new DateTime(2023, 12, 2, 13, 8, 32, 722, DateTimeKind.Local).AddTicks(5423));
 
             migrationBuilder.UpdateData(
                 table: "ForumThreads",
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "CreatedAt",
-                value: new DateTime(2023, 11, 30, 20, 51, 33, 474, DateTimeKind.Local).AddTicks(1021));
+                value: new DateTime(2023, 12, 2, 13, 8, 32, 722, DateTimeKind.Local).AddTicks(5214));
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "AvatarUrl",
+                name: "AvatarPath",
                 table: "AspNetUsers");
 
             migrationBuilder.UpdateData(
@@ -52,21 +52,21 @@ namespace LearnS.DataAccess.Migrations
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "CreatedAt",
-                value: new DateTime(2023, 11, 30, 19, 5, 0, 236, DateTimeKind.Local).AddTicks(7691));
+                value: new DateTime(2023, 12, 2, 12, 43, 1, 919, DateTimeKind.Local).AddTicks(9282));
 
             migrationBuilder.UpdateData(
                 table: "ForumPosts",
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "CreatedAt",
-                value: new DateTime(2023, 11, 30, 19, 5, 0, 236, DateTimeKind.Local).AddTicks(7647));
+                value: new DateTime(2023, 12, 2, 12, 43, 1, 919, DateTimeKind.Local).AddTicks(9240));
 
             migrationBuilder.UpdateData(
                 table: "ForumThreads",
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "CreatedAt",
-                value: new DateTime(2023, 11, 30, 19, 5, 0, 236, DateTimeKind.Local).AddTicks(7575));
+                value: new DateTime(2023, 12, 2, 12, 43, 1, 919, DateTimeKind.Local).AddTicks(9171));
         }
     }
 }

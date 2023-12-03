@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace LearnS.DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class addUserAvatarToUsers : Migration
+    public partial class addUpdateavatarToUser : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -16,56 +16,67 @@ namespace LearnS.DataAccess.Migrations
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "CreatedAt",
-                value: new DateTime(2023, 12, 1, 11, 46, 9, 993, DateTimeKind.Local).AddTicks(2849));
+                value: new DateTime(2023, 12, 2, 13, 17, 21, 30, DateTimeKind.Local).AddTicks(8508));
 
             migrationBuilder.UpdateData(
                 table: "ForumPosts",
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "CreatedAt",
-                value: new DateTime(2023, 12, 1, 11, 46, 9, 993, DateTimeKind.Local).AddTicks(2812));
+                value: new DateTime(2023, 12, 2, 13, 17, 21, 30, DateTimeKind.Local).AddTicks(8449));
 
             migrationBuilder.UpdateData(
                 table: "ForumThreads",
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "CreatedAt",
-                value: new DateTime(2023, 12, 1, 11, 46, 9, 993, DateTimeKind.Local).AddTicks(2687));
+                value: new DateTime(2023, 12, 2, 13, 17, 21, 30, DateTimeKind.Local).AddTicks(8364));
 
-            migrationBuilder.InsertData(
-                table: "UserAvatar",
-                columns: new[] { "Id", "AvatarId", "IsLocked", "IsOwned", "UserId" },
-                values: new object[] { 1, 1, true, false, "09799bcd-3aed-47cd-a6a2-4f80de96b979" });
+            migrationBuilder.CreateIndex(
+                name: "IX_AvatarPurchases_AvatarId",
+                table: "AvatarPurchases",
+                column: "AvatarId");
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_AvatarPurchases_AvatarsUploads_AvatarId",
+                table: "AvatarPurchases",
+                column: "AvatarId",
+                principalTable: "AvatarsUploads",
+                principalColumn: "Id",
+                onDelete: ReferentialAction.Cascade);
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DeleteData(
-                table: "UserAvatar",
-                keyColumn: "Id",
-                keyValue: 1);
+            migrationBuilder.DropForeignKey(
+                name: "FK_AvatarPurchases_AvatarsUploads_AvatarId",
+                table: "AvatarPurchases");
+
+            migrationBuilder.DropIndex(
+                name: "IX_AvatarPurchases_AvatarId",
+                table: "AvatarPurchases");
 
             migrationBuilder.UpdateData(
                 table: "ForumComments",
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "CreatedAt",
-                value: new DateTime(2023, 12, 1, 11, 22, 44, 183, DateTimeKind.Local).AddTicks(1800));
+                value: new DateTime(2023, 12, 2, 13, 14, 58, 446, DateTimeKind.Local).AddTicks(3208));
 
             migrationBuilder.UpdateData(
                 table: "ForumPosts",
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "CreatedAt",
-                value: new DateTime(2023, 12, 1, 11, 22, 44, 183, DateTimeKind.Local).AddTicks(1761));
+                value: new DateTime(2023, 12, 2, 13, 14, 58, 446, DateTimeKind.Local).AddTicks(3120));
 
             migrationBuilder.UpdateData(
                 table: "ForumThreads",
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "CreatedAt",
-                value: new DateTime(2023, 12, 1, 11, 22, 44, 183, DateTimeKind.Local).AddTicks(1692));
+                value: new DateTime(2023, 12, 2, 13, 14, 58, 446, DateTimeKind.Local).AddTicks(3027));
         }
     }
 }

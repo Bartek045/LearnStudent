@@ -24,9 +24,7 @@ namespace LearnS.Models
         [ValidateNever]
         [DisplayName("Wartść monet")]
         public int CoinsValue { get; set; }
-        [ValidateNever]
 
-        public virtual ICollection<UserAvatar> Users { get; set; }
-
+        public List<AvatarPurchase> AvatarPurchases { get; set; }
     }
 }
