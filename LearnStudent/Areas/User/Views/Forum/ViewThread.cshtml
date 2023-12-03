@@ -12,23 +12,9 @@
 </head>
 <body>
 
-    <!--    
-    <div class="vote-buttons">
-        <form asp-area="User" asp-controller="Forum" asp-action="AddRating" method="post" class="vote-form">
-            <input type="hidden" name="postId" value="@Model.Id" />
-            <input type="hidden" name="rating" value="1" />
-            <button type="submit" class="vote-button">🔼</button>
-        </form>
-
-        <span class="vote-count">@Model.ForumPosts?.Sum(fp => fp.ForumRatings?.Sum(fr => fr.Value) ?? 0)</span>
-
-        <form asp-area="User" asp-controller="Forum" asp-action="AddRating" method="post" class="vote-form">
-            <input type="hidden" name="postId" value="@Model.Id" />
-            <input type="hidden" name="rating" value="-1" />
-            <button type="submit" class="vote-button">🔽</button>
-        </form>
-    </div>
-    -->
+     
+  
+  
     <div style=" "> 
     <h1>@Model.Title</h1>
     <p style="opacity: 0.5">Dodano: @Model.CreatedAt</p>
@@ -36,6 +22,21 @@
     
     <p>@Model.Content</p>
     <hr />
+        <div class="vote-buttons">
+            <form asp-area="User" asp-controller="Forum" asp-action="AddRating" method="post" class="vote-form">
+                <input type="hidden" name="postId" value="@Model.Id" />
+                <input type="hidden" name="rating" value="1" />
+                <button type="submit" class="vote-button">🔼</button>
+            </form>
+
+            <span class="vote-count">@Model.ForumPosts?.Sum(fp => fp.ForumRatings?.Sum(fr => fr.Value) ?? 0)</span>
+
+            <form asp-area="User" asp-controller="Forum" asp-action="AddRating" method="post" class="vote-form">
+                <input type="hidden" name="postId" value="@Model.Id" />
+                <input type="hidden" name="rating" value="-1" />
+                <button type="submit" class="vote-button">🔽</button>
+            </form>
+        </div>
     </div>
     
 
@@ -51,8 +52,13 @@
                     <hr>
                     <p>@reply.Content</p>
                     <hr>
+<<<<<<< Updated upstream
                     
                     
+=======
+                 
+                    <p>Użytkownik: @reply.User?.UserName</p>
+>>>>>>> Stashed changes
 
                     <form asp-area="User" asp-controller="Forum" asp-action="DeleteReply" method="post">
                         <input type="hidden" name="replyId" value="@reply.Id" />

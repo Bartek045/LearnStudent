@@ -78,18 +78,20 @@ namespace LearnStudent.Areas.User.Controllers
                 }
             }
 
-            // Pobierz aktualnego użytkownika
+            
             var user = await _userManager.GetUserAsync(User);
 
             if (user != null)
             {
-                // Przydziel monety za cały quiz
-                var quiz = _unitOfWork.Quiz.Get(q => q.Section.Title == section); // Pobierz quiz dla danej sekcji
+                
+                var quiz = _unitOfWork.Quiz.Get(q => q.Section.Title == section);
 
                 if (quiz != null)
                 {
-                    int coinsForQuiz = quiz.Coins; // Pobierz liczbę monet za cały quiz
+                    int coinsForQuiz = quiz.Coins; 
                     user.Coins += coinsForQuiz;
+                    int pointsForQuiz = quiz.Points;
+                    user.Points += quiz.Points;
 
                     // Zapisz zmiany w bazie danych
                     await _userManager.UpdateAsync(user);

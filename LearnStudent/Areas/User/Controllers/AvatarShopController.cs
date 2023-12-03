@@ -20,6 +20,8 @@ namespace LearnStudent.Areas.User.Controllers
             IEnumerable<AvatarsUpload> avatarsList = _unitOfWork.AvatarsUpload.GetAll();
             return View(avatarsList);
         }
+
+
     }
 }
 

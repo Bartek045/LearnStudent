@@ -40,8 +40,70 @@
 <div class="row mt-3">
     <div class="col-md-6">
         <p>Monety: @Model.Coins</p>
+        <p>Punkty: @Model.Points</p>
     </div>
 </div>
+<div id="progress-bar--container">
+    <svg viewBox="0 0 100 100">
+        <circle stroke="#EAEAEA" stroke-width="5.5" cx="50" cy="50" r="30" fill="none" />
+        <circle id="progress--circle" stroke="#28411B" stroke-width="5.5" cx="50" cy="50" r="30" fill="none" pathLength="100" />
+        <text id="progress--text" x="50" y="48" text-anchor="middle" dominant-baseline="middle">0%</text>
+        <text id="progress--text" class="progress--text--second" x="50" y="55" text-anchor="middle" dominant-baseline="middle">Poziom 1</text>
+    </svg>
+</div>
+
+<style>
+    :root {
+        --accent-color: #EAEAEA;
+        --primary-color: #28411B;
+        --primary-font: "JetBrains Mono";
+    }
+
+    #progress-bar--container {
+        display: flex;
+        justify-content: center;
+    }
+
+        #progress-bar--container svg {
+            width: 400px;
+        }
+
+    #progress--circle {
+        stroke-dasharray: 100;
+        stroke-dashoffset: 100;
+        stroke-linecap: round;
+    }
+
+    #progress--text {
+        font-family: var(--primary-font);
+        fill: var(--primary-color);
+        font-weight: 750;
+        font-size: 5.5px;
+        transform-origin: center;
+        transform: rotate(90deg);
+    }
+
+    svg {
+        transform: rotate(-90deg);
+    }
+
+    .meter-info {
+        box-sizing: border-box;
+        font-family: var(--primary-font);
+        font-weight: bold;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--accent-color);
+        padding: 30px 20px;
+    }
+
+    #meter--ranger {
+        width: 100%;
+    }
+</style>
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
+    <script src="~/js/Progresbar.js"></script>
 }
