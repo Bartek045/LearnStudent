@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LearnS.Models")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0551f540bf57cf2bbd06cbc399c948d20c23f8ac")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+674046a5cd043c68b743af9b26ba017622261a21")]
 [assembly: System.Reflection.AssemblyProductAttribute("LearnS.Models")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LearnS.Models")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
